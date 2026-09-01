@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>Rapport {{ header.scanner_name }} — {{ header.target_url }}</title>
+<style>
+  body { font-family: system-ui, sans-serif; max-width: 960px; margin: 2rem auto; padding: 0 1rem; color: {{ palette.foreground }}; background: {{ palette.background }}; line-height: 1.5; }
+  h1, h2, h3 { color: {{ palette.foreground }}; border-bottom: 2px solid {{ palette.accent }}; padding-bottom: 0.3rem; }
+  table { border-collapse: collapse; width: 100%; margin: 1rem 0; }
+  th, td { border: 1px solid {{ palette.panel }}; padding: 0.4rem 0.6rem; text-align: left; }
+  th { background: {{ palette.surface }}; width: 14rem; color: {{ palette.secondary }}; }
+  .banner-warning { background: {{ palette.surface }}; border: 1px solid {{ palette.warning }}; color: {{ palette.foreground }}; padding: 0.75rem 1rem; border-radius: 4px; margin: 1rem 0; }
+  .severity { display: inline-block; color: {{ palette.background }}; padding: 0.1rem 0.6rem; border-radius: 3px; font-weight: 600; }
+  .severity-critical { background: {{ palette.error }}; }
+  .severity-high { background: {{ palette.warning }}; }
+  .severity-medium { background: {{ palette.secondary }}; }
+  .severity-low { background: {{ palette.panel }}; color: {{ palette.foreground }}; }
+  .finding { border: 1px solid {{ palette.panel }}; background: {{ palette.surface }}; border-radius: 6px; padding: 1rem; margin: 1rem 0; }
+  code { background: {{ palette.panel }}; color: {{ palette.foreground }}; padding: 0.1rem 0.3rem; border-radius: 3px; }
+</style>
+</head>
+<body>
+
+<h1>Rapport {{ header.scanner_name }}</h1>
+<table>
+  <tr><th>Version</th><td>{{ header.version }}</td></tr>
+  <tr><th>Scan ID</th><td><code>{{ header.scan_id }}</code></td></tr>
+  <tr><th>Genere le</th><td>{{ header.generated_at.isoformat() }}</td></tr>
+  <tr><th>Cible</th><td>{{ header.target_url }}</td></tr>
+  <tr><th>Preset</th><td>{{ header.preset }}</td></tr>
+  <tr><th>Verification TLS</th><td>{% if header.tls_verification_enabled %}activee{% else %}<strong>DESACTIVEE</strong>{% endif %}</td></tr>
+  {% if header.catalog_versions %}
+  <tr><th>Versions des catalogues</th><td>{% for name, version in header.catalog_versions.items() %}{{ name }}={{ version }}{% if not loop.last %}, {% endif %}{% endfor %}</td></tr>
+  {% endif %}
+</table>
+{% if not header.tls_verification_enabled %}
+<div class="banner-warning"><strong>ATTENTION</strong> : la verification TLS etait desactivee pour ce scan. Les resultats peuvent avoir ete obtenus via une connexion interceptee ou usurpee.</div>
+{% endif %}
+
+<h2>Resume executif</h2>
+<p>
+  {{ findings|length }} finding(s) —
+  <span class="severity severity-critical">{{ severities.critical }} critique(s)</span>
+  <span class="severity severity-high">{{ severities.high }} eleve(s)</span>
+  <span class="severity severity-medium">{{ severities.medium }} moyen(s)</span>
+  <span class="severity severity-low">{{ severities.low }} faible(s)</span>
+</p>
+<p>Terminaison : {{ termination_sentence }}</p>
+{% if configuration.warnings %}
+<p><strong>Avertissements</strong> : {{ configuration.warnings|join('; ') }}</p>
+{% endif %}
+
+<h2>Cible et scan ID</h2>
+<p>Cible : {{ header.target_url }}<br>Scan ID : <code>{{ header.scan_id }}</code></p>
+
+<h2>Preset, profils et surcharges</h2>
+<ul>
+  <li>Preset : {{ header.preset }}</li>
+  <li>Agressivite : {{ configuration.aggressiveness.value }}</li>
+  <li>Profil de scope : {{ configuration.scope_profile.value }}</li>
+  <li>Confirmation requise : {% if configuration.requires_confirmation %}oui{% else %}non{% endif %}</li>
+  <li>Surcharges utilisateur :
+    {% if configuration.overrides %}{% for name, value in configuration.overrides.items() %}{{ name }}={{ value }}{% if not loop.last %}, {% endif %}{% endfor %}{% else %}aucune{% endif %}
+  </li>
+</ul>
+
+<h2>Scope effectif et exclusions</h2>
+<ul>
+  <li>Host racine : {{ configuration.scope.root_host }}</li>
+  <li>Mode : {{ configuration.scope.mode.value }}</li>
+  <li>Schemas autorises : {{ configuration.scope.allowed_schemes|sort|join(', ') }}</li>
+  <li>Port : {{ configuration.scope.scope_port }}</li>
+  <li>Profondeur max : {{ configuration.scope.max_depth }}</li>
+  {% if configuration.scope.allowed_subdomains %}<li>Sous-domaines autorises : {{ configuration.scope.allowed_subdomains|sort|join(', ') }}</li>{% endif %}
+  {% if configuration.scope.blocked_subdomains %}<li>Sous-domaines bloques : {{ configuration.scope.blocked_subdomains|sort|join(', ') }}</li>{% endif %}
+  {% if configuration.scope.allowed_paths %}<li>Chemins autorises : {{ configuration.scope.allowed_paths|join(', ') }}</li>{% endif %}
+  {% if configuration.scope.blocked_paths %}<li>Chemins bloques : {{ configuration.scope.blocked_paths|join(', ') }}</li>{% endif %}
+</ul>
+<h3>Decouverte</h3>
+<table>
+  <tr><th>URLs vues</th><td>{{ statistics.urls_seen }}</td></tr>
+  <tr><th>Dans le scope</th><td>{{ statistics.urls_in_scope }}</td></tr>
+  <tr><th>Hors scope</th><td>{{ statistics.urls_out_of_scope }}</td></tr>
+  <tr><th>Au-dela de la profondeur</th><td>{{ statistics.urls_beyond_depth }}</td></tr>
+</table>
+<h3>Redirections</h3>
+<table>
+  <tr><th>Suivies</th><td>{{ statistics.redirects_followed }}</td></tr>
+  <tr><th>Ignorees (externes)</th><td>{{ statistics.redirects_external_ignored }}</td></tr>
+  <tr><th>Ignorees (hors scope)</th><td>{{ statistics.redirects_out_of_scope_ignored }}</td></tr>
+</table>
+
+<h2>Limites configurees</h2>
+<table>
+  <tr><th>Duree max</th><td>{{ configuration.limits.max_duration_seconds }} s</td></tr>
+  <tr><th>Requetes max</th><td>{{ configuration.limits.max_total_requests }}</td></tr>
+  <tr><th>Tests max</th><td>{{ configuration.limits.max_tests }}</td></tr>
+  <tr><th>Concurrence max</th><td>{{ configuration.limits.max_concurrent_requests }}</td></tr>
+</table>
+
+<h2>Raison de terminaison</h2>
+<p>{{ termination_sentence }}</p>
+
+<h2>Statistiques de requetes</h2>
+<p>Ces compteurs correspondent a la decouverte et aux tests de securite, pas a un test de charge.</p>
+<table>
+  <tr><th>Total</th><td>{{ statistics.total_requests }}</td></tr>
+  <tr><th>Decouverte</th><td>{{ statistics.discovery_requests }}</td></tr>
+  <tr><th>Test</th><td>{{ statistics.test_requests }}</td></tr>
+</table>
+<h3>Par module</h3>
+<table>
+  {% for module, count in requests_by_module.items()|sort %}<tr><th>{{ module }}</th><td>{{ count }}</td></tr>{% else %}<tr><td colspan="2">(aucune requete de test)</td></tr>{% endfor %}
+</table>
+<h3>Par statut</h3>
+<table>
+  <tr><th>2xx</th><td>{{ statistics.status_2xx }}</td></tr>
+  <tr><th>3xx</th><td>{{ statistics.status_3xx }}</td></tr>
+  <tr><th>4xx</th><td>{{ statistics.status_4xx }}</td></tr>
+  <tr><th>5xx</th><td>{{ statistics.status_5xx }}</td></tr>
+  <tr><th>Timeouts</th><td>{{ statistics.timeouts }}</td></tr>
+  <tr><th>Erreurs de transport</th><td>{{ statistics.transport_errors }}</td></tr>
+</table>
+
+<h2>Statistiques de tests</h2>
+<table>
+  <tr><th>Planifies</th><td>{{ tests|length }}</td></tr>
+  <tr><th>Executes</th><td>{{ statistics.tests_executed }}</td></tr>
+  <tr><th>Termines</th><td>{{ statistics.tests_completed }}</td></tr>
+  <tr><th>Abandonnes</th><td>{{ statistics.tests_aborted }}</td></tr>
+  <tr><th>Non concluants</th><td>{{ statistics.tests_inconclusive }}</td></tr>
+</table>
+<h3>Par type</h3>
+<table>
+  {% for type_name, count in tests_by_type.items()|sort %}<tr><th>{{ type_name }}</th><td>{{ count }}</td></tr>{% else %}<tr><td colspan="2">(aucun test)</td></tr>{% endfor %}
+</table>
+
+<h2>Findings par severite</h2>
+<table>
+  <tr><th>Total</th><td>{{ findings|length }}</td></tr>
+  <tr><th>Critique</th><td>{{ severities.critical }}</td></tr>
+  <tr><th>Eleve</th><td>{{ severities.high }}</td></tr>
+  <tr><th>Moyen</th><td>{{ severities.medium }}</td></tr>
+  <tr><th>Faible</th><td>{{ severities.low }}</td></tr>
+</table>
+
+<h2>Detail des findings</h2>
+{% if not findings %}
+<p>Aucun finding.</p>
+{% endif %}
+{% for finding in findings %}
+<div class="finding">
+  <h3>{{ finding.finding_id }} — {{ finding.title }}</h3>
+  <p>
+    <span class="severity severity-{{ finding.severity.value }}">{{ finding.severity.value }}</span>
+    — statut {{ finding.status.value }} — type {{ finding.type }} — confiance {{ finding.metadata.confidence.value }}
+  </p>
+  <p><strong>Cible</strong> : {{ finding.target.method }} {{ finding.target.endpoint }} (parametre : {{ finding.target.parameter or 'N/A' }})</p>
+  <p><strong>Comportement observe</strong> : {{ finding.evidence.observed_behavior }}</p>
+  <p><strong>Extrait (expurge)</strong> : <code>{{ finding.evidence.evidence_summary }}</code></p>
+  <p>Test ID : <code>{{ finding.evidence.test_id }}</code> — Request ID : <code>{{ finding.evidence.request_id }}</code></p>
+  {% if finding.severity_override %}
+  <p><strong>Severite ajustee manuellement</strong> : {{ finding.severity_auto.value }} -&gt; {{ finding.severity_override.value }} — {{ finding.severity_override_reason }}</p>
+  {% endif %}
+</div>
+{% endfor %}
+
+<h2>Annexes techniques</h2>
+<p>Versions des catalogues :
+  {% if header.catalog_versions %}{% for name, version in header.catalog_versions.items() %}{{ name }}={{ version }}{% if not loop.last %}, {% endif %}{% endfor %}{% else %}N/A{% endif %}
+</p>
+<p>Le detail brut complet (toutes les requetes, tous les tests) est disponible dans l'export JSON correspondant.</p>
+
+</body>
+</html>

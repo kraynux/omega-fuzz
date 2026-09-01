@@ -1,0 +1,12 @@
+# Catalogue declaratif — sous-ensemble injection detectable sans
+# session, validation prudente (OMEGA-FUZZ_PLAN_DEV.md Phase 7b) :
+# payloads generiques qui declenchent une erreur technique visible s'ils
+# ne sont pas correctement echappes, sans fingerprint SQL/NoSQL
+# specifique (differe — voir infrastructure/analyzers/error_detector.py
+# pour les signatures d'erreur generiques recherchees en reponse).
+version: "1.0.0"
+payloads:
+  - value: "' OR '1'='1"
+  - value: "1' AND '1'='2"
+  - value: "'; --"
+  - value: "\" OR \"1\"=\"1"

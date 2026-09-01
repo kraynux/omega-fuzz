@@ -1,0 +1,163 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "omega-fuzz"
+version = "0.1.0"
+description = "Decouverte et tests de securite web (fuzzing HTTP), omega-fuzz"
+readme = "README.md"
+license = { file = "LICENSE" }
+authors = [{ name = "kraynux", email = "kraynux@proton.me" }]
+requires-python = ">=3.10"
+dependencies = [
+    "omega-lib>=0.1.0",
+    "httpx>=0.27",
+    "jinja2>=3.1",
+    "textual>=0.60",
+    "beautifulsoup4>=4.12",
+    "lxml>=5.0",
+    "pyyaml>=6.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0",
+    "pytest-asyncio>=0.24",
+    "pytest-cov>=5.0",
+    "pytest-httpserver>=1.0",
+    "ruff>=0.6",
+    "mypy>=1.11",
+    "import-linter>=2.0",
+    "types-beautifulsoup4>=4.12",
+    "types-PyYAML>=6.0",
+]
+
+[project.scripts]
+omega-fuzz = "omega_fuzz.app.main:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/omega_fuzz"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+asyncio_mode = "auto"
+# Vocabulaire du domaine (Test, TestStatus, TestType, TestPlan...) entre
+# en collision avec la convention de nommage par defaut de pytest pour
+# les classes de test — tous les tests d'omega-fuzz sont des fonctions,
+# jamais des classes, meme patron que omega-fold.
+python_classes = []
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+
+[tool.mypy]
+python_version = "3.10"
+mypy_path = "src"
+disallow_untyped_defs = true
+check_untyped_defs = true
+warn_return_any = true
+warn_unused_ignores = true
+no_implicit_optional = true
+
+# Controle d'imports entre couches (voir OMEGA-FUZZ_ARBORESCENCE.md §2 et
+# ~/DEV/SUITE/DECISIONS_ARCHITECTURE.md D-000/D-007) : contrats copies
+# verbatim depuis omega-fold/pyproject.toml, seuls les chemins de
+# confinement par technologie sont adaptes a l'arborescence de FUZZ.
+[tool.importlinter]
+root_package = "omega_fuzz"
+include_external_packages = true
+exclude_type_checking_imports = true
+
+[[tool.importlinter.contracts]]
+# Ordre du plus exterieur (haut, autorise a importer tout ce qui suit) au
+# plus interieur (bas, n'importe rien de la liste) :
+#   app                                     -- racine de composition
+#   infrastructure | interfaces | plugins   -- adaptateurs, independants entre eux
+#   application                             -- cas d'usage
+#   ports                                   -- contrats
+#   domain                                  -- metier pur
+#   core                                    -- vocabulaire transverse
+name = "Dependency Rule : les couches externes dependent des internes, jamais l'inverse"
+type = "layers"
+layers = [
+    "omega_fuzz.app",
+    "omega_fuzz.infrastructure | omega_fuzz.interfaces | omega_fuzz.plugins",
+    "omega_fuzz.application",
+    "omega_fuzz.ports",
+    "omega_fuzz.domain",
+    "omega_fuzz.core",
+]
+
+[[tool.importlinter.contracts]]
+name = "interfaces ne dependent jamais directement de infrastructure"
+type = "independence"
+modules = [
+    "omega_fuzz.interfaces",
+    "omega_fuzz.infrastructure",
+]
+
+[[tool.importlinter.contracts]]
+# bs4/lxml ajoutes en Phase 4 avec le parsing HTML de la decouverte
+# (meme regroupement que httpx chez omega-fold).
+name = "httpx/bs4/lxml seulement dans infrastructure"
+type = "forbidden"
+source_modules = [
+    "omega_fuzz.core",
+    "omega_fuzz.domain",
+    "omega_fuzz.application",
+    "omega_fuzz.ports",
+    "omega_fuzz.interfaces",
+    "omega_fuzz.plugins",
+]
+forbidden_modules = ["httpx", "bs4", "lxml"]
+
+# NOTE : un `source_modules`/`forbidden_modules` qui reference un
+# sous-module inexistant fait echouer `lint-imports` (meme discipline que
+# CHECK/DEEP/FOLD). `infrastructure.storage` n'existe pas encore :
+# reintegre dans le contrat ci-dessous des qu'il sera cree (Phase 2/8
+# pour storage). `infrastructure.network` existe depuis la Phase 4.
+[[tool.importlinter.contracts]]
+name = "sqlite3 seulement dans infrastructure.storage.sqlite"
+type = "forbidden"
+source_modules = [
+    "omega_fuzz.core",
+    "omega_fuzz.domain",
+    "omega_fuzz.application",
+    "omega_fuzz.ports",
+    "omega_fuzz.interfaces",
+    "omega_fuzz.plugins",
+    "omega_fuzz.infrastructure.network",
+    "omega_fuzz.infrastructure.configuration",
+]
+forbidden_modules = ["sqlite3"]
+
+[[tool.importlinter.contracts]]
+name = "jinja2 seulement dans infrastructure.exporters.html_exporter"
+type = "forbidden"
+source_modules = [
+    "omega_fuzz.core",
+    "omega_fuzz.domain",
+    "omega_fuzz.application",
+    "omega_fuzz.ports",
+    "omega_fuzz.interfaces",
+    "omega_fuzz.plugins",
+    "omega_fuzz.infrastructure.network",
+    "omega_fuzz.infrastructure.configuration",
+]
+forbidden_modules = ["jinja2"]
+
+[[tool.importlinter.contracts]]
+name = "textual seulement dans interfaces.tui"
+type = "forbidden"
+source_modules = [
+    "omega_fuzz.core",
+    "omega_fuzz.domain",
+    "omega_fuzz.application",
+    "omega_fuzz.ports",
+    "omega_fuzz.plugins",
+    "omega_fuzz.infrastructure",
+    "omega_fuzz.interfaces.cli",
+]
+forbidden_modules = ["textual"]

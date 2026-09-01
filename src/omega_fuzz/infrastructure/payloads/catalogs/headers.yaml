@@ -1,0 +1,10 @@
+# Catalogue declaratif — headers de securite verifies
+# (OMEGA-FUZZ_PLAN_DEV.md Phase 7b point 9). Liste courante, pas
+# exhaustive.
+version: "1.0.0"
+required_headers:
+  - name: "Content-Security-Policy"
+  - name: "X-Content-Type-Options"
+    expected_value: "nosniff"
+  - name: "X-Frame-Options"
+  - name: "Strict-Transport-Security"

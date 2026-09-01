@@ -1,0 +1,49 @@
+# Environnement Python
+venv/
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.import_linter_cache/
+*.egg-info/
+
+# État runtime généré localement (recréé automatiquement au démarrage) —
+# voir docs/ARCHITECTURE.md. Les dossiers eux-mêmes restent versionnés (via
+# .gitkeep) pour exister dès l'extraction de l'archive, avant tout premier
+# lancement : sans ça, un export ou une capture d'écran échoue en silence
+# tant que le dossier n'a jamais été créé par le code.
+var/db/*
+var/exports/*
+var/screenshots/*
+var/settings.json
+var/targets.json
+var/*.log
+!var/db/.gitkeep
+!var/exports/.gitkeep
+!var/screenshots/.gitkeep
+
+# Archives de release (générées, pas du code source)
+*.tar.gz
+
+# Secrets locaux
+.env
+config.ini
+
+# Éditeurs
+*~
+*.bak
+*.swp
+
+# Fichiers système
+.DS_Store
+Thumbs.db
+
+# Couverture de tests
+.coverage
+htmlcov/
+
+# Build / packaging
+dist/
+build/

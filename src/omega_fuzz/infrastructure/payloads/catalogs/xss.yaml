@@ -1,0 +1,13 @@
+# Catalogue declaratif — sous-ensemble XSS reflechi non destructif
+# (OMEGA-FUZZ_PLAN_DEV.md Phase 7b). Marqueur unique "omegafuzz-marker"
+# dans chaque payload : distingue une reflexion reelle d'une simple
+# coincidence textuelle, sans jamais executer d'action nuisible (juste
+# une alerte benigne, jamais stocke/rejoue — pas de stored XSS ici).
+version: "1.0.0"
+payloads:
+  - value: "<script>alert('omegafuzz-marker')</script>"
+    detection_pattern: "<script>alert\\('omegafuzz-marker'\\)</script>"
+  - value: "\"><svg onload=alert('omegafuzz-marker')>"
+    detection_pattern: "onload=alert\\('omegafuzz-marker'\\)"
+  - value: "'><img src=x onerror=alert('omegafuzz-marker')>"
+    detection_pattern: "onerror=alert\\('omegafuzz-marker'\\)"

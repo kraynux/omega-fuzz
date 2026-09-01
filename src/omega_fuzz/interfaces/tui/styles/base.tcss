@@ -1,0 +1,305 @@
+/* Regles communes aux 4 profils de rendu. Portees verbatim depuis
+   omega-check (D-007, D-008 : meme catalogue de themes, memes conventions
+   visuelles pour toute la suite omega-).
+
+   Boutons : patron porte tel quel. Le contour rond vit EXCLUSIVEMENT sur
+   ".omega-btn-frame" (un Container), jamais sur le Button lui-meme
+   ("border: none" partout) : remplir le fond d'un widget au survol/focus
+   peint TOUJOURS tout son rectangle, y compris l'anneau de bordure round
+   — separer decoration (frame, jamais recolore) et interactivite (Button,
+   fond $accent au survol/focus) evite ce bug tout en gardant un focus
+   colore selon le theme. ".omega-actions"/".omega-confirm-buttons" ne
+   portent PAS de contour a eux : le bouton est deja entoure par son
+   propre frame, un deuxieme cadre autour du groupe est redondant. */
+
+Screen {
+    background: $background;
+    color: $foreground;
+}
+
+.omega-title {
+    text-style: bold;
+    color: $primary;
+    border: round $accent;
+    padding: 0 1;
+    width: auto;
+    margin: 1 0;
+}
+
+.omega-subtitle {
+    color: $secondary;
+    padding: 0 0 1 0;
+}
+
+.omega-hint {
+    color: $foreground 60%;
+    padding: 0 0 1 0;
+}
+
+.omega-hidden {
+    display: none;
+}
+
+.omega-panel {
+    padding: 1 2;
+    height: 1fr;
+    overflow-y: auto;
+}
+
+.omega-form-panel {
+    padding: 1 2;
+    height: 1fr;
+    align-horizontal: center;
+    overflow-y: auto;
+}
+
+.omega-form-panel > Select,
+.omega-form-panel > Input {
+    width: 70;
+    margin-bottom: 1;
+}
+
+.omega-form-panel .omega-title,
+.omega-form-panel .omega-subtitle,
+.omega-form-panel .omega-hint {
+    width: 70;
+}
+
+.omega-form-panel .omega-title {
+    content-align: center middle;
+}
+
+.omega-form-panel > .omega-actions {
+    width: 70;
+    align: center middle;
+    height: auto;
+}
+
+/* Bug reel rapporte (formulaire "NOUVEAU SCAN" decale a droite) : un
+   Horizontal enfant direct de ".omega-form-panel" SANS largeur explicite
+   (defaut Textual : width 1fr, remplit tout le panneau) casse le
+   centrage de TOUS les autres enfants a largeur fixe (70) du meme
+   niveau — meme famille de bug deja documentee ailleurs dans la suite
+   (screens/home.py : "un Vertical avec plusieurs enfants de largeurs
+   differentes ne centre que le bloc entier sur la largeur du plus large
+   d'entre eux"). Toute ligne Horizontal ajoutee directement dans
+   ".omega-form-panel" doit reprendre cette largeur fixe de 70, jamais
+   rester sans classe. */
+.omega-form-switch-row {
+    width: 70;
+    height: auto;
+    align: left middle;
+}
+
+.omega-form-switch-row > Static {
+    width: auto;
+    margin-right: 2;
+}
+
+/* Meme famille de bug que .omega-form-switch-row ci-dessus, rencontree a
+   nouveau dans targets_screen.py : un Input sans largeur explicite dans un
+   Horizontal prend 100% du parent (pas une distribution 1fr consciente de
+   ses freres), poussant le bouton "Ajouter" hors ecran (region x=119 sur
+   un terminal de largeur 120, donc invisible/injoignable au clic). Largeur
+   explicite en 1fr pour que le bouton (auto) soit dimensionne en premier
+   et que l'Input se partage seulement l'espace restant. */
+.omega-target-add-row {
+    height: auto;
+    margin-bottom: 1;
+}
+
+.omega-target-add-row > Input {
+    width: 1fr;
+}
+
+.omega-target-add-row > .omega-btn-frame {
+    margin-left: 1;
+}
+
+.omega-home-root {
+    align: center middle;
+    height: 1fr;
+    overflow-y: auto;
+}
+
+.omega-splash-middle {
+    width: 1fr;
+}
+
+.omega-splash-hero {
+    color: $accent;
+    text-align: left;
+    width: auto;
+}
+
+.omega-splash-prompt {
+    color: $secondary;
+    width: auto;
+    margin-top: 1;
+    text-style: italic;
+}
+
+.omega-home-wordmark {
+    width: auto;
+    text-align: left;
+    padding-bottom: 1;
+}
+
+.omega-home-menu {
+    background: $panel;
+    border: round $accent;
+    border-title-align: center;
+    border-title-color: $background;
+    border-title-background: $accent;
+    border-title-style: bold;
+    padding: 1 4;
+    width: auto;
+    height: auto;
+}
+
+.omega-actions {
+    align: left middle;
+    height: auto;
+    width: auto;
+    margin-top: 1;
+    overflow-x: auto;
+}
+
+.omega-btn-frame {
+    border: round $accent;
+    padding: 0;
+    width: auto;
+    height: auto;
+}
+
+.omega-home-menu .omega-btn-frame {
+    width: 32;
+    height: 3;
+    margin-bottom: 1;
+}
+
+.omega-actions Button,
+.omega-confirm-buttons Button,
+.omega-home-menu Button,
+.omega-target-add-row Button {
+    background: $surface;
+    border: none;
+    color: $foreground;
+    min-width: 10;
+}
+
+.omega-home-menu Button {
+    width: 100%;
+    height: 100%;
+    min-width: 0;
+}
+
+.omega-actions Button.-primary,
+.omega-confirm-buttons Button.-primary,
+.omega-target-add-row Button.-primary {
+    background: $surface;
+    border: none;
+    color: $primary;
+}
+
+.omega-actions Button.-error,
+.omega-confirm-buttons Button.-error {
+    background: $surface;
+    border: none;
+    color: $error;
+}
+
+.omega-actions Button:hover,
+.omega-confirm-buttons Button:hover,
+.omega-home-menu Button:hover,
+.omega-actions Button:focus,
+.omega-confirm-buttons Button:focus,
+.omega-home-menu Button:focus {
+    background: $accent;
+    color: $background;
+    text-style: bold;
+}
+
+.omega-actions Button.-error:hover,
+.omega-confirm-buttons Button.-error:hover,
+.omega-actions Button.-error:focus,
+.omega-confirm-buttons Button.-error:focus {
+    background: $error;
+    color: $background;
+    text-style: bold;
+}
+
+.omega-confirm-box {
+    width: 60;
+    height: auto;
+    border: round $accent;
+    padding: 1 2;
+    align: center middle;
+}
+
+.omega-confirm-title {
+    text-style: bold;
+    color: $error;
+    width: 60;
+    content-align: center middle;
+    margin-bottom: 1;
+}
+
+.omega-confirm-buttons {
+    width: 60;
+    height: auto;
+    align: center middle;
+}
+
+.omega-progress-panel {
+    align: center middle;
+    width: 1fr;
+    height: 1fr;
+}
+
+.omega-progress-panel > Static {
+    width: auto;
+}
+
+.omega-progress-panel LoadingIndicator {
+    width: auto;
+    height: 3;
+}
+
+.omega-progress-log {
+    width: 80%;
+    max-width: 120;
+    height: 12;
+    margin-top: 1;
+    border: round $accent;
+    background: $surface;
+    color: $foreground 80%;
+}
+
+/* Meme famille de bug que .omega-form-switch-row/.omega-target-add-row :
+   dans un groupe d'enfants empiles verticalement, "align: center middle"
+   ne centre que le BLOC entier sur la largeur du plus large d'entre eux
+   (ici .omega-progress-log, 80%) — un enfant plus etroit avec "width:
+   auto" (ex. le bouton "Arreter") se retrouve colle au bord gauche de ce
+   bloc, pas centre sur l'ecran (bug reel rapporte : bouton "en bas de
+   l'ecran a gauche"). Meme largeur que .omega-progress-log pour rester
+   dans le meme bloc, "align: center middle" propre pour centrer le
+   bouton A L'INTERIEUR de cette largeur. */
+.omega-progress-panel > .omega-actions {
+    width: 80%;
+    max-width: 120;
+    align: center middle;
+    height: auto;
+}
+
+.omega-modal {
+    width: 80%;
+    max-width: 100;
+    border: round $primary;
+    padding: 1 2;
+    background: $surface;
+}
+
+DataTable {
+    height: 1fr;
+}

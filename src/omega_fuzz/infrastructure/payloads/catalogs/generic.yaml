@@ -1,0 +1,13 @@
+# Catalogue declaratif (OMEGA-FUZZ_ARBORESCENCE.md §21) — chaines et
+# caracteres generiques susceptibles de declencher une erreur technique
+# ou un comportement anormal, sans cibler une famille de vulnerabilite
+# precise (voir infrastructure/analyzers/error_detector.py). Pas une
+# base exhaustive.
+version: "1.0.0"
+payloads:
+  - value: "'"
+  - value: "\""
+  - value: "${7*7}"
+  - value: "{{7*7}}"
+  - value: "../../../../etc/passwd"
+  - value: "%00"
