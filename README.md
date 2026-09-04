@@ -17,6 +17,9 @@ Page officielle : [OMEGA-FUZZ](https://kraynux.snake-mackarel.ts.net/omega-fuzz/
 [![Platform](https://img.shields.io/badge/Platform-Linux-informational.svg)](https://www.linux.org/)
 [![Interface](https://img.shields.io/badge/Interface-TUI%20%2B%20Rich-cyan.svg)](https://github.com/Textualize/rich)
 
+**Langues :**  
+[Français](README.md) · [English](README.en.md) · [Español](README.es.md) · [Русский](README.ru.md) · [中文](README.zh-CN.md)
+
 **Omega-Fuzz** est une application locale en terminal (TUI [Textual](https://github.com/Textualize/textual) + CLI scriptable) qui pilote des decouverte et tests de securite web (fuzzing HTTP) pour environnements autorises (labs, mirroirs personnels, engagements de test explicitement consentis).
 
 Sixième outil de la suite `omega-` (après `omega-scan`, `omega-stress`, `omega-check`, `omega-deep` et `omega-fold`), structuré en Clean Architecture — voir `docs/ARCHITECTURE.md` pour le détail technique complet.
