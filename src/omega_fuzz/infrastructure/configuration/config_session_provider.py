@@ -18,6 +18,7 @@ from omega_fuzz.core.errors import DependencyError
 from omega_fuzz.domain.auth.auth_context import AuthContext, AuthMode
 from omega_fuzz.domain.auth.session import Session
 from omega_fuzz.ports.http_client import HttpClient
+from omega_fuzz.shared.i18n import _
 
 
 def _parse_first_cookie(set_cookie_header: str) -> tuple[str, str] | None:
@@ -71,10 +72,10 @@ class ConfigSessionProvider:
             body=body,
         )
         if response.fetch_error is not None:
-            raise DependencyError(f"echec de la requete de connexion : {response.fetch_error}")
+            raise DependencyError(_("échec de la requête de connexion : {fetch_error}").format(fetch_error=response.fetch_error))
         if response.status_code >= 400:
             raise DependencyError(
-                f"echec de la connexion (code HTTP {response.status_code})"
+                _("échec de la connexion (code HTTP {status_code})").format(status_code=response.status_code)
             )
 
         set_cookie = response.headers.get("set-cookie") or response.headers.get("Set-Cookie")

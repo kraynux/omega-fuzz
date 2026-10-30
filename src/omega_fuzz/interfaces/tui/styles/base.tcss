@@ -303,3 +303,28 @@ Screen {
 DataTable {
     height: 1fr;
 }
+
+/* Retour utilisateur : centrer le titre, le rendu de la configuration
+   et les boutons de l'ecran "Revue avant lancement", plutot que plaques
+   contre le bord gauche du panneau - meme traitement que
+   ".omega-form-panel" (colonne de largeur fixe centree), applique ici
+   par selecteur de type d'ecran plutot qu'une nouvelle classe : cet
+   ecran est le seul concerne, ".omega-panel" reste left-aligned par
+   defaut partout ailleurs. */
+ScanReviewScreen .omega-panel {
+    align-horizontal: center;
+}
+
+ScanReviewScreen .omega-panel > Static,
+ScanReviewScreen .omega-panel > Horizontal,
+ScanReviewScreen .omega-panel > Input {
+    width: 70;
+}
+
+ScanReviewScreen .omega-title {
+    content-align: center middle;
+}
+
+ScanReviewScreen .omega-panel > Horizontal {
+    align: center middle;
+}

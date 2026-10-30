@@ -17,7 +17,7 @@ explicite (meme optimisation que le "|"-vif/mots-clair de la tagline).
 Regles de couleur fournies dans ascii.txt :
 - cadres/"containers" (box-drawing : cadres du titre, du bandeau OMEGA-FUZZ,
   du petit boitier serveur, connecteurs ╠╣╔╗╚╝) : clair.
-- "LINUX VULNERABILITY SCAN" et "v1.0" : vif (herite du defaut du widget,
+- "LINUX VULNERABILITY SCAN" et "v1.5" : vif (herite du defaut du widget,
   aucun marquage necessaire).
 - bandeau OMEGA-FUZZ (3 lignes, dans son cadre) : vif / clair / vif.
 - tagline du bas : "|" vifs (defaut), mots clairs (marques explicitement).
@@ -41,7 +41,7 @@ _ART_ROWS: tuple[str, ...] = (
     '                                       ╔╗',
     '                                       ║║',
     '                                  ░╠▓▓▓╣╠▓▓▓╣░',
-    '                              ░╠▓▓▓▓▓▓v1.0▓▓▓▓▓▓╣░',
+    '                              ░╠▓▓▓▓▓▓v1.5▓▓▓▓▓▓╣░',
     '┌────────────────────────────────────────────────────────────────────────────┐',
     '│ ┌╦═══╦┐ ┌╦═╦═╦┐ ┌╦═══╦┐ ┌╦═══╦┐ ┌╦═══╦┐    ┌╦═══╦┐ ┌╦   ╦┐ ┌╦═══╦┐ ┌╦═══╦┐ │',
     '│ │║   ║│ │║ ║ ║│ ├╬══    │║  ═╦┐ ├╬═══╬┤ ═  ├╬══    │║   ║│ ┌╦═══╩┘ ┌╦═══╩┘ │',

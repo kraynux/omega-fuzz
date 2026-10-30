@@ -1,0 +1,1326 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: omega-fuzz\n"
+"Language: hi\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Omega-Status: testing\n"
+
+#: src/omega_fuzz/application/commands/clear_directory.py:52
+msgid "contient l'installation de omega-fuzz"
+msgstr "इसमें omega-fuzz की स्थापना है"
+
+#: src/omega_fuzz/application/commands/prepare_scan.py:32
+msgid "vérification TLS désactivée (--insecure-tls) : traitée comme une action à risque au même titre qu'un profil violent (OMEGA-FUZZ_SPECIFICATIONS.md §16)"
+msgstr "TLS सत्यापन बंद (--insecure-tls): प्रचंड प्रोफ़ाइल के समान जोखिम भरी क्रिया माना जाता है (OMEGA-FUZZ_SPECIFICATIONS.md §16)"
+
+#: src/omega_fuzz/application/commands/resume_scan.py:34
+#, python-brace-format
+msgid "{scan_id} (aucun état de pause persisté)"
+msgstr "{scan_id} (कोई सहेजी गई विराम स्थिति नहीं)"
+
+#: src/omega_fuzz/application/commands/start_scan.py:38
+msgid "Ce scan a été signalé comme nécessitant une confirmation explicite (profil agressif/étendu ou combinaison inhabituelle) : confirmez-vous vouloir le lancer ?"
+msgstr "इस स्कैन को स्पष्ट पुष्टि की आवश्यकता वाला चिह्नित किया गया है (आक्रामक/विस्तारित प्रोफ़ाइल या असामान्य संयोजन): क्या आप इसे चलाने की पुष्टि करते हैं?"
+
+#: src/omega_fuzz/application/commands/start_scan.py:85
+msgid "scan refusé : confirmation requise non obtenue"
+msgstr "स्कैन अस्वीकृत: आवश्यक पुष्टि नहीं मिली"
+
+#: src/omega_fuzz/application/exceptions.py:17
+#, python-brace-format
+msgid "scan introuvable : {scan_id}"
+msgstr "स्कैन नहीं मिला: {scan_id}"
+
+#: src/omega_fuzz/application/exceptions.py:23
+#, python-brace-format
+msgid "transition de scan invalide : {current} -> {target}"
+msgstr "स्कैन का अमान्य संक्रमण: {current} -> {target}"
+
+#: src/omega_fuzz/application/exceptions.py:35
+msgid "configuration incomplète : fournir un preset, ou une agressivité ET un scope profile"
+msgstr "अधूरा कॉन्फ़िगरेशन: एक preset दें, या आक्रामकता और दायरा प्रोफ़ाइल दोनों"
+
+#: src/omega_fuzz/domain/findings/finding.py:46 src/omega_fuzz/domain/services/severity_service.py:58
+msgid "severity_override nécessite une severity_override_reason justifiée"
+msgstr "severity_override के लिए उचित severity_override_reason आवश्यक है"
+
+#: src/omega_fuzz/domain/profiles/profile_validation.py:25
+#, python-brace-format
+msgid "champs de limite inconnus dans la surcharge : {value}"
+msgstr "ओवरराइड में अज्ञात सीमा फ़ील्ड: {value}"
+
+#: src/omega_fuzz/domain/reports/termination.py:36
+msgid "Scan terminé normalement, aucune limite atteinte."
+msgstr "स्कैन सामान्य रूप से समाप्त हुआ, कोई सीमा नहीं पहुँची।"
+
+#: src/omega_fuzz/domain/reports/termination.py:38
+msgid "Arrêt manuel demandé par l'utilisateur."
+msgstr "उपयोगकर्ता के अनुरोध पर मैन्युअल रोक।"
+
+#: src/omega_fuzz/domain/reports/termination.py:41
+#, python-brace-format
+msgid "Limite `{limit_name}` atteinte (configurée : {configured_value}, observée : {observed_value})."
+msgstr "सीमा `{limit_name}` पहुँच गई (कॉन्फ़िगर: {configured_value}, देखा गया: {observed_value})।"
+
+#: src/omega_fuzz/domain/reports/termination.py:45
+msgid "Arrêt avant obtention de résultats exploitables (erreur de configuration)."
+msgstr "उपयोगी परिणाम मिलने से पहले रोक (कॉन्फ़िगरेशन त्रुटि)।"
+
+#: src/omega_fuzz/domain/reports/termination.py:47
+msgid "Erreur technique fatale en cours d'exécution."
+msgstr "निष्पादन के दौरान घातक तकनीकी त्रुटि।"
+
+#: src/omega_fuzz/domain/services/finding_builder_service.py:47
+#, python-brace-format
+msgid "{capitalize} sur {endpoint}"
+msgstr "{endpoint} पर {capitalize}"
+
+#: src/omega_fuzz/domain/services/limit_service.py:45
+#, python-brace-format
+msgid "{field_name}={value} dépasse le hard cap absolu ({hard_cap})"
+msgstr "{field_name}={value} पूर्ण hard cap ({hard_cap}) से अधिक है"
+
+#: src/omega_fuzz/domain/services/profile_resolution_service.py:56
+#, python-brace-format
+msgid "combinaison inhabituelle : {value} + {value2}"
+msgstr "असामान्य संयोजन: {value} + {value2}"
+
+#: src/omega_fuzz/domain/services/url_normalization_service.py:31
+msgid "URL sans schéma (ajoutez http:// ou https:// devant l'adresse)"
+msgstr "स्कीम के बिना URL (पते के आगे http:// या https:// जोड़ें)"
+
+#: src/omega_fuzz/domain/services/url_normalization_service.py:35
+msgid "schéma non supporté : {scheme!r}"
+msgstr "असमर्थित स्कीम: {scheme!r}"
+
+#: src/omega_fuzz/domain/services/url_normalization_service.py:46
+msgid "URL sans host"
+msgstr "होस्ट के बिना URL"
+
+#: src/omega_fuzz/domain/targets/scope.py:53
+msgid "regex de scope invalide : {raw_pattern!r} ({exc})"
+msgstr "अमान्य दायरा regex: {raw_pattern!r} ({exc})"
+
+#: src/omega_fuzz/infrastructure/analyzers/access_control_analyzer.py:37
+#, python-brace-format
+msgid "Réponse {status_code} obtenue alors qu'un refus était attendu ({value})"
+msgstr "अस्वीकृति अपेक्षित थी ({value}) पर {status_code} प्रतिक्रिया मिली"
+
+#: src/omega_fuzz/infrastructure/analyzers/error_detector.py:32
+#, python-brace-format
+msgid "Code HTTP anormal observé ({status_code})"
+msgstr "असामान्य HTTP कोड देखा गया ({status_code})"
+
+#: src/omega_fuzz/infrastructure/analyzers/error_detector.py:43
+msgid "Message d'erreur technique détecté dans la réponse ({signature!r})"
+msgstr "प्रतिक्रिया में तकनीकी त्रुटि संदेश मिला ({signature!r})"
+
+#: src/omega_fuzz/infrastructure/analyzers/header_analyzer.py:34
+#, python-brace-format
+msgid "Header de sécurité absent : {name}"
+msgstr "सुरक्षा हेडर अनुपस्थित: {name}"
+
+#: src/omega_fuzz/infrastructure/analyzers/header_analyzer.py:48
+msgid "Header {name} : valeur inattendue ({value!r}, attendu {expected_value!r})"
+msgstr "हेडर {name}: अप्रत्याशित मान ({value!r}, अपेक्षित {expected_value!r})"
+
+#: src/omega_fuzz/infrastructure/analyzers/reflection_detector.py:29
+msgid "Payload reflété dans la réponse (motif de détection confirmé)"
+msgstr "प्रतिक्रिया में payload प्रतिबिंबित (पहचान पैटर्न पुष्ट)"
+
+#: src/omega_fuzz/infrastructure/analyzers/reflection_detector.py:39
+msgid "Payload reflété tel quel dans la réponse (sous-chaîne)"
+msgstr "प्रतिक्रिया में payload जस का तस प्रतिबिंबित (उप-स्ट्रिंग)"
+
+#: src/omega_fuzz/infrastructure/configuration/auth_config_loader.py:37
+#, python-brace-format
+msgid "fichier auth-config illisible : {path}"
+msgstr "auth-config फ़ाइल पढ़ी नहीं जा सकती: {path}"
+
+#: src/omega_fuzz/infrastructure/configuration/auth_config_loader.py:43
+#, python-brace-format
+msgid "auth-config invalide (attendu un mapping) : {path}"
+msgstr "अमान्य auth-config (मैपिंग अपेक्षित): {path}"
+
+#: src/omega_fuzz/infrastructure/configuration/auth_config_loader.py:53
+msgid "mode auth-config inconnu : {raw_mode!r} ({source})"
+msgstr "अज्ञात auth-config मोड: {raw_mode!r} ({source})"
+
+#: src/omega_fuzz/infrastructure/configuration/auth_config_loader.py:58
+#, python-brace-format
+msgid "auth-config mode={value} : champs manquants {missing} ({source})"
+msgstr "auth-config mode={value}: अनुपस्थित फ़ील्ड {missing} ({source})"
+
+#: src/omega_fuzz/infrastructure/configuration/config_session_provider.py:75
+#, python-brace-format
+msgid "échec de la requête de connexion : {fetch_error}"
+msgstr "लॉगिन अनुरोध विफल: {fetch_error}"
+
+#: src/omega_fuzz/infrastructure/configuration/config_session_provider.py:78
+#, python-brace-format
+msgid "échec de la connexion (code HTTP {status_code})"
+msgstr "लॉगिन विफल (HTTP कोड {status_code})"
+
+#: src/omega_fuzz/infrastructure/payloads/payload_loader.py:27
+#, python-brace-format
+msgid "catalogue illisible : {path}"
+msgstr "कैटलॉग पढ़ा नहीं जा सकता: {path}"
+
+#: src/omega_fuzz/infrastructure/payloads/payload_loader.py:31
+#, python-brace-format
+msgid "catalogue invalide (attendu un mapping) : {path}"
+msgstr "अमान्य कैटलॉग (मैपिंग अपेक्षित): {path}"
+
+#: src/omega_fuzz/infrastructure/payloads/payload_loader.py:40 src/omega_fuzz/infrastructure/payloads/payload_loader.py:66
+#, python-brace-format
+msgid "catalogue {path} : champ 'version' manquant ou invalide"
+msgstr "कैटलॉग {path}: 'version' फ़ील्ड अनुपस्थित या अमान्य"
+
+#: src/omega_fuzz/infrastructure/payloads/payload_loader.py:44
+#, python-brace-format
+msgid "catalogue {path} : champ 'payloads' manquant ou invalide"
+msgstr "कैटलॉग {path}: 'payloads' फ़ील्ड अनुपस्थित या अमान्य"
+
+#: src/omega_fuzz/infrastructure/payloads/payload_loader.py:49
+msgid "catalogue {path} : entrée de payload invalide : {raw_entry!r}"
+msgstr "कैटलॉग {path}: अमान्य payload प्रविष्टि: {raw_entry!r}"
+
+#: src/omega_fuzz/infrastructure/payloads/payload_loader.py:71
+#, python-brace-format
+msgid "catalogue {path} : champ 'required_headers' manquant ou invalide"
+msgstr "कैटलॉग {path}: 'required_headers' फ़ील्ड अनुपस्थित या अमान्य"
+
+#: src/omega_fuzz/infrastructure/payloads/payload_loader.py:77
+msgid "catalogue {path} : entrée de header invalide : {raw_header!r}"
+msgstr "कैटलॉग {path}: अमान्य हेडर प्रविष्टि: {raw_header!r}"
+
+#: src/omega_fuzz/interfaces/cli/presenters/configuration_presenter.py:25
+#, python-brace-format
+msgid "Cible            : {to_str}"
+msgstr "लक्ष्य           : {to_str}"
+
+#: src/omega_fuzz/interfaces/cli/presenters/configuration_presenter.py:26
+#, python-brace-format
+msgid "Preset           : {preset_label}"
+msgstr "Preset           : {preset_label}"
+
+#: src/omega_fuzz/interfaces/cli/presenters/configuration_presenter.py:27
+#, python-brace-format
+msgid "Agressivité      : {value}"
+msgstr "आक्रामकता        : {value}"
+
+#: src/omega_fuzz/interfaces/cli/presenters/configuration_presenter.py:28
+#, python-brace-format
+msgid "Profil de scope  : {value}"
+msgstr "दायरा प्रोफ़ाइल   : {value}"
+
+#: src/omega_fuzz/interfaces/cli/presenters/configuration_presenter.py:29 src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:31
+msgid "DÉSACTIVÉE"
+msgstr "बंद"
+
+#: src/omega_fuzz/interfaces/cli/presenters/configuration_presenter.py:29
+#, python-brace-format
+msgid "Vérification TLS : {value}"
+msgstr "TLS सत्यापन      : {value}"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:75 src/omega_fuzz/interfaces/cli/presenters/configuration_presenter.py:29 src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:31
+msgid "activée"
+msgstr "सक्षम"
+
+#: src/omega_fuzz/interfaces/cli/presenters/configuration_presenter.py:32
+#, python-brace-format
+msgid "Scope : {value}, host racine {root_host}, port {scope_port}, profondeur max {max_depth}"
+msgstr "दायरा: {value}, मूल होस्ट {root_host}, पोर्ट {scope_port}, अधिकतम गहराई {max_depth}"
+
+#: src/omega_fuzz/interfaces/cli/presenters/configuration_presenter.py:37
+#, python-brace-format
+msgid "  Sous-domaines bloqués : {join}"
+msgstr "  अवरुद्ध उप-डोमेन : {join}"
+
+#: src/omega_fuzz/interfaces/cli/presenters/configuration_presenter.py:39
+#, python-brace-format
+msgid "  Chemins bloqués       : {join}"
+msgstr "  अवरुद्ध पथ       : {join}"
+
+#: src/omega_fuzz/interfaces/cli/presenters/configuration_presenter.py:44
+msgid "Limites :"
+msgstr "सीमाएँ:"
+
+#: src/omega_fuzz/interfaces/cli/presenters/configuration_presenter.py:45
+#, python-brace-format
+msgid "  Durée max        : {max_duration_seconds} s"
+msgstr "  अधिकतम अवधि      : {max_duration_seconds} s"
+
+#: src/omega_fuzz/interfaces/cli/presenters/configuration_presenter.py:46
+#, python-brace-format
+msgid "  Requêtes max     : {max_total_requests}"
+msgstr "  अधिकतम अनुरोध    : {max_total_requests}"
+
+#: src/omega_fuzz/interfaces/cli/presenters/configuration_presenter.py:47
+#, python-brace-format
+msgid "  Tests max        : {max_tests}"
+msgstr "  अधिकतम परीक्षण   : {max_tests}"
+
+#: src/omega_fuzz/interfaces/cli/presenters/configuration_presenter.py:48
+#, python-brace-format
+msgid "  Concurrence max  : {max_concurrent_requests}"
+msgstr "  अधिकतम समानांतर  : {max_concurrent_requests}"
+
+#: src/omega_fuzz/interfaces/cli/presenters/configuration_presenter.py:54
+msgid "Avertissements :"
+msgstr "चेतावनियाँ:"
+
+#: src/omega_fuzz/interfaces/cli/presenters/configuration_presenter.py:62
+#, python-brace-format
+msgid "Estimation : ~{estimated_tests} tests, ~{estimated_requests} requêtes, profondeur ~{estimated_depth}"
+msgstr "अनुमान: ~{estimated_tests} परीक्षण, ~{estimated_requests} अनुरोध, गहराई ~{estimated_depth}"
+
+#: src/omega_fuzz/interfaces/tui/app.py:41
+msgid "🗱 OMEGA-FUZZ"
+msgstr "🗱 OMEGA-FUZZ"
+
+#: src/omega_fuzz/interfaces/tui/app.py:163
+msgid "Screenshot"
+msgstr "स्क्रीनशॉट"
+
+#: src/omega_fuzz/interfaces/tui/app.py:164
+msgid "Enregistrer une capture SVG de l'écran actuel"
+msgstr "वर्तमान स्क्रीन का SVG स्क्रीनशॉट सहेजें"
+
+#: src/omega_fuzz/interfaces/tui/screens/help_screen.py:34
+msgid "Omega-fuzz découvre une cible dans un périmètre contrôlé (scope explicite, profondeur limitée) puis teste activement les points d'entrée trouvés (paramètres de requête, headers de sécurité) — jamais sans confirmation explicite pour les profils/modes à risque (agressivité violente, vérification TLS désactivée)."
+msgstr "Omega-fuzz नियंत्रित दायरे (स्पष्ट दायरा, सीमित गहराई) में लक्ष्य को खोजता है, फिर मिले प्रवेश बिंदुओं (अनुरोध पैरामीटर, सुरक्षा हेडर) का सक्रिय परीक्षण करता है — जोखिम भरी प्रोफ़ाइलों/मोड (प्रचंड आक्रामकता, TLS सत्यापन बंद) के लिए बिना स्पष्ट पुष्टि के कभी नहीं।"
+
+#: src/omega_fuzz/interfaces/tui/screens/help_screen.py:54
+msgid "Presets"
+msgstr "प्रीसेट"
+
+#: src/omega_fuzz/interfaces/tui/screens/help_screen.py:63 src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:30
+msgid "Preset"
+msgstr "Preset"
+
+#: src/omega_fuzz/interfaces/tui/screens/help_screen.py:64
+msgid "Scope"
+msgstr "दायरा"
+
+#: src/omega_fuzz/interfaces/tui/screens/help_screen.py:65
+msgid "Agressivité"
+msgstr "आक्रामकता"
+
+#: src/omega_fuzz/interfaces/tui/screens/help_screen.py:66 src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:95
+msgid "Durée max"
+msgstr "अधिकतम अवधि"
+
+#: src/omega_fuzz/interfaces/tui/screens/help_screen.py:67 src/omega_fuzz/interfaces/tui/screens/scan_setup_screen.py:52 src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:96
+msgid "Requêtes max"
+msgstr "अधिकतम अनुरोध"
+
+#: src/omega_fuzz/interfaces/tui/screens/help_screen.py:68 src/omega_fuzz/interfaces/tui/screens/scan_setup_screen.py:53 src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:97
+msgid "Tests max"
+msgstr "अधिकतम परीक्षण"
+
+#: src/omega_fuzz/interfaces/tui/screens/help_screen.py:70
+msgid "Confirmation"
+msgstr "पुष्टि"
+
+#: src/omega_fuzz/interfaces/tui/screens/history_detail_screen.py:51
+#, python-brace-format
+msgid "SCAN {value}"
+msgstr "स्कैन {value}"
+
+#: src/omega_fuzz/interfaces/tui/screens/history_detail_screen.py:53
+#, python-brace-format
+msgid "Cible : {target_id} — Statut : {value} — Créé le : {strftime}"
+msgstr "लक्ष्य: {target_id} — स्थिति: {value} — बनाया गया: {strftime}"
+
+#: src/omega_fuzz/interfaces/tui/screens/history_detail_screen.py:60
+#, python-brace-format
+msgid "Terminaison : {value}"
+msgstr "समापन: {value}"
+
+#: src/omega_fuzz/interfaces/tui/screens/history_detail_screen.py:62
+msgid "Export indisponible depuis l'historique : la configuration effective (preset/limites) et le détail des tests d'un scan passé ne sont pas persistés — seuls le scan et ses findings le sont."
+msgstr "इतिहास से निर्यात उपलब्ध नहीं: पिछले स्कैन का वास्तविक कॉन्फ़िगरेशन (preset/सीमाएँ) और परीक्षणों का विवरण सहेजा नहीं जाता — केवल स्कैन और उसके निष्कर्ष सहेजे जाते हैं।"
+
+#: src/omega_fuzz/interfaces/tui/screens/history_detail_screen.py:74 src/omega_fuzz/interfaces/tui/screens/scan_results_screen.py:83
+msgid "Endpoint"
+msgstr "Endpoint"
+
+#: src/omega_fuzz/interfaces/tui/screens/history_screen.py:52
+msgid "Créé le"
+msgstr "बनाया गया"
+
+#: src/omega_fuzz/interfaces/tui/screens/history_screen.py:52
+msgid "Scan"
+msgstr "स्कैन"
+
+#: src/omega_fuzz/interfaces/tui/screens/quit_confirm.py:21
+msgid "QUITTER OMEGA-FUZZ ?"
+msgstr "OMEGA-FUZZ से बाहर निकलें?"
+
+#: src/omega_fuzz/interfaces/tui/screens/scan_progress_screen.py:87
+#, python-brace-format
+msgid "Scan de {to_str} en cours..."
+msgstr "{to_str} स्कैन हो रहा है..."
+
+#: src/omega_fuzz/interfaces/tui/screens/scan_progress_screen.py:120
+msgid "Scan arrêté par l'utilisateur."
+msgstr "स्कैन उपयोगकर्ता द्वारा रोका गया।"
+
+#: src/omega_fuzz/interfaces/tui/screens/scan_progress_screen.py:120
+msgid "Scan interrompu"
+msgstr "स्कैन बाधित"
+
+#: src/omega_fuzz/interfaces/tui/screens/scan_results_screen.py:35
+msgid "Exporter JSON"
+msgstr "JSON एक्सपोर्ट करें"
+
+#: src/omega_fuzz/interfaces/tui/screens/scan_results_screen.py:36
+msgid "Exporter Markdown"
+msgstr "Markdown निर्यात करें"
+
+#: src/omega_fuzz/interfaces/tui/screens/scan_results_screen.py:37
+msgid "Exporter HTML"
+msgstr "HTML एक्सपोर्ट करें"
+
+#: src/omega_fuzz/interfaces/tui/screens/scan_results_screen.py:55
+msgid "RÉSULTATS DU SCAN"
+msgstr "स्कैन के परिणाम"
+
+#: src/omega_fuzz/interfaces/tui/screens/scan_results_screen.py:58
+#, python-brace-format
+msgid "Statut : {value}"
+msgstr "स्थिति: {value}"
+
+#: src/omega_fuzz/interfaces/tui/screens/scan_results_screen.py:60
+#, python-brace-format
+msgid "Requêtes : {total_requests} (découverte {discovery_requests}, test {test_requests}) — Tests exécutés : {tests_executed} — Findings : {count}"
+msgstr "अनुरोध: {total_requests} (खोज {discovery_requests}, परीक्षण {test_requests}) — चलाए गए परीक्षण: {tests_executed} — निष्कर्ष: {count}"
+
+#: src/omega_fuzz/interfaces/tui/screens/scan_results_screen.py:66
+msgid "Thème d'export (HTML)"
+msgstr "निर्यात थीम (HTML)"
+
+#: src/omega_fuzz/interfaces/tui/screens/scan_results_screen.py:78
+msgid "Retour au menu"
+msgstr "मेनू पर लौटें"
+
+#: src/omega_fuzz/interfaces/tui/screens/scan_results_screen.py:143
+#, python-brace-format
+msgid "Rapport {format_name} : {value}"
+msgstr "{format_name} रिपोर्ट: {value}"
+
+#: src/omega_fuzz/interfaces/tui/screens/scan_review_screen.py:49
+msgid "REVUE AVANT LANCEMENT"
+msgstr "शुरू करने से पहले समीक्षा"
+
+#: src/omega_fuzz/interfaces/tui/screens/scan_review_screen.py:55
+msgid "Confirmation requise avant lancement."
+msgstr "शुरू करने से पहले पुष्टि आवश्यक।"
+
+#: src/omega_fuzz/interfaces/tui/screens/scan_review_screen.py:57
+#, python-brace-format
+msgid "Tapez exactement : {required_phrase}"
+msgstr "ठीक यही टाइप करें: {required_phrase}"
+
+#: src/omega_fuzz/interfaces/tui/screens/scan_setup_screen.py:44
+#, python-brace-format
+msgid "Preset : {value}"
+msgstr "Preset: {value}"
+
+#: src/omega_fuzz/interfaces/tui/screens/scan_setup_screen.py:45
+msgid "Configuration manuelle"
+msgstr "मैन्युअल कॉन्फ़िगरेशन"
+
+#: src/omega_fuzz/interfaces/tui/screens/scan_setup_screen.py:51
+msgid "Durée max (s)"
+msgstr "अधिकतम अवधि (s)"
+
+#: src/omega_fuzz/interfaces/tui/screens/scan_setup_screen.py:54 src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:98
+msgid "Concurrence max"
+msgstr "अधिकतम समानांतर"
+
+#: src/omega_fuzz/interfaces/tui/screens/scan_setup_screen.py:76
+msgid "NOUVEAU SCAN"
+msgstr "नया स्कैन"
+
+#: src/omega_fuzz/interfaces/tui/screens/scan_setup_screen.py:83
+msgid "Configuration"
+msgstr "कॉन्फ़िगरेशन"
+
+#: src/omega_fuzz/interfaces/tui/screens/scan_setup_screen.py:91
+msgid "Authentification (optionnel)"
+msgstr "प्रमाणीकरण (वैकल्पिक)"
+
+#: src/omega_fuzz/interfaces/tui/screens/scan_setup_screen.py:92
+msgid "chemin d'un fichier YAML --auth-config"
+msgstr "--auth-config YAML फ़ाइल का पथ"
+
+#: src/omega_fuzz/interfaces/tui/screens/scan_setup_screen.py:95 src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:31
+msgid "Vérification TLS"
+msgstr "TLS सत्यापन"
+
+#: src/omega_fuzz/interfaces/tui/screens/scan_setup_screen.py:98
+msgid "Limites (optionnel, laisser vide pour garder le profil)"
+msgstr "सीमाएँ (वैकल्पिक, प्रोफ़ाइल रखने के लिए खाली छोड़ें)"
+
+#: src/omega_fuzz/interfaces/tui/screens/scan_setup_screen.py:104
+msgid "Suivant"
+msgstr "अगला"
+
+#: src/omega_fuzz/interfaces/tui/screens/scan_setup_screen.py:135
+msgid "Valeur invalide pour {label} : {raw!r}"
+msgstr "{label} के लिए अमान्य मान: {raw!r}"
+
+#: src/omega_fuzz/interfaces/tui/screens/settings_screen.py:85
+msgid "Dossier d'export"
+msgstr "निर्यात फ़ोल्डर"
+
+#: src/omega_fuzz/interfaces/tui/screens/settings_screen.py:92
+msgid "Dossier des captures d'écran"
+msgstr "स्क्रीनशॉट फ़ोल्डर"
+
+#: src/omega_fuzz/interfaces/tui/screens/settings_screen.py:109
+msgid "Supprimer les captures d'écran"
+msgstr "स्क्रीनशॉट हटाएँ"
+
+#: src/omega_fuzz/interfaces/tui/screens/settings_screen.py:155
+msgid "Tous les scans et findings persistés seront définitivement supprimés."
+msgstr "सहेजे गए सभी स्कैन और निष्कर्ष स्थायी रूप से हटा दिए जाएँगे।"
+
+#: src/omega_fuzz/interfaces/tui/screens/settings_screen.py:171
+msgid "SUPPRIMER LES CAPTURES D'ÉCRAN ?"
+msgstr "स्क्रीनशॉट हटाएँ?"
+
+#: src/omega_fuzz/interfaces/tui/screens/targets_screen.py:58
+msgid "Scanner cette cible"
+msgstr "यह लक्ष्य स्कैन करें"
+
+#: src/omega_fuzz/interfaces/tui/screens/targets_screen.py:112
+msgid "Saisissez une URL."
+msgstr "एक URL दर्ज करें।"
+
+#: src/omega_fuzz/plugins/fuzzers/form_parameter_fuzzer.py:59
+msgid "Fuzz du champ de formulaire {field_name!r} sur {endpoint}"
+msgstr "{endpoint} पर फ़ॉर्म फ़ील्ड {field_name!r} का फ़ज़िंग"
+
+#: src/omega_fuzz/plugins/fuzzers/header_fuzzer.py:50
+msgid "Fuzz du header {header_name!r} sur {endpoint}"
+msgstr "{endpoint} पर हेडर {header_name!r} का फ़ज़िंग"
+
+#: src/omega_fuzz/plugins/fuzzers/json_body_fuzzer.py:50
+msgid "Fuzz de la clé JSON {key_name!r} sur {endpoint}"
+msgstr "{endpoint} पर JSON कुंजी {key_name!r} का फ़ज़िंग"
+
+#: src/omega_fuzz/plugins/fuzzers/query_parameter_fuzzer.py:45
+msgid "Fuzz du paramètre de requête {parameter_name!r} sur {endpoint}"
+msgstr "{endpoint} पर अनुरोध पैरामीटर {parameter_name!r} का फ़ज़िंग"
+
+#: src/omega_fuzz/plugins/logic_tests/authorization_checks.py:40
+#, python-brace-format
+msgid "Vérifie que {endpoint} refuse la session courante — hypothèse : cette ressource nécessite un niveau de privilège que la session testée n'a pas"
+msgstr "जाँचता है कि {endpoint} वर्तमान सत्र को अस्वीकार करता है — परिकल्पना: इस संसाधन को ऐसे विशेषाधिकार स्तर की ज़रूरत है जो परीक्षित सत्र के पास नहीं"
+
+#: src/omega_fuzz/plugins/logic_tests/idor_checks.py:53
+msgid "Vérifie que la session courante n'accède pas aux ressources d'autrui via {id_parameter_name!r} sur {endpoint} — hypothèse : les valeurs candidates testées appartiennent à un autre utilisateur, tout accès obtenu est suspect"
+msgstr "जाँचता है कि वर्तमान सत्र {endpoint} पर {id_parameter_name!r} के ज़रिए दूसरों के संसाधनों तक नहीं पहुँचता — परिकल्पना: परखे गए उम्मीदवार मान किसी अन्य उपयोगकर्ता के हैं, मिली कोई भी पहुँच संदिग्ध है"
+
+#: src/omega_fuzz/plugins/logic_tests/workflow_checks.py:38
+#, python-brace-format
+msgid "Vérifie qu'un accès direct à {endpoint} sans passer par les étapes préalables du processus métier est refusé — hypothèse : cette étape nécessite un état préalable que la session testée n'a pas atteint"
+msgstr "जाँचता है कि व्यावसायिक प्रक्रिया के पिछले चरणों को छोड़कर {endpoint} तक सीधी पहुँच अस्वीकार होती है — परिकल्पना: इस चरण को ऐसी पूर्व स्थिति चाहिए जो परीक्षित सत्र तक नहीं पहुँचा"
+
+#: src/omega_fuzz/plugins/signatures/injection_signatures.py:50
+msgid "Signature d'injection générique sur le paramètre {parameter_name!r} de {endpoint}"
+msgstr "{endpoint} के पैरामीटर {parameter_name!r} पर सामान्य इंजेक्शन हस्ताक्षर"
+
+#: src/omega_fuzz/plugins/signatures/security_headers_signature.py:37
+#, python-brace-format
+msgid "Vérification des headers de sécurité sur {endpoint}"
+msgstr "{endpoint} पर सुरक्षा हेडर की जाँच"
+
+#: src/omega_fuzz/plugins/signatures/xss_signatures.py:48
+msgid "Signature XSS réfléchie sur le paramètre {parameter_name!r} de {endpoint}"
+msgstr "{endpoint} के पैरामीटर {parameter_name!r} पर परावर्तित XSS हस्ताक्षर"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:68
+#, python-brace-format
+msgid "# Rapport {scanner_name}"
+msgstr "# {scanner_name} रिपोर्ट"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:70
+#, python-brace-format
+msgid "- **Version** : {version}"
+msgstr "- **संस्करण**: {version}"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:71
+#, python-brace-format
+msgid "- **Scan ID** : `{scan_id}`"
+msgstr "- **स्कैन ID**: `{scan_id}`"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:72
+#, python-brace-format
+msgid "- **Généré le** : {isoformat}"
+msgstr "- **बनाई गई**: {isoformat}"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:73
+#, python-brace-format
+msgid "- **Cible** : {target_url}"
+msgstr "- **लक्ष्य**: {target_url}"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:74 src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:119
+#, python-brace-format
+msgid "- **Preset** : {preset}"
+msgstr "- **Preset**: {preset}"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:75
+msgid "**DÉSACTIVÉE**"
+msgstr "**बंद**"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:75
+#, python-brace-format
+msgid "- **Vérification TLS** : {value}"
+msgstr "- **TLS सत्यापन**: {value}"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:79
+#, python-brace-format
+msgid "- **Versions des catalogues** : {versions}"
+msgstr "- **कैटलॉग संस्करण**: {versions}"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:84
+msgid "> **ATTENTION** : la vérification TLS était désactivée pour ce scan. Les résultats peuvent avoir été obtenus via une connexion interceptée ou usurpée."
+msgstr "> **ध्यान दें**: इस स्कैन के लिए TLS सत्यापन बंद था। परिणाम किसी बीच में पकड़े गए या जाली कनेक्शन से प्राप्त हुए हो सकते हैं।"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:95
+msgid "## Résumé exécutif"
+msgstr "## कार्यकारी सारांश"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:98
+#, python-brace-format
+msgid "- **Résultat** : {count} finding(s) — {critical} critique(s), {high} élevé(s), {medium} moyen(s), {low} faible(s)."
+msgstr "- **परिणाम**: {count} निष्कर्ष — {critical} गंभीर, {high} उच्च, {medium} मध्यम, {low} निम्न।"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:101
+#, python-brace-format
+msgid "- **Terminaison** : {value}"
+msgstr "- **समापन**: {value}"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:104
+#, python-brace-format
+msgid "- **Avertissements** : {join}"
+msgstr "- **चेतावनियाँ**: {join}"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:110
+#, python-brace-format
+msgid ""
+"## Cible et scan ID\n"
+"\n"
+"- **Cible** : {target_url}\n"
+"- **Scan ID** : `{scan_id}`"
+msgstr ""
+"## लक्ष्य और स्कैन ID\n"
+"\n"
+"- **लक्ष्य**: {target_url}\n"
+"- **स्कैन ID**: `{scan_id}`"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:117
+msgid "## Preset, profils et surcharges"
+msgstr "## Preset, प्रोफ़ाइल और ओवरराइड"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:120
+#, python-brace-format
+msgid "- **Agressivité** : {value}"
+msgstr "- **आक्रामकता**: {value}"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:121
+#, python-brace-format
+msgid "- **Profil de scope** : {value}"
+msgstr "- **दायरा प्रोफ़ाइल**: {value}"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:122
+#, python-brace-format
+msgid "- **Confirmation requise** : {value}"
+msgstr "- **पुष्टि आवश्यक**: {value}"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:126
+#, python-brace-format
+msgid "- **Surcharges utilisateur** : {overrides_text}"
+msgstr "- **उपयोगकर्ता ओवरराइड**: {overrides_text}"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:128
+msgid "- **Surcharges utilisateur** : aucune"
+msgstr "- **उपयोगकर्ता ओवरराइड**: कोई नहीं"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:136
+msgid "## Scope effectif et exclusions"
+msgstr "## वास्तविक दायरा और अपवर्जन"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:138
+#, python-brace-format
+msgid "- **Host racine** : {root_host}"
+msgstr "- **मूल होस्ट**: {root_host}"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:139
+#, python-brace-format
+msgid "- **Mode** : {value}"
+msgstr "- **मोड**: {value}"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:140
+#, python-brace-format
+msgid "- **Schémas autorisés** : {join}"
+msgstr "- **अनुमत स्कीम**: {join}"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:141
+#, python-brace-format
+msgid "- **Port** : {scope_port}"
+msgstr "- **पोर्ट**: {scope_port}"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:142
+#, python-brace-format
+msgid "- **Profondeur max** : {max_depth}"
+msgstr "- **अधिकतम गहराई**: {max_depth}"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:145
+#, python-brace-format
+msgid "- **Sous-domaines autorisés** : {join}"
+msgstr "- **अनुमत उप-डोमेन**: {join}"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:147
+#, python-brace-format
+msgid "- **Sous-domaines bloqués** : {join}"
+msgstr "- **अवरुद्ध उप-डोमेन**: {join}"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:149
+#, python-brace-format
+msgid "- **Chemins autorisés** : {join}"
+msgstr "- **अनुमत पथ**: {join}"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:151
+#, python-brace-format
+msgid "- **Chemins bloqués** : {join}"
+msgstr "- **अवरुद्ध पथ**: {join}"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:154
+msgid "### Découverte"
+msgstr "### खोज"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:156
+#, python-brace-format
+msgid "- URLs vues : {urls_seen}"
+msgstr "- देखे गए URL: {urls_seen}"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:157
+#, python-brace-format
+msgid "- URLs dans le scope : {urls_in_scope}"
+msgstr "- दायरे के भीतर URL: {urls_in_scope}"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:158
+#, python-brace-format
+msgid "- URLs hors scope : {urls_out_of_scope}"
+msgstr "- दायरे से बाहर URL: {urls_out_of_scope}"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:159
+#, python-brace-format
+msgid "- URLs au-delà de la profondeur : {urls_beyond_depth}"
+msgstr "- गहराई से आगे के URL: {urls_beyond_depth}"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:161
+msgid "### Redirections"
+msgstr "### रीडायरेक्ट"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:163
+#, python-brace-format
+msgid "- Suivies : {redirects_followed}"
+msgstr "- अनुसरित: {redirects_followed}"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:164
+#, python-brace-format
+msgid "- Ignorées (externes) : {redirects_external_ignored}"
+msgstr "- अनदेखे (बाहरी): {redirects_external_ignored}"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:165
+#, python-brace-format
+msgid "- Ignorées (hors scope) : {redirects_out_of_scope_ignored}"
+msgstr "- अनदेखे (दायरे से बाहर): {redirects_out_of_scope_ignored}"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:173
+#, python-brace-format
+msgid ""
+"## Limites configurées\n"
+"\n"
+"- Durée max : {max_duration_seconds} s\n"
+"- Requêtes max : {max_total_requests}\n"
+"- Tests max : {max_tests}\n"
+"- Concurrence max : {max_concurrent_requests}"
+msgstr ""
+"## कॉन्फ़िगर की गई सीमाएँ\n"
+"\n"
+"- अधिकतम अवधि: {max_duration_seconds} s\n"
+"- अधिकतम अनुरोध: {max_total_requests}\n"
+"- अधिकतम परीक्षण: {max_tests}\n"
+"- अधिकतम समानांतर: {max_concurrent_requests}"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:180
+#, python-brace-format
+msgid ""
+"## Raison de terminaison\n"
+"\n"
+"{value}"
+msgstr ""
+"## समापन का कारण\n"
+"\n"
+"{value}"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:187
+msgid "## Statistiques de requêtes"
+msgstr "## अनुरोध आँकड़े"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:190 src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:105
+msgid "Ces compteurs correspondent à la découverte et aux tests de sécurité, pas à un test de charge."
+msgstr "ये गणक खोज और सुरक्षा परीक्षणों के हैं, लोड परीक्षण के नहीं।"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:194
+#, python-brace-format
+msgid "- Total : {total_requests}"
+msgstr "- कुल: {total_requests}"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:195
+#, python-brace-format
+msgid "- Découverte : {discovery_requests}"
+msgstr "- खोज: {discovery_requests}"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:196
+#, python-brace-format
+msgid "- Test : {test_requests}"
+msgstr "- परीक्षण: {test_requests}"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:198
+msgid "### Par module"
+msgstr "### मॉड्यूल के अनुसार"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:204
+msgid "- (aucune requête de test)"
+msgstr "- (कोई परीक्षण अनुरोध नहीं)"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:207
+msgid "### Par statut"
+msgstr "### स्थिति के अनुसार"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:213
+#, python-brace-format
+msgid "- Timeouts : {timeouts}"
+msgstr "- टाइमआउट: {timeouts}"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:214
+#, python-brace-format
+msgid "- Erreurs de transport : {transport_errors}"
+msgstr "- ट्रांसपोर्ट त्रुटियाँ: {transport_errors}"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:223
+msgid "## Statistiques de tests"
+msgstr "## परीक्षण आँकड़े"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:225
+#, python-brace-format
+msgid "- Planifiés : {count}"
+msgstr "- नियोजित: {count}"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:226
+#, python-brace-format
+msgid "- Exécutés : {tests_executed}"
+msgstr "- निष्पादित: {tests_executed}"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:227
+#, python-brace-format
+msgid "- Terminés : {tests_completed}"
+msgstr "- पूर्ण: {tests_completed}"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:228
+#, python-brace-format
+msgid "- Abandonnés : {tests_aborted}"
+msgstr "- रद्द: {tests_aborted}"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:229
+#, python-brace-format
+msgid "- Non concluants : {tests_inconclusive}"
+msgstr "- अनिर्णायक: {tests_inconclusive}"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:231
+msgid "### Par type"
+msgstr "### प्रकार के अनुसार"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:237
+msgid "- (aucun test)"
+msgstr "- (कोई परीक्षण नहीं)"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:244
+#, python-brace-format
+msgid ""
+"## Findings par sévérité\n"
+"\n"
+"- Total : {count}\n"
+"- Critique : {critical}\n"
+"- Élevé : {high}\n"
+"- Moyen : {medium}\n"
+"- Faible : {low}"
+msgstr ""
+"## गंभीरता के अनुसार निष्कर्ष\n"
+"\n"
+"- कुल: {count}\n"
+"- गंभीर: {critical}\n"
+"- उच्च: {high}\n"
+"- मध्यम: {medium}\n"
+"- निम्न: {low}"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:251
+#, python-brace-format
+msgid "### {finding_id} — {title}"
+msgstr "### {finding_id} — {title}"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:253
+#, python-brace-format
+msgid "**Statut** : `{value}`  "
+msgstr "**स्थिति**: `{value}`  "
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:254
+#, python-brace-format
+msgid "**Sévérité** : `{value}`  "
+msgstr "**गंभीरता**: `{value}`  "
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:255
+#, python-brace-format
+msgid "**Type** : `{type}`  "
+msgstr "**प्रकार**: `{type}`  "
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:256
+#, python-brace-format
+msgid "**Confiance** : `{value}`"
+msgstr "**विश्वसनीयता**: `{value}`"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:258
+msgid "#### Cible"
+msgstr "#### लक्ष्य"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:260
+#, python-brace-format
+msgid "- **URL** : `{url}`"
+msgstr "- **URL**: `{url}`"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:261
+#, python-brace-format
+msgid "- **Endpoint** : `{endpoint}`"
+msgstr "- **Endpoint**: `{endpoint}`"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:262
+#, python-brace-format
+msgid "- **Méthode** : `{method}`"
+msgstr "- **विधि**: `{method}`"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:263
+#, python-brace-format
+msgid "- **Paramètre** : `{value}`"
+msgstr "- **पैरामीटर**: `{value}`"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:263 src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:300
+msgid "N/A"
+msgstr "N/A"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:265
+msgid "#### Preuve"
+msgstr "#### प्रमाण"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:267
+#, python-brace-format
+msgid "**Comportement observé** : {observed_behavior}"
+msgstr "**देखा गया व्यवहार**: {observed_behavior}"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:269
+#, python-brace-format
+msgid "**Extrait (expurgé)** : `{evidence_summary}`"
+msgstr "**अंश (छिपाया गया)**: `{evidence_summary}`"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:271
+#, python-brace-format
+msgid "- Test ID : `{test_id}`"
+msgstr "- परीक्षण ID: `{test_id}`"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:272
+#, python-brace-format
+msgid "- Request ID : `{request_id}`"
+msgstr "- अनुरोध ID: `{request_id}`"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:278
+#, python-brace-format
+msgid "**Sévérité ajustée manuellement** : `{value}` -> `{value2}` — {severity_override_reason}"
+msgstr "**गंभीरता मैन्युअल रूप से बदली गई**: `{value}` -> `{value2}` — {severity_override_reason}"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:287
+msgid ""
+"## Détail des findings\n"
+"\n"
+"Aucun finding."
+msgstr ""
+"## निष्कर्षों का विवरण\n"
+"\n"
+"कोई निष्कर्ष नहीं।"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:288
+msgid "## Détail des findings"
+msgstr "## निष्कर्षों का विवरण"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:298
+#, python-brace-format
+msgid ""
+"## Annexes techniques\n"
+"\n"
+"- Versions des catalogues : {value}\n"
+"- Le détail brut complet (toutes les requêtes, tous les tests) est disponible dans l'export JSON correspondant."
+msgstr ""
+"## तकनीकी परिशिष्ट\n"
+"\n"
+"- कैटलॉग संस्करण: {value}\n"
+"- पूरा कच्चा विवरण (सभी अनुरोध, सभी परीक्षण) संबंधित JSON निर्यात में उपलब्ध है।"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:5
+#, python-brace-format
+msgid "Rapport {scanner_name} — {target_url}"
+msgstr "{scanner_name} रिपोर्ट — {target_url}"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:24
+#, python-brace-format
+msgid "Rapport {scanner_name}"
+msgstr "{scanner_name} रिपोर्ट"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:26
+msgid "Version"
+msgstr "संस्करण"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:27
+msgid "Scan ID"
+msgstr "स्कैन ID"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:28
+msgid "Généré le"
+msgstr "बनाई गई"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:33
+msgid "Versions des catalogues"
+msgstr "कैटलॉग संस्करण"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:37
+msgid "ATTENTION"
+msgstr "ध्यान दें"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:37
+msgid ": la vérification TLS était désactivée pour ce scan. Les résultats peuvent avoir été obtenus via une connexion interceptée ou usurpée."
+msgstr ": इस स्कैन के लिए TLS सत्यापन बंद था। परिणाम किसी बीच में पकड़े गए या जाली कनेक्शन से प्राप्त हुए हो सकते हैं।"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:40
+msgid "Résumé exécutif"
+msgstr "कार्यकारी सारांश"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:42
+#, python-brace-format
+msgid "{findings} finding(s) —"
+msgstr "{findings} निष्कर्ष —"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:43
+#, python-brace-format
+msgid "{critical} critique(s)"
+msgstr "{critical} गंभीर"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:44
+#, python-brace-format
+msgid "{high} élevé(s)"
+msgstr "{high} उच्च"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:45
+#, python-brace-format
+msgid "{medium} moyen(s)"
+msgstr "{medium} मध्यम"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:46
+#, python-brace-format
+msgid "{low} faible(s)"
+msgstr "{low} निम्न"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:48
+#, python-brace-format
+msgid "Terminaison : {termination_sentence}"
+msgstr "समापन: {termination_sentence}"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:50
+msgid "Avertissements"
+msgstr "चेतावनियाँ"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:53
+msgid "Cible et scan ID"
+msgstr "लक्ष्य और स्कैन ID"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:54
+#, python-brace-format
+msgid "Cible : {target_url}"
+msgstr "लक्ष्य: {target_url}"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:56
+msgid "Preset, profils et surcharges"
+msgstr "Preset, प्रोफ़ाइल और ओवरराइड"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:58
+#, python-brace-format
+msgid "Preset : {preset}"
+msgstr "Preset: {preset}"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:59
+#, python-brace-format
+msgid "Agressivité : {aggressiveness}"
+msgstr "आक्रामकता: {aggressiveness}"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:60
+#, python-brace-format
+msgid "Profil de scope : {scope_profile}"
+msgstr "दायरा प्रोफ़ाइल: {scope_profile}"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:61
+msgid "Confirmation requise :"
+msgstr "पुष्टि आवश्यक:"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:62
+msgid "Surcharges utilisateur :"
+msgstr "उपयोगकर्ता ओवरराइड:"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:67
+msgid "Scope effectif et exclusions"
+msgstr "वास्तविक दायरा और अपवर्जन"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:69
+#, python-brace-format
+msgid "Host racine : {root_host}"
+msgstr "मूल होस्ट: {root_host}"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:70
+#, python-brace-format
+msgid "Mode : {mode}"
+msgstr "मोड: {mode}"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:71
+#, python-brace-format
+msgid "Schémas autorisés : {allowed_schemes}"
+msgstr "अनुमत स्कीम: {allowed_schemes}"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:72
+#, python-brace-format
+msgid "Port : {scope_port}"
+msgstr "पोर्ट: {scope_port}"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:73
+#, python-brace-format
+msgid "Profondeur max : {max_depth}"
+msgstr "अधिकतम गहराई: {max_depth}"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:74
+#, python-brace-format
+msgid "Sous-domaines autorisés : {allowed_subdomains}"
+msgstr "अनुमत उप-डोमेन: {allowed_subdomains}"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:75
+#, python-brace-format
+msgid "Sous-domaines bloqués : {blocked_subdomains}"
+msgstr "अवरुद्ध उप-डोमेन: {blocked_subdomains}"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:76
+#, python-brace-format
+msgid "Chemins autorisés : {allowed_paths}"
+msgstr "अनुमत पथ: {allowed_paths}"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:77
+#, python-brace-format
+msgid "Chemins bloqués : {blocked_paths}"
+msgstr "अवरुद्ध पथ: {blocked_paths}"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:79 src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:108
+msgid "Découverte"
+msgstr "खोज"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:81
+msgid "URLs vues"
+msgstr "देखे गए URL"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:82
+msgid "Dans le scope"
+msgstr "दायरे के भीतर"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:83
+msgid "Hors scope"
+msgstr "दायरे से बाहर"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:84
+msgid "Au-delà de la profondeur"
+msgstr "गहराई से आगे"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:86
+msgid "Redirections"
+msgstr "रीडायरेक्ट"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:88
+msgid "Suivies"
+msgstr "अनुसरित"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:89
+msgid "Ignorées (externes)"
+msgstr "अनदेखे (बाहरी)"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:90
+msgid "Ignorées (hors scope)"
+msgstr "अनदेखे (दायरे से बाहर)"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:93
+msgid "Limites configurées"
+msgstr "कॉन्फ़िगर की गई सीमाएँ"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:101
+msgid "Raison de terminaison"
+msgstr "समापन का कारण"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:104
+msgid "Statistiques de requêtes"
+msgstr "अनुरोध आँकड़े"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:107 src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:140
+msgid "Total"
+msgstr "कुल"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:109
+msgid "Test"
+msgstr "परीक्षण"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:111
+msgid "Par module"
+msgstr "मॉड्यूल के अनुसार"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:113
+msgid "(aucune requête de test)"
+msgstr "(कोई परीक्षण अनुरोध नहीं)"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:115
+msgid "Par statut"
+msgstr "स्थिति के अनुसार"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:121
+msgid "Timeouts"
+msgstr "टाइमआउट"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:122
+msgid "Erreurs de transport"
+msgstr "ट्रांसपोर्ट त्रुटियाँ"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:125
+msgid "Statistiques de tests"
+msgstr "परीक्षण आँकड़े"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:127
+msgid "Planifiés"
+msgstr "नियोजित"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:128
+msgid "Exécutés"
+msgstr "निष्पादित"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:129
+msgid "Terminés"
+msgstr "पूर्ण"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:130
+msgid "Abandonnés"
+msgstr "रद्द"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:131
+msgid "Non concluants"
+msgstr "अनिर्णायक"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:133
+msgid "Par type"
+msgstr "प्रकार के अनुसार"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:135
+msgid "(aucun test)"
+msgstr "(कोई परीक्षण नहीं)"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:138
+msgid "Findings par sévérité"
+msgstr "गंभीरता के अनुसार निष्कर्ष"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:141
+msgid "Critique"
+msgstr "गंभीर"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:142
+msgid "Élevé"
+msgstr "उच्च"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:143
+msgid "Moyen"
+msgstr "मध्यम"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:144
+msgid "Faible"
+msgstr "कम"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:147
+msgid "Détail des findings"
+msgstr "निष्कर्षों का विवरण"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:149
+msgid "Aucun finding."
+msgstr "कोई निष्कर्ष नहीं।"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:156
+#, python-brace-format
+msgid "— statut {status} — type {type} — confiance {confidence}"
+msgstr "— स्थिति {status} — प्रकार {type} — विश्वसनीयता {confidence}"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:158
+#, python-brace-format
+msgid ": {method} {endpoint} (paramètre : {parameter})"
+msgstr ": {method} {endpoint} (पैरामीटर: {parameter})"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:159
+msgid "Comportement observé"
+msgstr "देखा गया व्यवहार"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:160
+msgid "Extrait (expurgé)"
+msgstr "अंश (छिपाया गया)"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:161
+msgid "Test ID :"
+msgstr "परीक्षण ID:"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:161
+msgid "— Request ID :"
+msgstr "— अनुरोध ID:"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:163
+msgid "Sévérité ajustée manuellement"
+msgstr "गंभीरता मैन्युअल रूप से बदली गई"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:163
+#, python-brace-format
+msgid ": {severity_auto} -> {severity_override} — {severity_override_reason}"
+msgstr ": {severity_auto} -> {severity_override} — {severity_override_reason}"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:168
+msgid "Annexes techniques"
+msgstr "तकनीकी परिशिष्ट"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:169
+msgid "Versions des catalogues :"
+msgstr "कैटलॉग संस्करण:"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:172
+msgid "Le détail brut complet (toutes les requêtes, tous les tests) est disponible dans l'export JSON correspondant."
+msgstr "पूरा कच्चा विवरण (सभी अनुरोध, सभी परीक्षण) संबंधित JSON निर्यात में उपलब्ध है।"

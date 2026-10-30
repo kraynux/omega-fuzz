@@ -13,6 +13,7 @@ from omega_lib.core.confidence import ConfidenceLevel
 from omega_fuzz.domain.findings.observation import Observation
 from omega_fuzz.domain.findings.payload_catalog import SecurityHeadersCatalog
 from omega_fuzz.domain.services.redaction_service import redact_headers
+from omega_fuzz.shared.i18n import _
 
 
 def analyze_headers(
@@ -30,7 +31,7 @@ def analyze_headers(
             observations.append(
                 Observation(
                     kind="missing_security_header",
-                    description=f"Header de securite absent : {required.name}",
+                    description=_("Header de sécurité absent : {name}").format(name=required.name),
                     confidence=ConfidenceLevel.VERIFIED,
                     request_id=request_id,
                     evidence_summary=evidence_summary,
@@ -44,8 +45,8 @@ def analyze_headers(
                 Observation(
                     kind="misconfigured_security_header",
                     description=(
-                        f"Header {required.name} : valeur inattendue "
-                        f"({lowered_headers[key]!r}, attendu {required.expected_value!r})"
+                        _("Header {name} : valeur inattendue ({value!r}, attendu "
+                          "{expected_value!r})").format(name=required.name, value=lowered_headers[key], expected_value=required.expected_value)
                     ),
                     confidence=ConfidenceLevel.DECLARED,
                     request_id=request_id,

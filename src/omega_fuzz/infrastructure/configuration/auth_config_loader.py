@@ -14,6 +14,7 @@ import yaml
 
 from omega_fuzz.core.errors import ConfigurationError
 from omega_fuzz.domain.auth.auth_context import AuthContext, AuthMode
+from omega_fuzz.shared.i18n import _
 
 _REQUIRED_FIELDS_BY_MODE: dict[AuthMode, tuple[str, ...]] = {
     AuthMode.NONE: (),
@@ -33,13 +34,13 @@ def load_auth_context(path: Path) -> AuthContext:
     try:
         raw_text = path.read_text(encoding="utf-8")
     except OSError as exc:
-        raise ConfigurationError(f"fichier auth-config illisible : {path}") from exc
+        raise ConfigurationError(_("fichier auth-config illisible : {path}").format(path=path)) from exc
 
     data = yaml.safe_load(raw_text)
     if data is None:
         data = {}
     if not isinstance(data, dict):
-        raise ConfigurationError(f"auth-config invalide (attendu un mapping) : {path}")
+        raise ConfigurationError(_("auth-config invalide (attendu un mapping) : {path}").format(path=path))
 
     return _build_auth_context(data, source=str(path))
 
@@ -49,12 +50,12 @@ def _build_auth_context(data: dict[str, Any], *, source: str) -> AuthContext:
     try:
         mode = AuthMode(raw_mode)
     except ValueError as exc:
-        raise ConfigurationError(f"mode auth-config inconnu : {raw_mode!r} ({source})") from exc
+        raise ConfigurationError(_("mode auth-config inconnu : {raw_mode!r} ({source})").format(raw_mode=raw_mode, source=source)) from exc
 
     missing = [field for field in _REQUIRED_FIELDS_BY_MODE[mode] if not data.get(field)]
     if missing:
         raise ConfigurationError(
-            f"auth-config mode={mode.value} : champs manquants {missing} ({source})"
+            _("auth-config mode={value} : champs manquants {missing} ({source})").format(value=mode.value, missing=missing, source=source)
         )
 
     return AuthContext(

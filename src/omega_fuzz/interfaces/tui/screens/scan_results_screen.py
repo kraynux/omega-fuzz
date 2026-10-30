@@ -23,6 +23,7 @@ from omega_fuzz.application.services.report_orchestrator import (
 )
 from omega_fuzz.core.version import __version__
 from omega_fuzz.interfaces.tui.screens._base import OmegaScreen
+from omega_fuzz.shared.i18n import LANGUAGE, _, translating_as
 
 if TYPE_CHECKING:
     from omega_fuzz.app.container import Container as AppContainer
@@ -31,9 +32,9 @@ if TYPE_CHECKING:
 
 _SEVERITY_ORDER = {"critical": 0, "high": 1, "medium": 2, "low": 3}
 _FORMAT_LABELS: tuple[tuple[str, str], ...] = (
-    ("json", "Exporter JSON"),
-    ("markdown", "Exporter Markdown"),
-    ("html", "Exporter HTML"),
+    ("json", _("Exporter JSON")),
+    ("markdown", _("Exporter Markdown")),
+    ("html", _("Exporter HTML")),
 )
 
 
@@ -51,20 +52,18 @@ class ScanResultsScreen(OmegaScreen):
     def compose(self) -> ComposeResult:
         yield Header()
         with VerticalScroll(classes="omega-panel"):
-            yield Static("RESULTATS DU SCAN", classes="omega-title")
+            yield Static(_("RÉSULTATS DU SCAN"), classes="omega-title")
 
             stats = self._result.statistics
-            yield Static(f"Statut : {self._result.scan.status.value}", classes="omega-subtitle")
+            yield Static(_("Statut : {value}").format(value=self._result.scan.status.value), classes="omega-subtitle")
             yield Static(
-                f"Requetes : {stats.total_requests} "
-                f"(decouverte {stats.discovery_requests}, test {stats.test_requests}) — "
-                f"Tests executes : {stats.tests_executed} — "
-                f"Findings : {len(self._result.findings)}"
+                _("Requêtes : {total_requests} (découverte {discovery_requests}, test "
+                  "{test_requests}) — Tests exécutés : {tests_executed} — Findings : {count}").format(total_requests=stats.total_requests, discovery_requests=stats.discovery_requests, test_requests=stats.test_requests, tests_executed=stats.tests_executed, count=len(self._result.findings))
             )
 
             yield DataTable(id="findings-table")
 
-            yield Static("Theme d'export (HTML)", classes="omega-subtitle")
+            yield Static(_("Thème d'export (HTML)"), classes="omega-subtitle")
             yield Select(
                 [(name, name) for name in sorted(EXPORT_PALETTES)],
                 value=DEFAULT_EXPORT_THEME,
@@ -76,12 +75,12 @@ class ScanResultsScreen(OmegaScreen):
                     with Container(classes="omega-btn-frame"):
                         yield Button(label, id=f"export-{format_name}")
                 with Container(classes="omega-btn-frame"):
-                    yield Button("Retour au menu", id="home")
+                    yield Button(_("Retour au menu"), id="home")
         yield Footer()
 
     def on_mount(self) -> None:
         table = self.query_one("#findings-table", DataTable)
-        table.add_columns("Severite", "Type", "Endpoint", "Parametre", "Titre")
+        table.add_columns(_("Sévérité"), _("Type"), _("Endpoint"), _("Paramètre"), _("Titre"))
         findings = sorted(
             self._result.findings, key=lambda finding: _SEVERITY_ORDER[finding.severity.value]
         )
@@ -91,7 +90,7 @@ class ScanResultsScreen(OmegaScreen):
                 finding.type,
                 finding.target.endpoint,
                 finding.target.parameter or "",
-                finding.title,
+                _(finding.title),
             )
 
     def on_button_pressed(self, event: Button.Pressed) -> None:
@@ -114,29 +113,31 @@ class ScanResultsScreen(OmegaScreen):
         termination = self._result.scan.termination_reason
         assert termination is not None  # toujours renseigne en sortie de run_scan (Phase 10a)
 
-        report = build_scan_report(
-            scan=self._result.scan,
-            target_url=self._prepared.entry_url.to_str(),
-            version=__version__,
-            configuration=self._prepared.configuration,
-            termination=termination,
-            tests=self._result.tests,
-            findings=self._result.findings,
-            statistics=self._result.statistics,
-            catalog_versions=self._container.catalog_versions,
-            verify_tls=self._prepared.verify_tls,
-            now=self._container.clock.now(),
-        )
-        output_dir = resolve_exports_dir(
-            settings_store=self._container.settings_store,
-            default_exports_dir=self._container.default_exports_dir,
-        )
-        theme_name = str(self.query_one("#export-theme-select", Select).value)
-        output_paths = export_report(
-            report=report,
-            formats=(format_name,),
-            output_dir=output_dir,
-            report_exporter=self._container.report_exporter,
-            theme_name=theme_name,
-        )
-        self.app.notify(f"Rapport {format_name} : {output_paths[0]}", title="Export termine")
+        # Lot N (Q5) : rapport ecrit dans la langue des exports (reglage ; dans la suite, le sien).
+        with translating_as(LANGUAGE.export_state(self._container.settings_store)):
+            report = build_scan_report(
+                scan=self._result.scan,
+                target_url=self._prepared.entry_url.to_str(),
+                version=__version__,
+                configuration=self._prepared.configuration,
+                termination=termination,
+                tests=self._result.tests,
+                findings=self._result.findings,
+                statistics=self._result.statistics,
+                catalog_versions=self._container.catalog_versions,
+                verify_tls=self._prepared.verify_tls,
+                now=self._container.clock.now(),
+            )
+            output_dir = resolve_exports_dir(
+                settings_store=self._container.settings_store,
+                default_exports_dir=self._container.default_exports_dir,
+            )
+            theme_name = str(self.query_one("#export-theme-select", Select).value)
+            output_paths = export_report(
+                report=report,
+                formats=(format_name,),
+                output_dir=output_dir,
+                report_exporter=self._container.report_exporter,
+                theme_name=theme_name,
+            )
+        self.app.notify(_("Rapport {format_name} : {value}").format(format_name=format_name, value=output_paths[0]), title=_("Export terminé"))

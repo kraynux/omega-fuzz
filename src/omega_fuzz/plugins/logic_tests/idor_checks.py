@@ -22,6 +22,7 @@ from omega_fuzz.domain.requests.request_phase import RequestPhase
 from omega_fuzz.domain.requests.scan_request import ScanRequest
 from omega_fuzz.domain.tests.test import Test
 from omega_fuzz.plugins.fuzzers.common.fuzz_test_factory import build_fuzz_test
+from omega_fuzz.shared.i18n import _
 
 _MODULE = "logic"
 _SUBTYPE = "idor"
@@ -49,9 +50,9 @@ def build_plan(
         endpoint=endpoint,
         parameters=(id_parameter_name,),
         description=(
-            f"Verifie que la session courante n'accede pas aux ressources d'autrui via "
-            f"{id_parameter_name!r} sur {endpoint} — hypothese : les valeurs candidates "
-            f"testees appartiennent a un autre utilisateur, tout acces obtenu est suspect"
+            _("Vérifie que la session courante n'accède pas aux ressources d'autrui via "
+              "{id_parameter_name!r} sur {endpoint} — hypothèse : les valeurs candidates "
+              "testées appartiennent à un autre utilisateur, tout accès obtenu est suspect").format(id_parameter_name=id_parameter_name, endpoint=endpoint)
         ),
         now=now,
     )

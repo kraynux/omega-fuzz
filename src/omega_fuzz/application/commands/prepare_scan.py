@@ -26,10 +26,11 @@ from omega_fuzz.domain.services.test_planning_service import estimate_scan_plan
 from omega_fuzz.domain.services.url_normalization_service import normalize_url
 from omega_fuzz.domain.targets.target_id import build_target_id
 from omega_fuzz.domain.targets.url import NormalizedUrl
+from omega_fuzz.shared.i18n import _
 
 _TLS_VERIFICATION_DISABLED_WARNING = (
-    "verification TLS desactivee (--insecure-tls) : traitee comme une action a "
-    "risque au meme titre qu'un profil violent (OMEGA-FUZZ_SPECIFICATIONS.md §16)"
+    _("vérification TLS désactivée (--insecure-tls) : traitée comme une action à risque au "
+      "même titre qu'un profil violent (OMEGA-FUZZ_SPECIFICATIONS.md §16)")
 )
 
 

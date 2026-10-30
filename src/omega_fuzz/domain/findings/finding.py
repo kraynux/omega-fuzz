@@ -16,6 +16,7 @@ from omega_fuzz.domain.findings.finding_status import FindingStatus
 from omega_fuzz.domain.findings.finding_target import FindingTarget
 from omega_fuzz.domain.findings.scoring import Scoring
 from omega_fuzz.domain.findings.severity import Severity
+from omega_fuzz.shared.i18n import _
 
 
 @dataclass(frozen=True, slots=True)
@@ -42,7 +43,7 @@ class Finding:
     def __post_init__(self) -> None:
         if self.severity_override is not None and not self.severity_override_reason:
             raise ValidationError(
-                "severity_override necessite une severity_override_reason justifiee"
+                _("severity_override nécessite une severity_override_reason justifiée")
             )
 
     @property

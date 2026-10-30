@@ -5,6 +5,7 @@ core/errors.py/domain/errors.py — voir OMEGA-FUZZ_ARBORESCENCE.md
 from __future__ import annotations
 
 from omega_fuzz.core.errors import OmegaFuzzError
+from omega_fuzz.shared.i18n import _
 
 
 class ApplicationError(OmegaFuzzError):
@@ -13,13 +14,13 @@ class ApplicationError(OmegaFuzzError):
 
 class ScanNotFoundError(ApplicationError):
     def __init__(self, scan_id: str) -> None:
-        super().__init__(f"scan introuvable : {scan_id}")
+        super().__init__(_("scan introuvable : {scan_id}").format(scan_id=scan_id))
         self.scan_id = scan_id
 
 
 class InvalidScanTransitionError(ApplicationError):
     def __init__(self, current: object, target: object) -> None:
-        super().__init__(f"transition de scan invalide : {current} -> {target}")
+        super().__init__(_("transition de scan invalide : {current} -> {target}").format(current=current, target=target))
         self.current = current
         self.target = target
 
@@ -31,8 +32,8 @@ class IncompleteScanConfigurationError(ApplicationError):
 
     def __init__(self) -> None:
         super().__init__(
-            "configuration incomplete : fournir un preset, ou une agressivite ET "
-            "un scope profile"
+            _("configuration incomplète : fournir un preset, ou une agressivité ET un scope "
+              "profile")
         )
 
 
@@ -41,5 +42,5 @@ class UnknownThemeError(ApplicationError):
     (Phase 10c, meme erreur que omega-check)."""
 
     def __init__(self, theme_name: str) -> None:
-        super().__init__(f"theme inconnu : {theme_name!r}")
+        super().__init__(_("thème inconnu : {theme_name!r}").format(theme_name=theme_name))
         self.theme_name = theme_name

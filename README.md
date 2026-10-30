@@ -17,12 +17,13 @@ Page officielle : [OMEGA-FUZZ](https://kraynux.snake-mackarel.ts.net/omega-fuzz/
 [![Platform](https://img.shields.io/badge/Platform-Linux-informational.svg)](https://www.linux.org/)
 [![Interface](https://img.shields.io/badge/Interface-TUI%20%2B%20Rich-cyan.svg)](https://github.com/Textualize/rich)
 
+🌐 Interface et rapports exportés disponibles en **17 langues** — voir [Langues de l'interface](#langues-de-linterface).  
 **Langues :**  
-[Français](README.md) · [English](README.en.md) · [Español](README.es.md) · [Русский](README.ru.md) · [中文](README.zh-CN.md)
+<img src="https://flagcdn.com/w20/fr.png" alt="Français" style="height:14px;"> [Français](README.md) · <img src="https://flagcdn.com/w20/gb.png" alt="English" style="height:14px;"> [English](docs/translation/en/README.md) · <img src="https://flagcdn.com/w20/es.png" alt="Español" style="height:14px;"> [Español](docs/translation/es/README.md) · <img src="https://flagcdn.com/w20/br.png" alt="Português (Brasil)" style="height:14px;"> [Português (Brasil)](docs/translation/pt-BR/README.md) · <img src="https://flagcdn.com/w20/it.png" alt="Italiano" style="height:14px;"> [Italiano](docs/translation/it/README.md) · <img src="https://flagcdn.com/w20/de.png" alt="Deutsch" style="height:14px;"> [Deutsch](docs/translation/de/README.md) · <img src="https://flagcdn.com/w20/nl.png" alt="Nederlands" style="height:14px;"> [Nederlands](docs/translation/nl/README.md) · <img src="https://flagcdn.com/w20/pl.png" alt="Polski" style="height:14px;"> [Polski](docs/translation/pl/README.md) · <img src="https://flagcdn.com/w20/ru.png" alt="Русский" style="height:14px;"> [Русский](docs/translation/ru/README.md) · <img src="https://flagcdn.com/w20/cn.png" alt="中文" style="height:14px;"> [中文](docs/translation/zh-CN/README.md) · <img src="https://flagcdn.com/w20/vn.png" alt="Tiếng Việt" style="height:14px;"> [Tiếng Việt](docs/translation/vi/README.md) · <img src="https://flagcdn.com/w20/th.png" alt="ไทย" style="height:14px;"> [ไทย](docs/translation/th/README.md) · <img src="https://flagcdn.com/w20/id.png" alt="Bahasa Indonesia" style="height:14px;"> [Bahasa Indonesia](docs/translation/id/README.md) · <img src="https://flagcdn.com/w20/jp.png" alt="日本語" style="height:14px;"> [日本語](docs/translation/ja/README.md) · <img src="https://flagcdn.com/w20/kr.png" alt="한국어" style="height:14px;"> [한국어](docs/translation/ko/README.md) · <img src="https://flagcdn.com/w20/in.png" alt="हिन्दी" style="height:14px;"> [हिन्दी](docs/translation/hi/README.md) · <img src="https://flagcdn.com/w20/ae.png" alt="العربية" style="height:14px;"> [العربية](docs/translation/ar/README.md)
 
 **Omega-Fuzz** est une application locale en terminal (TUI [Textual](https://github.com/Textualize/textual) + CLI scriptable) qui pilote des decouverte et tests de securite web (fuzzing HTTP) pour environnements autorises (labs, mirroirs personnels, engagements de test explicitement consentis).
 
-Sixième outil de la suite `omega-` (après `omega-scan`, `omega-stress`, `omega-check`, `omega-deep` et `omega-fold`), structuré en Clean Architecture — voir `docs/ARCHITECTURE.md` pour le détail technique complet.
+Outil de la suite `omega-`, structuré en Clean Architecture — voir `docs/ARCHITECTURE.md` pour le détail technique complet.
 
 ## 1. Vision et périmètre
 
@@ -109,6 +110,10 @@ Parcours : écran de démarrage (se ferme sur une touche ou un clic) → menu pr
 | `a` | Afficher l'aide (tableau des presets inclus) |
 | `q` | Quitter (avec confirmation) |
 | `Ctrl+P` | Palette de commandes (Theme, Quitter, Screenshot) |
+
+### Langues de l'interface
+
+L'interface est disponible en 17 langues : français, anglais, espagnol, portugais (Brésil), italien, allemand, néerlandais, polonais, russe, chinois simplifié, vietnamien, thaï, indonésien, japonais, coréen, hindi et arabe. Le choix se fait dans les Réglages (« Langue / Language ») et s'applique après un redémarrage de l'interface ; la variable `OMEGA_FUZZ_LANG` (par exemple `OMEGA_FUZZ_LANG=en ./omega-fuzz.sh`) force une langue le temps d'une session. Lancé depuis omega-suite, omega-fuzz prend la langue de la suite. Sur une console texte Linux (TTY), les langues à écriture non latine s'affichent en anglais pour la session. La ligne de commande reste en français.
 
 ### Mode scriptable (CLI)
 
@@ -248,7 +253,7 @@ Règles de conception :
 
 ## 9. Exports
 
-Les rapports sont générés dans `var/exports/` par défaut (chemin runtime ancré sur le dossier du projet, `$OMEGA_FUZZ_VAR_DIR` pour le surcharger, surchargeable aussi dans l'écran Réglages), ou au chemin indiqué (`--output-dir`). Nom de fichier plat, sans sous-dossier : `<preset>-<horodatage>.<ext>` (ex. `prod-safe-2026-09-01_14-30-22.html`).
+Les rapports Markdown et HTML s'écrivent dans la langue choisie dans les Réglages (« Langue des exports », par défaut celle de l'interface) ; le JSON reste une donnée, non traduite. Les rapports sont générés dans `var/exports/` par défaut (chemin runtime ancré sur le dossier du projet, `$OMEGA_FUZZ_VAR_DIR` pour le surcharger, surchargeable aussi dans l'écran Réglages), ou au chemin indiqué (`--output-dir`). Nom de fichier plat, sans sous-dossier : `<preset>-<horodatage>.<ext>` (ex. `prod-safe-2026-09-01_14-30-22.html`).
 
 ### JSON, source de vérité
 
@@ -302,7 +307,7 @@ Le profil final retenu est **le plus restrictif des deux** (émulateur et taille
 ```bash
 source .venv/bin/activate
 lint-imports        # verifie la Dependency Rule (6 contrats)
-pytest -q           # 317 tests
+pytest -q           # 344 tests
 ruff check src tests
 mypy -p omega_fuzz
 ```

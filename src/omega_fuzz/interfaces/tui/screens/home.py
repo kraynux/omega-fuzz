@@ -22,6 +22,7 @@ from omega_fuzz.interfaces.tui.screens.scan_setup_screen import ScanSetupScreen
 from omega_fuzz.interfaces.tui.screens.settings_screen import SettingsScreen
 from omega_fuzz.interfaces.tui.screens.targets_screen import TargetsScreen
 from omega_fuzz.interfaces.tui.widgets.home_wordmark import HomeWordmark
+from omega_fuzz.shared.i18n import _
 
 if TYPE_CHECKING:
     from collections.abc import Callable
@@ -31,12 +32,12 @@ if TYPE_CHECKING:
     from omega_fuzz.app.container import ScanRuntime
 
 _MENU_ITEMS: tuple[tuple[str, str], ...] = (
-    ("scan", "Scanner"),
-    ("targets", "Cibles"),
-    ("settings", "Reglages"),
-    ("history", "Historique"),
-    ("help", "Aide"),
-    ("quit", "Quitter"),
+    ("scan", _("Scanner")),
+    ("targets", _("Cibles")),
+    ("settings", _("Réglages")),
+    ("history", _("Historique")),
+    ("help", _("Aide")),
+    ("quit", _("Quitter")),
 )
 
 
@@ -46,9 +47,9 @@ class HomeScreen(Screen[None]):
     dismiss() (rien "en dessous" de cet ecran)."""
 
     BINDINGS: ClassVar[list[BindingType]] = [
-        Binding("escape", "back", "Retour", show=True),
-        Binding("up", "focus_previous_item", "Monter", show=False),
-        Binding("down", "focus_next_item", "Descendre", show=False),
+        Binding("escape", "back", _("Retour"), show=True),
+        Binding("up", "focus_previous_item", _("Monter"), show=False),
+        Binding("down", "focus_next_item", _("Descendre"), show=False),
     ]
 
     def __init__(
@@ -71,7 +72,7 @@ class HomeScreen(Screen[None]):
                     for item_id, label in _MENU_ITEMS:
                         with Container(classes="omega-btn-frame"):
                             yield Button(label.upper(), id=item_id)
-                menu.border_title = "MENU PRINCIPAL"
+                menu.border_title = _("MENU PRINCIPAL")
         yield Footer()
 
     def on_button_pressed(self, event: Button.Pressed) -> None:

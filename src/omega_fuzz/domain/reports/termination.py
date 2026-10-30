@@ -9,6 +9,8 @@ from __future__ import annotations
 from dataclasses import dataclass
 from enum import Enum
 
+from omega_fuzz.shared.i18n import _
+
 
 class TerminationTrigger(str, Enum):
     COMPLETED_NORMALLY = "completed_normally"
@@ -31,16 +33,16 @@ def describe_termination(termination: TerminationReason) -> str:
     colocalisee avec `TerminationReason` pour eviter de dupliquer cette
     logique de formatage entre exporters."""
     if termination.trigger is TerminationTrigger.COMPLETED_NORMALLY:
-        return "Scan termine normalement, aucune limite atteinte."
+        return _("Scan terminé normalement, aucune limite atteinte.")
     if termination.trigger is TerminationTrigger.MANUAL_STOP:
-        return "Arret manuel demande par l'utilisateur."
+        return _("Arrêt manuel demandé par l'utilisateur.")
     if termination.trigger is TerminationTrigger.LIMIT_REACHED:
         return (
-            f"Limite `{termination.limit_name}` atteinte (configuree : "
-            f"{termination.configured_value}, observee : {termination.observed_value})."
+            _("Limite `{limit_name}` atteinte (configurée : {configured_value}, observée : "
+              "{observed_value}).").format(limit_name=termination.limit_name, configured_value=termination.configured_value, observed_value=termination.observed_value)
         )
     if termination.trigger is TerminationTrigger.CONFIG_ERROR:
-        return "Arret avant obtention de resultats exploitables (erreur de configuration)."
+        return _("Arrêt avant obtention de résultats exploitables (erreur de configuration).")
     if termination.trigger is TerminationTrigger.TECHNICAL_FAILURE:
-        return "Erreur technique fatale en cours d'execution."
+        return _("Erreur technique fatale en cours d'exécution.")
     return termination.trigger.value

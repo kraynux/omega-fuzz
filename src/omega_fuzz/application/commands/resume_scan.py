@@ -11,6 +11,7 @@ from typing import TYPE_CHECKING
 from omega_fuzz.application.exceptions import InvalidScanTransitionError, ScanNotFoundError
 from omega_fuzz.domain.scans.scan_policy import is_valid_transition
 from omega_fuzz.domain.scans.scan_status import ScanStatus
+from omega_fuzz.shared.i18n import _
 
 if TYPE_CHECKING:
     from omega_fuzz.domain.scans.scan import Scan
@@ -30,7 +31,7 @@ def resume_scan(
 
     state = scan_repository.get_state(scan_id)
     if state is None:
-        raise ScanNotFoundError(f"{scan_id} (aucun etat de pause persiste)")
+        raise ScanNotFoundError(_("{scan_id} (aucun état de pause persisté)").format(scan_id=scan_id))
 
     updated = replace(scan, status=ScanStatus.RUNNING)
     scan_repository.save(updated)

@@ -41,6 +41,7 @@ from textual.widgets import Button
 from omega_fuzz.application.commands.start_scan import start_scan
 from omega_fuzz.interfaces.tui.screens.scan_results_screen import ScanResultsScreen
 from omega_fuzz.interfaces.tui.widgets.progress_panel import ProgressPanel
+from omega_fuzz.shared.i18n import _, log_message
 
 if TYPE_CHECKING:
     from textual.worker import Worker
@@ -59,7 +60,8 @@ class _RelayHandler(logging.Handler):
         self._callback = callback
 
     def emit(self, record: logging.LogRecord) -> None:
-        self._callback(record.getMessage())
+        # Plan i18n R2 : le fichier journal reste en francais, l'ecran retraduit la ligne.
+        self._callback(log_message(record.msg, record.args))
 
 
 class ScanProgressScreen(Screen[None]):
@@ -78,11 +80,11 @@ class ScanProgressScreen(Screen[None]):
 
     def compose(self) -> ComposeResult:
         stop_row = Horizontal(
-            Container(Button("Arreter", id="stop", variant="error"), classes="omega-btn-frame"),
+            Container(Button(_("Arrêter"), id="stop", variant="error"), classes="omega-btn-frame"),
             classes="omega-actions",
         )
         yield ProgressPanel(
-            message=f"Scan de {self._prepared.entry_url.to_str()} en cours...", extra=(stop_row,)
+            message=_("Scan de {to_str} en cours...").format(to_str=self._prepared.entry_url.to_str()), extra=(stop_row,)
         )
 
     def on_mount(self) -> None:
@@ -115,11 +117,11 @@ class ScanProgressScreen(Screen[None]):
                 logger=container.logger,
             )
         except asyncio.CancelledError:
-            self.app.notify("Scan arrete par l'utilisateur.", title="Scan interrompu")
+            self.app.notify(_("Scan arrêté par l'utilisateur."), title=_("Scan interrompu"))
             self.dismiss()
             return
         except Exception as exc:  # noqa: BLE001 - limite de worker, ne doit jamais planter l'UI
-            self.app.notify(str(exc) or type(exc).__name__, title="Scan echoue", severity="error")
+            self.app.notify(str(exc) or type(exc).__name__, title=_("Scan échoué"), severity="error")
             self.dismiss()
             return
         finally:

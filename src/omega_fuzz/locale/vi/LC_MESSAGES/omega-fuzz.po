@@ -1,0 +1,1326 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: omega-fuzz\n"
+"Language: vi\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Omega-Status: testing\n"
+
+#: src/omega_fuzz/application/commands/clear_directory.py:52
+msgid "contient l'installation de omega-fuzz"
+msgstr "chứa bản cài đặt của omega-fuzz"
+
+#: src/omega_fuzz/application/commands/prepare_scan.py:32
+msgid "vérification TLS désactivée (--insecure-tls) : traitée comme une action à risque au même titre qu'un profil violent (OMEGA-FUZZ_SPECIFICATIONS.md §16)"
+msgstr "đã tắt kiểm tra TLS (--insecure-tls): được xem là hành động rủi ro ngang với hồ sơ dữ dội (OMEGA-FUZZ_SPECIFICATIONS.md §16)"
+
+#: src/omega_fuzz/application/commands/resume_scan.py:34
+#, python-brace-format
+msgid "{scan_id} (aucun état de pause persisté)"
+msgstr "{scan_id} (không có trạng thái tạm dừng nào được lưu)"
+
+#: src/omega_fuzz/application/commands/start_scan.py:38
+msgid "Ce scan a été signalé comme nécessitant une confirmation explicite (profil agressif/étendu ou combinaison inhabituelle) : confirmez-vous vouloir le lancer ?"
+msgstr "Bản quét này được đánh dấu là cần xác nhận rõ ràng (hồ sơ hung hãn/mở rộng hoặc tổ hợp bất thường): bạn có xác nhận muốn chạy không?"
+
+#: src/omega_fuzz/application/commands/start_scan.py:85
+msgid "scan refusé : confirmation requise non obtenue"
+msgstr "quét bị từ chối: chưa có xác nhận bắt buộc"
+
+#: src/omega_fuzz/application/exceptions.py:17
+#, python-brace-format
+msgid "scan introuvable : {scan_id}"
+msgstr "không tìm thấy bản quét: {scan_id}"
+
+#: src/omega_fuzz/application/exceptions.py:23
+#, python-brace-format
+msgid "transition de scan invalide : {current} -> {target}"
+msgstr "chuyển trạng thái quét không hợp lệ: {current} -> {target}"
+
+#: src/omega_fuzz/application/exceptions.py:35
+msgid "configuration incomplète : fournir un preset, ou une agressivité ET un scope profile"
+msgstr "cấu hình chưa đầy đủ: hãy cung cấp một preset, hoặc một mức hung hãn VÀ một hồ sơ phạm vi"
+
+#: src/omega_fuzz/domain/findings/finding.py:46 src/omega_fuzz/domain/services/severity_service.py:58
+msgid "severity_override nécessite une severity_override_reason justifiée"
+msgstr "severity_override cần một severity_override_reason có lý do chính đáng"
+
+#: src/omega_fuzz/domain/profiles/profile_validation.py:25
+#, python-brace-format
+msgid "champs de limite inconnus dans la surcharge : {value}"
+msgstr "trường giới hạn không xác định trong phần ghi đè: {value}"
+
+#: src/omega_fuzz/domain/reports/termination.py:36
+msgid "Scan terminé normalement, aucune limite atteinte."
+msgstr "Quét kết thúc bình thường, không chạm giới hạn nào."
+
+#: src/omega_fuzz/domain/reports/termination.py:38
+msgid "Arrêt manuel demandé par l'utilisateur."
+msgstr "Người dùng yêu cầu dừng thủ công."
+
+#: src/omega_fuzz/domain/reports/termination.py:41
+#, python-brace-format
+msgid "Limite `{limit_name}` atteinte (configurée : {configured_value}, observée : {observed_value})."
+msgstr "Đã đạt giới hạn `{limit_name}` (cấu hình: {configured_value}, quan sát: {observed_value})."
+
+#: src/omega_fuzz/domain/reports/termination.py:45
+msgid "Arrêt avant obtention de résultats exploitables (erreur de configuration)."
+msgstr "Dừng trước khi có kết quả dùng được (lỗi cấu hình)."
+
+#: src/omega_fuzz/domain/reports/termination.py:47
+msgid "Erreur technique fatale en cours d'exécution."
+msgstr "Lỗi kỹ thuật nghiêm trọng trong khi thực thi."
+
+#: src/omega_fuzz/domain/services/finding_builder_service.py:47
+#, python-brace-format
+msgid "{capitalize} sur {endpoint}"
+msgstr "{capitalize} trên {endpoint}"
+
+#: src/omega_fuzz/domain/services/limit_service.py:45
+#, python-brace-format
+msgid "{field_name}={value} dépasse le hard cap absolu ({hard_cap})"
+msgstr "{field_name}={value} vượt hard cap tuyệt đối ({hard_cap})"
+
+#: src/omega_fuzz/domain/services/profile_resolution_service.py:56
+#, python-brace-format
+msgid "combinaison inhabituelle : {value} + {value2}"
+msgstr "tổ hợp bất thường: {value} + {value2}"
+
+#: src/omega_fuzz/domain/services/url_normalization_service.py:31
+msgid "URL sans schéma (ajoutez http:// ou https:// devant l'adresse)"
+msgstr "URL thiếu giao thức (hãy thêm http:// hoặc https:// trước địa chỉ)"
+
+#: src/omega_fuzz/domain/services/url_normalization_service.py:35
+msgid "schéma non supporté : {scheme!r}"
+msgstr "giao thức không được hỗ trợ: {scheme!r}"
+
+#: src/omega_fuzz/domain/services/url_normalization_service.py:46
+msgid "URL sans host"
+msgstr "URL thiếu host"
+
+#: src/omega_fuzz/domain/targets/scope.py:53
+msgid "regex de scope invalide : {raw_pattern!r} ({exc})"
+msgstr "biểu thức chính quy phạm vi không hợp lệ: {raw_pattern!r} ({exc})"
+
+#: src/omega_fuzz/infrastructure/analyzers/access_control_analyzer.py:37
+#, python-brace-format
+msgid "Réponse {status_code} obtenue alors qu'un refus était attendu ({value})"
+msgstr "Nhận được phản hồi {status_code} trong khi lẽ ra phải bị từ chối ({value})"
+
+#: src/omega_fuzz/infrastructure/analyzers/error_detector.py:32
+#, python-brace-format
+msgid "Code HTTP anormal observé ({status_code})"
+msgstr "Quan sát thấy mã HTTP bất thường ({status_code})"
+
+#: src/omega_fuzz/infrastructure/analyzers/error_detector.py:43
+msgid "Message d'erreur technique détecté dans la réponse ({signature!r})"
+msgstr "Phát hiện thông báo lỗi kỹ thuật trong phản hồi ({signature!r})"
+
+#: src/omega_fuzz/infrastructure/analyzers/header_analyzer.py:34
+#, python-brace-format
+msgid "Header de sécurité absent : {name}"
+msgstr "Thiếu header bảo mật: {name}"
+
+#: src/omega_fuzz/infrastructure/analyzers/header_analyzer.py:48
+msgid "Header {name} : valeur inattendue ({value!r}, attendu {expected_value!r})"
+msgstr "Header {name}: giá trị không mong đợi ({value!r}, mong đợi {expected_value!r})"
+
+#: src/omega_fuzz/infrastructure/analyzers/reflection_detector.py:29
+msgid "Payload reflété dans la réponse (motif de détection confirmé)"
+msgstr "Payload bị phản chiếu trong phản hồi (mẫu phát hiện đã xác nhận)"
+
+#: src/omega_fuzz/infrastructure/analyzers/reflection_detector.py:39
+msgid "Payload reflété tel quel dans la réponse (sous-chaîne)"
+msgstr "Payload bị phản chiếu nguyên vẹn trong phản hồi (chuỗi con)"
+
+#: src/omega_fuzz/infrastructure/configuration/auth_config_loader.py:37
+#, python-brace-format
+msgid "fichier auth-config illisible : {path}"
+msgstr "tệp auth-config không đọc được: {path}"
+
+#: src/omega_fuzz/infrastructure/configuration/auth_config_loader.py:43
+#, python-brace-format
+msgid "auth-config invalide (attendu un mapping) : {path}"
+msgstr "auth-config không hợp lệ (cần một ánh xạ): {path}"
+
+#: src/omega_fuzz/infrastructure/configuration/auth_config_loader.py:53
+msgid "mode auth-config inconnu : {raw_mode!r} ({source})"
+msgstr "chế độ auth-config không xác định: {raw_mode!r} ({source})"
+
+#: src/omega_fuzz/infrastructure/configuration/auth_config_loader.py:58
+#, python-brace-format
+msgid "auth-config mode={value} : champs manquants {missing} ({source})"
+msgstr "auth-config mode={value}: thiếu các trường {missing} ({source})"
+
+#: src/omega_fuzz/infrastructure/configuration/config_session_provider.py:75
+#, python-brace-format
+msgid "échec de la requête de connexion : {fetch_error}"
+msgstr "yêu cầu đăng nhập thất bại: {fetch_error}"
+
+#: src/omega_fuzz/infrastructure/configuration/config_session_provider.py:78
+#, python-brace-format
+msgid "échec de la connexion (code HTTP {status_code})"
+msgstr "đăng nhập thất bại (mã HTTP {status_code})"
+
+#: src/omega_fuzz/infrastructure/payloads/payload_loader.py:27
+#, python-brace-format
+msgid "catalogue illisible : {path}"
+msgstr "danh mục không đọc được: {path}"
+
+#: src/omega_fuzz/infrastructure/payloads/payload_loader.py:31
+#, python-brace-format
+msgid "catalogue invalide (attendu un mapping) : {path}"
+msgstr "danh mục không hợp lệ (cần một ánh xạ): {path}"
+
+#: src/omega_fuzz/infrastructure/payloads/payload_loader.py:40 src/omega_fuzz/infrastructure/payloads/payload_loader.py:66
+#, python-brace-format
+msgid "catalogue {path} : champ 'version' manquant ou invalide"
+msgstr "danh mục {path}: trường 'version' bị thiếu hoặc không hợp lệ"
+
+#: src/omega_fuzz/infrastructure/payloads/payload_loader.py:44
+#, python-brace-format
+msgid "catalogue {path} : champ 'payloads' manquant ou invalide"
+msgstr "danh mục {path}: trường 'payloads' bị thiếu hoặc không hợp lệ"
+
+#: src/omega_fuzz/infrastructure/payloads/payload_loader.py:49
+msgid "catalogue {path} : entrée de payload invalide : {raw_entry!r}"
+msgstr "danh mục {path}: mục payload không hợp lệ: {raw_entry!r}"
+
+#: src/omega_fuzz/infrastructure/payloads/payload_loader.py:71
+#, python-brace-format
+msgid "catalogue {path} : champ 'required_headers' manquant ou invalide"
+msgstr "danh mục {path}: trường 'required_headers' bị thiếu hoặc không hợp lệ"
+
+#: src/omega_fuzz/infrastructure/payloads/payload_loader.py:77
+msgid "catalogue {path} : entrée de header invalide : {raw_header!r}"
+msgstr "danh mục {path}: mục header không hợp lệ: {raw_header!r}"
+
+#: src/omega_fuzz/interfaces/cli/presenters/configuration_presenter.py:25
+#, python-brace-format
+msgid "Cible            : {to_str}"
+msgstr "Mục tiêu         : {to_str}"
+
+#: src/omega_fuzz/interfaces/cli/presenters/configuration_presenter.py:26
+#, python-brace-format
+msgid "Preset           : {preset_label}"
+msgstr "Preset           : {preset_label}"
+
+#: src/omega_fuzz/interfaces/cli/presenters/configuration_presenter.py:27
+#, python-brace-format
+msgid "Agressivité      : {value}"
+msgstr "Mức hung hãn     : {value}"
+
+#: src/omega_fuzz/interfaces/cli/presenters/configuration_presenter.py:28
+#, python-brace-format
+msgid "Profil de scope  : {value}"
+msgstr "Hồ sơ phạm vi    : {value}"
+
+#: src/omega_fuzz/interfaces/cli/presenters/configuration_presenter.py:29 src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:31
+msgid "DÉSACTIVÉE"
+msgstr "ĐÃ TẮT"
+
+#: src/omega_fuzz/interfaces/cli/presenters/configuration_presenter.py:29
+#, python-brace-format
+msgid "Vérification TLS : {value}"
+msgstr "Kiểm tra TLS     : {value}"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:75 src/omega_fuzz/interfaces/cli/presenters/configuration_presenter.py:29 src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:31
+msgid "activée"
+msgstr "đã bật"
+
+#: src/omega_fuzz/interfaces/cli/presenters/configuration_presenter.py:32
+#, python-brace-format
+msgid "Scope : {value}, host racine {root_host}, port {scope_port}, profondeur max {max_depth}"
+msgstr "Phạm vi: {value}, host gốc {root_host}, cổng {scope_port}, độ sâu tối đa {max_depth}"
+
+#: src/omega_fuzz/interfaces/cli/presenters/configuration_presenter.py:37
+#, python-brace-format
+msgid "  Sous-domaines bloqués : {join}"
+msgstr "  Tên miền con bị chặn : {join}"
+
+#: src/omega_fuzz/interfaces/cli/presenters/configuration_presenter.py:39
+#, python-brace-format
+msgid "  Chemins bloqués       : {join}"
+msgstr "  Đường dẫn bị chặn    : {join}"
+
+#: src/omega_fuzz/interfaces/cli/presenters/configuration_presenter.py:44
+msgid "Limites :"
+msgstr "Giới hạn:"
+
+#: src/omega_fuzz/interfaces/cli/presenters/configuration_presenter.py:45
+#, python-brace-format
+msgid "  Durée max        : {max_duration_seconds} s"
+msgstr "  Thời lượng tối đa : {max_duration_seconds} s"
+
+#: src/omega_fuzz/interfaces/cli/presenters/configuration_presenter.py:46
+#, python-brace-format
+msgid "  Requêtes max     : {max_total_requests}"
+msgstr "  Yêu cầu tối đa    : {max_total_requests}"
+
+#: src/omega_fuzz/interfaces/cli/presenters/configuration_presenter.py:47
+#, python-brace-format
+msgid "  Tests max        : {max_tests}"
+msgstr "  Kiểm thử tối đa   : {max_tests}"
+
+#: src/omega_fuzz/interfaces/cli/presenters/configuration_presenter.py:48
+#, python-brace-format
+msgid "  Concurrence max  : {max_concurrent_requests}"
+msgstr "  Đồng thời tối đa  : {max_concurrent_requests}"
+
+#: src/omega_fuzz/interfaces/cli/presenters/configuration_presenter.py:54
+msgid "Avertissements :"
+msgstr "Cảnh báo:"
+
+#: src/omega_fuzz/interfaces/cli/presenters/configuration_presenter.py:62
+#, python-brace-format
+msgid "Estimation : ~{estimated_tests} tests, ~{estimated_requests} requêtes, profondeur ~{estimated_depth}"
+msgstr "Ước tính: ~{estimated_tests} kiểm thử, ~{estimated_requests} yêu cầu, độ sâu ~{estimated_depth}"
+
+#: src/omega_fuzz/interfaces/tui/app.py:41
+msgid "🗱 OMEGA-FUZZ"
+msgstr "🗱 OMEGA-FUZZ"
+
+#: src/omega_fuzz/interfaces/tui/app.py:163
+msgid "Screenshot"
+msgstr "Chụp màn hình"
+
+#: src/omega_fuzz/interfaces/tui/app.py:164
+msgid "Enregistrer une capture SVG de l'écran actuel"
+msgstr "Lưu ảnh chụp SVG của màn hình hiện tại"
+
+#: src/omega_fuzz/interfaces/tui/screens/help_screen.py:34
+msgid "Omega-fuzz découvre une cible dans un périmètre contrôlé (scope explicite, profondeur limitée) puis teste activement les points d'entrée trouvés (paramètres de requête, headers de sécurité) — jamais sans confirmation explicite pour les profils/modes à risque (agressivité violente, vérification TLS désactivée)."
+msgstr "Omega-fuzz khám phá một mục tiêu trong phạm vi được kiểm soát (phạm vi rõ ràng, độ sâu giới hạn) rồi chủ động kiểm thử các điểm vào tìm được (tham số yêu cầu, header bảo mật) — không bao giờ khi chưa có xác nhận rõ ràng với các hồ sơ/chế độ rủi ro (mức hung hãn dữ dội, tắt kiểm tra TLS)."
+
+#: src/omega_fuzz/interfaces/tui/screens/help_screen.py:54
+msgid "Presets"
+msgstr "Preset"
+
+#: src/omega_fuzz/interfaces/tui/screens/help_screen.py:63 src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:30
+msgid "Preset"
+msgstr "Preset"
+
+#: src/omega_fuzz/interfaces/tui/screens/help_screen.py:64
+msgid "Scope"
+msgstr "Phạm vi"
+
+#: src/omega_fuzz/interfaces/tui/screens/help_screen.py:65
+msgid "Agressivité"
+msgstr "Mức hung hãn"
+
+#: src/omega_fuzz/interfaces/tui/screens/help_screen.py:66 src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:95
+msgid "Durée max"
+msgstr "Thời lượng tối đa"
+
+#: src/omega_fuzz/interfaces/tui/screens/help_screen.py:67 src/omega_fuzz/interfaces/tui/screens/scan_setup_screen.py:52 src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:96
+msgid "Requêtes max"
+msgstr "Yêu cầu tối đa"
+
+#: src/omega_fuzz/interfaces/tui/screens/help_screen.py:68 src/omega_fuzz/interfaces/tui/screens/scan_setup_screen.py:53 src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:97
+msgid "Tests max"
+msgstr "Kiểm thử tối đa"
+
+#: src/omega_fuzz/interfaces/tui/screens/help_screen.py:70
+msgid "Confirmation"
+msgstr "Xác nhận"
+
+#: src/omega_fuzz/interfaces/tui/screens/history_detail_screen.py:51
+#, python-brace-format
+msgid "SCAN {value}"
+msgstr "BẢN QUÉT {value}"
+
+#: src/omega_fuzz/interfaces/tui/screens/history_detail_screen.py:53
+#, python-brace-format
+msgid "Cible : {target_id} — Statut : {value} — Créé le : {strftime}"
+msgstr "Mục tiêu: {target_id} — Trạng thái: {value} — Tạo lúc: {strftime}"
+
+#: src/omega_fuzz/interfaces/tui/screens/history_detail_screen.py:60
+#, python-brace-format
+msgid "Terminaison : {value}"
+msgstr "Kết thúc: {value}"
+
+#: src/omega_fuzz/interfaces/tui/screens/history_detail_screen.py:62
+msgid "Export indisponible depuis l'historique : la configuration effective (preset/limites) et le détail des tests d'un scan passé ne sont pas persistés — seuls le scan et ses findings le sont."
+msgstr "Không thể xuất từ lịch sử: cấu hình thực tế (preset/giới hạn) và chi tiết kiểm thử của bản quét trước đây không được lưu — chỉ bản quét và các phát hiện của nó được lưu."
+
+#: src/omega_fuzz/interfaces/tui/screens/history_detail_screen.py:74 src/omega_fuzz/interfaces/tui/screens/scan_results_screen.py:83
+msgid "Endpoint"
+msgstr "Endpoint"
+
+#: src/omega_fuzz/interfaces/tui/screens/history_screen.py:52
+msgid "Créé le"
+msgstr "Tạo lúc"
+
+#: src/omega_fuzz/interfaces/tui/screens/history_screen.py:52
+msgid "Scan"
+msgstr "Bản quét"
+
+#: src/omega_fuzz/interfaces/tui/screens/quit_confirm.py:21
+msgid "QUITTER OMEGA-FUZZ ?"
+msgstr "THOÁT OMEGA-FUZZ?"
+
+#: src/omega_fuzz/interfaces/tui/screens/scan_progress_screen.py:87
+#, python-brace-format
+msgid "Scan de {to_str} en cours..."
+msgstr "Đang quét {to_str}..."
+
+#: src/omega_fuzz/interfaces/tui/screens/scan_progress_screen.py:120
+msgid "Scan arrêté par l'utilisateur."
+msgstr "Người dùng đã dừng quét."
+
+#: src/omega_fuzz/interfaces/tui/screens/scan_progress_screen.py:120
+msgid "Scan interrompu"
+msgstr "Quét bị gián đoạn"
+
+#: src/omega_fuzz/interfaces/tui/screens/scan_results_screen.py:35
+msgid "Exporter JSON"
+msgstr "Xuất JSON"
+
+#: src/omega_fuzz/interfaces/tui/screens/scan_results_screen.py:36
+msgid "Exporter Markdown"
+msgstr "Xuất Markdown"
+
+#: src/omega_fuzz/interfaces/tui/screens/scan_results_screen.py:37
+msgid "Exporter HTML"
+msgstr "Xuất HTML"
+
+#: src/omega_fuzz/interfaces/tui/screens/scan_results_screen.py:55
+msgid "RÉSULTATS DU SCAN"
+msgstr "KẾT QUẢ QUÉT"
+
+#: src/omega_fuzz/interfaces/tui/screens/scan_results_screen.py:58
+#, python-brace-format
+msgid "Statut : {value}"
+msgstr "Trạng thái: {value}"
+
+#: src/omega_fuzz/interfaces/tui/screens/scan_results_screen.py:60
+#, python-brace-format
+msgid "Requêtes : {total_requests} (découverte {discovery_requests}, test {test_requests}) — Tests exécutés : {tests_executed} — Findings : {count}"
+msgstr "Yêu cầu: {total_requests} (khám phá {discovery_requests}, kiểm thử {test_requests}) — Kiểm thử đã chạy: {tests_executed} — Phát hiện: {count}"
+
+#: src/omega_fuzz/interfaces/tui/screens/scan_results_screen.py:66
+msgid "Thème d'export (HTML)"
+msgstr "Giao diện xuất (HTML)"
+
+#: src/omega_fuzz/interfaces/tui/screens/scan_results_screen.py:78
+msgid "Retour au menu"
+msgstr "Về menu"
+
+#: src/omega_fuzz/interfaces/tui/screens/scan_results_screen.py:143
+#, python-brace-format
+msgid "Rapport {format_name} : {value}"
+msgstr "Báo cáo {format_name}: {value}"
+
+#: src/omega_fuzz/interfaces/tui/screens/scan_review_screen.py:49
+msgid "REVUE AVANT LANCEMENT"
+msgstr "XEM LẠI TRƯỚC KHI CHẠY"
+
+#: src/omega_fuzz/interfaces/tui/screens/scan_review_screen.py:55
+msgid "Confirmation requise avant lancement."
+msgstr "Cần xác nhận trước khi chạy."
+
+#: src/omega_fuzz/interfaces/tui/screens/scan_review_screen.py:57
+#, python-brace-format
+msgid "Tapez exactement : {required_phrase}"
+msgstr "Hãy gõ chính xác: {required_phrase}"
+
+#: src/omega_fuzz/interfaces/tui/screens/scan_setup_screen.py:44
+#, python-brace-format
+msgid "Preset : {value}"
+msgstr "Preset: {value}"
+
+#: src/omega_fuzz/interfaces/tui/screens/scan_setup_screen.py:45
+msgid "Configuration manuelle"
+msgstr "Cấu hình thủ công"
+
+#: src/omega_fuzz/interfaces/tui/screens/scan_setup_screen.py:51
+msgid "Durée max (s)"
+msgstr "Thời lượng tối đa (s)"
+
+#: src/omega_fuzz/interfaces/tui/screens/scan_setup_screen.py:54 src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:98
+msgid "Concurrence max"
+msgstr "Đồng thời tối đa"
+
+#: src/omega_fuzz/interfaces/tui/screens/scan_setup_screen.py:76
+msgid "NOUVEAU SCAN"
+msgstr "BẢN QUÉT MỚI"
+
+#: src/omega_fuzz/interfaces/tui/screens/scan_setup_screen.py:83
+msgid "Configuration"
+msgstr "Cấu hình"
+
+#: src/omega_fuzz/interfaces/tui/screens/scan_setup_screen.py:91
+msgid "Authentification (optionnel)"
+msgstr "Xác thực (tùy chọn)"
+
+#: src/omega_fuzz/interfaces/tui/screens/scan_setup_screen.py:92
+msgid "chemin d'un fichier YAML --auth-config"
+msgstr "đường dẫn tới tệp YAML --auth-config"
+
+#: src/omega_fuzz/interfaces/tui/screens/scan_setup_screen.py:95 src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:31
+msgid "Vérification TLS"
+msgstr "Kiểm tra TLS"
+
+#: src/omega_fuzz/interfaces/tui/screens/scan_setup_screen.py:98
+msgid "Limites (optionnel, laisser vide pour garder le profil)"
+msgstr "Giới hạn (tùy chọn, để trống để giữ theo hồ sơ)"
+
+#: src/omega_fuzz/interfaces/tui/screens/scan_setup_screen.py:104
+msgid "Suivant"
+msgstr "Tiếp"
+
+#: src/omega_fuzz/interfaces/tui/screens/scan_setup_screen.py:135
+msgid "Valeur invalide pour {label} : {raw!r}"
+msgstr "Giá trị không hợp lệ cho {label}: {raw!r}"
+
+#: src/omega_fuzz/interfaces/tui/screens/settings_screen.py:85
+msgid "Dossier d'export"
+msgstr "Thư mục xuất"
+
+#: src/omega_fuzz/interfaces/tui/screens/settings_screen.py:92
+msgid "Dossier des captures d'écran"
+msgstr "Thư mục ảnh chụp màn hình"
+
+#: src/omega_fuzz/interfaces/tui/screens/settings_screen.py:109
+msgid "Supprimer les captures d'écran"
+msgstr "Xóa ảnh chụp màn hình"
+
+#: src/omega_fuzz/interfaces/tui/screens/settings_screen.py:155
+msgid "Tous les scans et findings persistés seront définitivement supprimés."
+msgstr "Tất cả bản quét và phát hiện đã lưu sẽ bị xóa vĩnh viễn."
+
+#: src/omega_fuzz/interfaces/tui/screens/settings_screen.py:171
+msgid "SUPPRIMER LES CAPTURES D'ÉCRAN ?"
+msgstr "XÓA ẢNH CHỤP MÀN HÌNH?"
+
+#: src/omega_fuzz/interfaces/tui/screens/targets_screen.py:58
+msgid "Scanner cette cible"
+msgstr "Quét mục tiêu này"
+
+#: src/omega_fuzz/interfaces/tui/screens/targets_screen.py:112
+msgid "Saisissez une URL."
+msgstr "Hãy nhập một URL."
+
+#: src/omega_fuzz/plugins/fuzzers/form_parameter_fuzzer.py:59
+msgid "Fuzz du champ de formulaire {field_name!r} sur {endpoint}"
+msgstr "Fuzz trường biểu mẫu {field_name!r} trên {endpoint}"
+
+#: src/omega_fuzz/plugins/fuzzers/header_fuzzer.py:50
+msgid "Fuzz du header {header_name!r} sur {endpoint}"
+msgstr "Fuzz header {header_name!r} trên {endpoint}"
+
+#: src/omega_fuzz/plugins/fuzzers/json_body_fuzzer.py:50
+msgid "Fuzz de la clé JSON {key_name!r} sur {endpoint}"
+msgstr "Fuzz khóa JSON {key_name!r} trên {endpoint}"
+
+#: src/omega_fuzz/plugins/fuzzers/query_parameter_fuzzer.py:45
+msgid "Fuzz du paramètre de requête {parameter_name!r} sur {endpoint}"
+msgstr "Fuzz tham số yêu cầu {parameter_name!r} trên {endpoint}"
+
+#: src/omega_fuzz/plugins/logic_tests/authorization_checks.py:40
+#, python-brace-format
+msgid "Vérifie que {endpoint} refuse la session courante — hypothèse : cette ressource nécessite un niveau de privilège que la session testée n'a pas"
+msgstr "Kiểm tra rằng {endpoint} từ chối phiên hiện tại — giả thuyết: tài nguyên này cần một mức quyền mà phiên đang kiểm thử không có"
+
+#: src/omega_fuzz/plugins/logic_tests/idor_checks.py:53
+msgid "Vérifie que la session courante n'accède pas aux ressources d'autrui via {id_parameter_name!r} sur {endpoint} — hypothèse : les valeurs candidates testées appartiennent à un autre utilisateur, tout accès obtenu est suspect"
+msgstr "Kiểm tra rằng phiên hiện tại không truy cập được tài nguyên của người khác qua {id_parameter_name!r} trên {endpoint} — giả thuyết: các giá trị ứng viên được thử thuộc về một người dùng khác, mọi truy cập có được đều đáng ngờ"
+
+#: src/omega_fuzz/plugins/logic_tests/workflow_checks.py:38
+#, python-brace-format
+msgid "Vérifie qu'un accès direct à {endpoint} sans passer par les étapes préalables du processus métier est refusé — hypothèse : cette étape nécessite un état préalable que la session testée n'a pas atteint"
+msgstr "Kiểm tra rằng truy cập trực tiếp vào {endpoint} mà bỏ qua các bước trước của quy trình nghiệp vụ bị từ chối — giả thuyết: bước này cần một trạng thái trước mà phiên đang kiểm thử chưa đạt tới"
+
+#: src/omega_fuzz/plugins/signatures/injection_signatures.py:50
+msgid "Signature d'injection générique sur le paramètre {parameter_name!r} de {endpoint}"
+msgstr "Dấu hiệu injection chung trên tham số {parameter_name!r} của {endpoint}"
+
+#: src/omega_fuzz/plugins/signatures/security_headers_signature.py:37
+#, python-brace-format
+msgid "Vérification des headers de sécurité sur {endpoint}"
+msgstr "Kiểm tra header bảo mật trên {endpoint}"
+
+#: src/omega_fuzz/plugins/signatures/xss_signatures.py:48
+msgid "Signature XSS réfléchie sur le paramètre {parameter_name!r} de {endpoint}"
+msgstr "Dấu hiệu XSS phản chiếu trên tham số {parameter_name!r} của {endpoint}"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:68
+#, python-brace-format
+msgid "# Rapport {scanner_name}"
+msgstr "# Báo cáo {scanner_name}"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:70
+#, python-brace-format
+msgid "- **Version** : {version}"
+msgstr "- **Phiên bản**: {version}"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:71
+#, python-brace-format
+msgid "- **Scan ID** : `{scan_id}`"
+msgstr "- **Mã quét**: `{scan_id}`"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:72
+#, python-brace-format
+msgid "- **Généré le** : {isoformat}"
+msgstr "- **Tạo lúc**: {isoformat}"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:73
+#, python-brace-format
+msgid "- **Cible** : {target_url}"
+msgstr "- **Mục tiêu**: {target_url}"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:74 src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:119
+#, python-brace-format
+msgid "- **Preset** : {preset}"
+msgstr "- **Preset**: {preset}"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:75
+msgid "**DÉSACTIVÉE**"
+msgstr "**ĐÃ TẮT**"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:75
+#, python-brace-format
+msgid "- **Vérification TLS** : {value}"
+msgstr "- **Kiểm tra TLS**: {value}"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:79
+#, python-brace-format
+msgid "- **Versions des catalogues** : {versions}"
+msgstr "- **Phiên bản danh mục**: {versions}"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:84
+msgid "> **ATTENTION** : la vérification TLS était désactivée pour ce scan. Les résultats peuvent avoir été obtenus via une connexion interceptée ou usurpée."
+msgstr "> **CHÚ Ý**: kiểm tra TLS đã bị tắt cho lần quét này. Kết quả có thể đã thu được qua một kết nối bị chặn bắt hoặc giả mạo."
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:95
+msgid "## Résumé exécutif"
+msgstr "## Tóm tắt điều hành"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:98
+#, python-brace-format
+msgid "- **Résultat** : {count} finding(s) — {critical} critique(s), {high} élevé(s), {medium} moyen(s), {low} faible(s)."
+msgstr "- **Kết quả**: {count} phát hiện — {critical} nghiêm trọng, {high} cao, {medium} trung bình, {low} thấp."
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:101
+#, python-brace-format
+msgid "- **Terminaison** : {value}"
+msgstr "- **Kết thúc**: {value}"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:104
+#, python-brace-format
+msgid "- **Avertissements** : {join}"
+msgstr "- **Cảnh báo**: {join}"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:110
+#, python-brace-format
+msgid ""
+"## Cible et scan ID\n"
+"\n"
+"- **Cible** : {target_url}\n"
+"- **Scan ID** : `{scan_id}`"
+msgstr ""
+"## Mục tiêu và mã quét\n"
+"\n"
+"- **Mục tiêu**: {target_url}\n"
+"- **Mã quét**: `{scan_id}`"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:117
+msgid "## Preset, profils et surcharges"
+msgstr "## Preset, hồ sơ và ghi đè"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:120
+#, python-brace-format
+msgid "- **Agressivité** : {value}"
+msgstr "- **Mức hung hãn**: {value}"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:121
+#, python-brace-format
+msgid "- **Profil de scope** : {value}"
+msgstr "- **Hồ sơ phạm vi**: {value}"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:122
+#, python-brace-format
+msgid "- **Confirmation requise** : {value}"
+msgstr "- **Cần xác nhận**: {value}"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:126
+#, python-brace-format
+msgid "- **Surcharges utilisateur** : {overrides_text}"
+msgstr "- **Ghi đè của người dùng**: {overrides_text}"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:128
+msgid "- **Surcharges utilisateur** : aucune"
+msgstr "- **Ghi đè của người dùng**: không có"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:136
+msgid "## Scope effectif et exclusions"
+msgstr "## Phạm vi thực tế và loại trừ"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:138
+#, python-brace-format
+msgid "- **Host racine** : {root_host}"
+msgstr "- **Host gốc**: {root_host}"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:139
+#, python-brace-format
+msgid "- **Mode** : {value}"
+msgstr "- **Chế độ**: {value}"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:140
+#, python-brace-format
+msgid "- **Schémas autorisés** : {join}"
+msgstr "- **Giao thức được phép**: {join}"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:141
+#, python-brace-format
+msgid "- **Port** : {scope_port}"
+msgstr "- **Cổng**: {scope_port}"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:142
+#, python-brace-format
+msgid "- **Profondeur max** : {max_depth}"
+msgstr "- **Độ sâu tối đa**: {max_depth}"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:145
+#, python-brace-format
+msgid "- **Sous-domaines autorisés** : {join}"
+msgstr "- **Tên miền con được phép**: {join}"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:147
+#, python-brace-format
+msgid "- **Sous-domaines bloqués** : {join}"
+msgstr "- **Tên miền con bị chặn**: {join}"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:149
+#, python-brace-format
+msgid "- **Chemins autorisés** : {join}"
+msgstr "- **Đường dẫn được phép**: {join}"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:151
+#, python-brace-format
+msgid "- **Chemins bloqués** : {join}"
+msgstr "- **Đường dẫn bị chặn**: {join}"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:154
+msgid "### Découverte"
+msgstr "### Khám phá"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:156
+#, python-brace-format
+msgid "- URLs vues : {urls_seen}"
+msgstr "- URL đã thấy: {urls_seen}"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:157
+#, python-brace-format
+msgid "- URLs dans le scope : {urls_in_scope}"
+msgstr "- URL trong phạm vi: {urls_in_scope}"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:158
+#, python-brace-format
+msgid "- URLs hors scope : {urls_out_of_scope}"
+msgstr "- URL ngoài phạm vi: {urls_out_of_scope}"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:159
+#, python-brace-format
+msgid "- URLs au-delà de la profondeur : {urls_beyond_depth}"
+msgstr "- URL vượt quá độ sâu: {urls_beyond_depth}"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:161
+msgid "### Redirections"
+msgstr "### Chuyển hướng"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:163
+#, python-brace-format
+msgid "- Suivies : {redirects_followed}"
+msgstr "- Đã theo: {redirects_followed}"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:164
+#, python-brace-format
+msgid "- Ignorées (externes) : {redirects_external_ignored}"
+msgstr "- Bỏ qua (bên ngoài): {redirects_external_ignored}"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:165
+#, python-brace-format
+msgid "- Ignorées (hors scope) : {redirects_out_of_scope_ignored}"
+msgstr "- Bỏ qua (ngoài phạm vi): {redirects_out_of_scope_ignored}"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:173
+#, python-brace-format
+msgid ""
+"## Limites configurées\n"
+"\n"
+"- Durée max : {max_duration_seconds} s\n"
+"- Requêtes max : {max_total_requests}\n"
+"- Tests max : {max_tests}\n"
+"- Concurrence max : {max_concurrent_requests}"
+msgstr ""
+"## Giới hạn đã cấu hình\n"
+"\n"
+"- Thời lượng tối đa: {max_duration_seconds} s\n"
+"- Yêu cầu tối đa: {max_total_requests}\n"
+"- Kiểm thử tối đa: {max_tests}\n"
+"- Đồng thời tối đa: {max_concurrent_requests}"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:180
+#, python-brace-format
+msgid ""
+"## Raison de terminaison\n"
+"\n"
+"{value}"
+msgstr ""
+"## Lý do kết thúc\n"
+"\n"
+"{value}"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:187
+msgid "## Statistiques de requêtes"
+msgstr "## Thống kê yêu cầu"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:190 src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:105
+msgid "Ces compteurs correspondent à la découverte et aux tests de sécurité, pas à un test de charge."
+msgstr "Các bộ đếm này ứng với khám phá và kiểm thử bảo mật, không phải kiểm thử tải."
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:194
+#, python-brace-format
+msgid "- Total : {total_requests}"
+msgstr "- Tổng: {total_requests}"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:195
+#, python-brace-format
+msgid "- Découverte : {discovery_requests}"
+msgstr "- Khám phá: {discovery_requests}"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:196
+#, python-brace-format
+msgid "- Test : {test_requests}"
+msgstr "- Kiểm thử: {test_requests}"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:198
+msgid "### Par module"
+msgstr "### Theo mô-đun"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:204
+msgid "- (aucune requête de test)"
+msgstr "- (không có yêu cầu kiểm thử)"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:207
+msgid "### Par statut"
+msgstr "### Theo trạng thái"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:213
+#, python-brace-format
+msgid "- Timeouts : {timeouts}"
+msgstr "- Timeout: {timeouts}"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:214
+#, python-brace-format
+msgid "- Erreurs de transport : {transport_errors}"
+msgstr "- Lỗi truyền tải: {transport_errors}"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:223
+msgid "## Statistiques de tests"
+msgstr "## Thống kê kiểm thử"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:225
+#, python-brace-format
+msgid "- Planifiés : {count}"
+msgstr "- Đã lên kế hoạch: {count}"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:226
+#, python-brace-format
+msgid "- Exécutés : {tests_executed}"
+msgstr "- Đã thực thi: {tests_executed}"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:227
+#, python-brace-format
+msgid "- Terminés : {tests_completed}"
+msgstr "- Đã xong: {tests_completed}"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:228
+#, python-brace-format
+msgid "- Abandonnés : {tests_aborted}"
+msgstr "- Đã hủy bỏ: {tests_aborted}"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:229
+#, python-brace-format
+msgid "- Non concluants : {tests_inconclusive}"
+msgstr "- Không kết luận: {tests_inconclusive}"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:231
+msgid "### Par type"
+msgstr "### Theo loại"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:237
+msgid "- (aucun test)"
+msgstr "- (không có kiểm thử)"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:244
+#, python-brace-format
+msgid ""
+"## Findings par sévérité\n"
+"\n"
+"- Total : {count}\n"
+"- Critique : {critical}\n"
+"- Élevé : {high}\n"
+"- Moyen : {medium}\n"
+"- Faible : {low}"
+msgstr ""
+"## Phát hiện theo mức độ\n"
+"\n"
+"- Tổng: {count}\n"
+"- Nghiêm trọng: {critical}\n"
+"- Cao: {high}\n"
+"- Trung bình: {medium}\n"
+"- Thấp: {low}"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:251
+#, python-brace-format
+msgid "### {finding_id} — {title}"
+msgstr "### {finding_id} — {title}"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:253
+#, python-brace-format
+msgid "**Statut** : `{value}`  "
+msgstr "**Trạng thái**: `{value}`  "
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:254
+#, python-brace-format
+msgid "**Sévérité** : `{value}`  "
+msgstr "**Mức độ**: `{value}`  "
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:255
+#, python-brace-format
+msgid "**Type** : `{type}`  "
+msgstr "**Loại**: `{type}`  "
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:256
+#, python-brace-format
+msgid "**Confiance** : `{value}`"
+msgstr "**Độ tin cậy**: `{value}`"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:258
+msgid "#### Cible"
+msgstr "#### Mục tiêu"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:260
+#, python-brace-format
+msgid "- **URL** : `{url}`"
+msgstr "- **URL**: `{url}`"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:261
+#, python-brace-format
+msgid "- **Endpoint** : `{endpoint}`"
+msgstr "- **Endpoint**: `{endpoint}`"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:262
+#, python-brace-format
+msgid "- **Méthode** : `{method}`"
+msgstr "- **Phương thức**: `{method}`"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:263
+#, python-brace-format
+msgid "- **Paramètre** : `{value}`"
+msgstr "- **Tham số**: `{value}`"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:263 src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:300
+msgid "N/A"
+msgstr "N/A"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:265
+msgid "#### Preuve"
+msgstr "#### Bằng chứng"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:267
+#, python-brace-format
+msgid "**Comportement observé** : {observed_behavior}"
+msgstr "**Hành vi quan sát được**: {observed_behavior}"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:269
+#, python-brace-format
+msgid "**Extrait (expurgé)** : `{evidence_summary}`"
+msgstr "**Trích đoạn (đã che)**: `{evidence_summary}`"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:271
+#, python-brace-format
+msgid "- Test ID : `{test_id}`"
+msgstr "- Mã kiểm thử: `{test_id}`"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:272
+#, python-brace-format
+msgid "- Request ID : `{request_id}`"
+msgstr "- Mã yêu cầu: `{request_id}`"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:278
+#, python-brace-format
+msgid "**Sévérité ajustée manuellement** : `{value}` -> `{value2}` — {severity_override_reason}"
+msgstr "**Mức độ được điều chỉnh thủ công**: `{value}` -> `{value2}` — {severity_override_reason}"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:287
+msgid ""
+"## Détail des findings\n"
+"\n"
+"Aucun finding."
+msgstr ""
+"## Chi tiết phát hiện\n"
+"\n"
+"Không có phát hiện."
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:288
+msgid "## Détail des findings"
+msgstr "## Chi tiết phát hiện"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:298
+#, python-brace-format
+msgid ""
+"## Annexes techniques\n"
+"\n"
+"- Versions des catalogues : {value}\n"
+"- Le détail brut complet (toutes les requêtes, tous les tests) est disponible dans l'export JSON correspondant."
+msgstr ""
+"## Phụ lục kỹ thuật\n"
+"\n"
+"- Phiên bản danh mục: {value}\n"
+"- Toàn bộ chi tiết thô (mọi yêu cầu, mọi kiểm thử) có trong bản xuất JSON tương ứng."
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:5
+#, python-brace-format
+msgid "Rapport {scanner_name} — {target_url}"
+msgstr "Báo cáo {scanner_name} — {target_url}"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:24
+#, python-brace-format
+msgid "Rapport {scanner_name}"
+msgstr "Báo cáo {scanner_name}"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:26
+msgid "Version"
+msgstr "Phiên bản"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:27
+msgid "Scan ID"
+msgstr "Mã quét"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:28
+msgid "Généré le"
+msgstr "Tạo lúc"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:33
+msgid "Versions des catalogues"
+msgstr "Phiên bản danh mục"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:37
+msgid "ATTENTION"
+msgstr "CHÚ Ý"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:37
+msgid ": la vérification TLS était désactivée pour ce scan. Les résultats peuvent avoir été obtenus via une connexion interceptée ou usurpée."
+msgstr ": kiểm tra TLS đã bị tắt cho lần quét này. Kết quả có thể đã thu được qua một kết nối bị chặn bắt hoặc giả mạo."
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:40
+msgid "Résumé exécutif"
+msgstr "Tóm tắt điều hành"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:42
+#, python-brace-format
+msgid "{findings} finding(s) —"
+msgstr "{findings} phát hiện —"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:43
+#, python-brace-format
+msgid "{critical} critique(s)"
+msgstr "{critical} nghiêm trọng"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:44
+#, python-brace-format
+msgid "{high} élevé(s)"
+msgstr "{high} cao"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:45
+#, python-brace-format
+msgid "{medium} moyen(s)"
+msgstr "{medium} trung bình"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:46
+#, python-brace-format
+msgid "{low} faible(s)"
+msgstr "{low} thấp"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:48
+#, python-brace-format
+msgid "Terminaison : {termination_sentence}"
+msgstr "Kết thúc: {termination_sentence}"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:50
+msgid "Avertissements"
+msgstr "Cảnh báo"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:53
+msgid "Cible et scan ID"
+msgstr "Mục tiêu và mã quét"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:54
+#, python-brace-format
+msgid "Cible : {target_url}"
+msgstr "Mục tiêu: {target_url}"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:56
+msgid "Preset, profils et surcharges"
+msgstr "Preset, hồ sơ và ghi đè"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:58
+#, python-brace-format
+msgid "Preset : {preset}"
+msgstr "Preset: {preset}"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:59
+#, python-brace-format
+msgid "Agressivité : {aggressiveness}"
+msgstr "Mức hung hãn: {aggressiveness}"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:60
+#, python-brace-format
+msgid "Profil de scope : {scope_profile}"
+msgstr "Hồ sơ phạm vi: {scope_profile}"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:61
+msgid "Confirmation requise :"
+msgstr "Cần xác nhận:"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:62
+msgid "Surcharges utilisateur :"
+msgstr "Ghi đè của người dùng:"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:67
+msgid "Scope effectif et exclusions"
+msgstr "Phạm vi thực tế và loại trừ"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:69
+#, python-brace-format
+msgid "Host racine : {root_host}"
+msgstr "Host gốc: {root_host}"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:70
+#, python-brace-format
+msgid "Mode : {mode}"
+msgstr "Chế độ: {mode}"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:71
+#, python-brace-format
+msgid "Schémas autorisés : {allowed_schemes}"
+msgstr "Giao thức được phép: {allowed_schemes}"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:72
+#, python-brace-format
+msgid "Port : {scope_port}"
+msgstr "Cổng: {scope_port}"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:73
+#, python-brace-format
+msgid "Profondeur max : {max_depth}"
+msgstr "Độ sâu tối đa: {max_depth}"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:74
+#, python-brace-format
+msgid "Sous-domaines autorisés : {allowed_subdomains}"
+msgstr "Tên miền con được phép: {allowed_subdomains}"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:75
+#, python-brace-format
+msgid "Sous-domaines bloqués : {blocked_subdomains}"
+msgstr "Tên miền con bị chặn: {blocked_subdomains}"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:76
+#, python-brace-format
+msgid "Chemins autorisés : {allowed_paths}"
+msgstr "Đường dẫn được phép: {allowed_paths}"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:77
+#, python-brace-format
+msgid "Chemins bloqués : {blocked_paths}"
+msgstr "Đường dẫn bị chặn: {blocked_paths}"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:79 src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:108
+msgid "Découverte"
+msgstr "Khám phá"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:81
+msgid "URLs vues"
+msgstr "URL đã thấy"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:82
+msgid "Dans le scope"
+msgstr "Trong phạm vi"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:83
+msgid "Hors scope"
+msgstr "Ngoài phạm vi"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:84
+msgid "Au-delà de la profondeur"
+msgstr "Vượt quá độ sâu"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:86
+msgid "Redirections"
+msgstr "Chuyển hướng"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:88
+msgid "Suivies"
+msgstr "Đã theo"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:89
+msgid "Ignorées (externes)"
+msgstr "Bỏ qua (bên ngoài)"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:90
+msgid "Ignorées (hors scope)"
+msgstr "Bỏ qua (ngoài phạm vi)"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:93
+msgid "Limites configurées"
+msgstr "Giới hạn đã cấu hình"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:101
+msgid "Raison de terminaison"
+msgstr "Lý do kết thúc"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:104
+msgid "Statistiques de requêtes"
+msgstr "Thống kê yêu cầu"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:107 src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:140
+msgid "Total"
+msgstr "Tổng"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:109
+msgid "Test"
+msgstr "Kiểm thử"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:111
+msgid "Par module"
+msgstr "Theo mô-đun"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:113
+msgid "(aucune requête de test)"
+msgstr "(không có yêu cầu kiểm thử)"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:115
+msgid "Par statut"
+msgstr "Theo trạng thái"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:121
+msgid "Timeouts"
+msgstr "Timeout"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:122
+msgid "Erreurs de transport"
+msgstr "Lỗi truyền tải"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:125
+msgid "Statistiques de tests"
+msgstr "Thống kê kiểm thử"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:127
+msgid "Planifiés"
+msgstr "Đã lên kế hoạch"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:128
+msgid "Exécutés"
+msgstr "Đã thực thi"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:129
+msgid "Terminés"
+msgstr "Đã xong"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:130
+msgid "Abandonnés"
+msgstr "Đã hủy bỏ"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:131
+msgid "Non concluants"
+msgstr "Không kết luận"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:133
+msgid "Par type"
+msgstr "Theo loại"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:135
+msgid "(aucun test)"
+msgstr "(không có kiểm thử)"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:138
+msgid "Findings par sévérité"
+msgstr "Phát hiện theo mức độ"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:141
+msgid "Critique"
+msgstr "Nghiêm trọng"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:142
+msgid "Élevé"
+msgstr "Cao"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:143
+msgid "Moyen"
+msgstr "Trung bình"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:144
+msgid "Faible"
+msgstr "Thấp"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:147
+msgid "Détail des findings"
+msgstr "Chi tiết phát hiện"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:149
+msgid "Aucun finding."
+msgstr "Không có phát hiện."
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:156
+#, python-brace-format
+msgid "— statut {status} — type {type} — confiance {confidence}"
+msgstr "— trạng thái {status} — loại {type} — độ tin cậy {confidence}"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:158
+#, python-brace-format
+msgid ": {method} {endpoint} (paramètre : {parameter})"
+msgstr ": {method} {endpoint} (tham số: {parameter})"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:159
+msgid "Comportement observé"
+msgstr "Hành vi quan sát được"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:160
+msgid "Extrait (expurgé)"
+msgstr "Trích đoạn (đã che)"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:161
+msgid "Test ID :"
+msgstr "Mã kiểm thử:"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:161
+msgid "— Request ID :"
+msgstr "— Mã yêu cầu:"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:163
+msgid "Sévérité ajustée manuellement"
+msgstr "Mức độ được điều chỉnh thủ công"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:163
+#, python-brace-format
+msgid ": {severity_auto} -> {severity_override} — {severity_override_reason}"
+msgstr ": {severity_auto} -> {severity_override} — {severity_override_reason}"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:168
+msgid "Annexes techniques"
+msgstr "Phụ lục kỹ thuật"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:169
+msgid "Versions des catalogues :"
+msgstr "Phiên bản danh mục:"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:172
+msgid "Le détail brut complet (toutes les requêtes, tous les tests) est disponible dans l'export JSON correspondant."
+msgstr "Toàn bộ chi tiết thô (mọi yêu cầu, mọi kiểm thử) có trong bản xuất JSON tương ứng."

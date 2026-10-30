@@ -10,6 +10,7 @@ from textual.screen import Screen
 from textual.widgets import Static
 
 from omega_fuzz.interfaces.tui.widgets.splash_hero import SplashHero
+from omega_fuzz.shared.i18n import _
 
 
 class SplashScreen(Screen[None]):
@@ -23,7 +24,7 @@ class SplashScreen(Screen[None]):
                 yield SplashHero()
             with Center():
                 yield Static(
-                    "Appuyez sur une touche pour continuer...", classes="omega-splash-prompt"
+                    _("Appuyez sur une touche pour continuer..."), classes="omega-splash-prompt"
                 )
 
     def on_key(self, event: events.Key) -> None:

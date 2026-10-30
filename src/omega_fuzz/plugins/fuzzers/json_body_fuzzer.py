@@ -20,6 +20,7 @@ from omega_fuzz.domain.requests.scan_request import ScanRequest
 from omega_fuzz.domain.tests.test import Test
 from omega_fuzz.plugins.fuzzers.common.fuzz_test_factory import build_fuzz_test
 from omega_fuzz.plugins.fuzzers.common.mutation_context import GENERIC_MUTATIONS
+from omega_fuzz.shared.i18n import _
 
 _MODULE = "fuzzhttp"
 _SUBTYPE = "json_body"
@@ -46,7 +47,7 @@ def build_plan(
         method="POST",
         endpoint=endpoint,
         parameters=(key_name,),
-        description=f"Fuzz de la cle JSON {key_name!r} sur {endpoint}",
+        description=_("Fuzz de la clé JSON {key_name!r} sur {endpoint}").format(key_name=key_name, endpoint=endpoint),
         now=now,
     )
 

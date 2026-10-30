@@ -18,6 +18,7 @@ from omega_fuzz.application.queries.list_pinned_targets import list_pinned_targe
 from omega_fuzz.domain.targets.url import UrlNormalizationError
 from omega_fuzz.interfaces.tui.screens._base import OmegaScreen
 from omega_fuzz.interfaces.tui.screens.scan_setup_screen import ScanSetupScreen
+from omega_fuzz.shared.i18n import _
 
 if TYPE_CHECKING:
     from collections.abc import Callable
@@ -44,26 +45,26 @@ class TargetsScreen(OmegaScreen):
     def compose(self) -> ComposeResult:
         yield Header()
         with Vertical(classes="omega-panel"):
-            yield Static("CIBLES", classes="omega-title")
+            yield Static(_("CIBLES"), classes="omega-title")
             with Horizontal(classes="omega-target-add-row"):
                 yield Input(placeholder="https://example.com/", id="new-target-input")
                 with Container(classes="omega-btn-frame"):
-                    yield Button("Ajouter", id="add", variant="primary")
+                    yield Button(_("Ajouter"), id="add", variant="primary")
 
             yield DataTable(id="targets-table")
 
             with Horizontal(classes="omega-actions"):
                 with Container(classes="omega-btn-frame"):
-                    yield Button("Scanner cette cible", id="scan-target", variant="primary")
+                    yield Button(_("Scanner cette cible"), id="scan-target", variant="primary")
                 with Container(classes="omega-btn-frame"):
-                    yield Button("Supprimer", id="remove", variant="error")
+                    yield Button(_("Supprimer"), id="remove", variant="error")
                 with Container(classes="omega-btn-frame"):
-                    yield Button("Retour", id="back")
+                    yield Button(_("Retour"), id="back")
         yield Footer()
 
     def on_mount(self) -> None:
         table = self.query_one("#targets-table", DataTable)
-        table.add_columns("Cible")
+        table.add_columns(_("Cible"))
         table.cursor_type = "row"
         self._refresh()
 
@@ -88,7 +89,7 @@ class TargetsScreen(OmegaScreen):
             self._add_target()
             return
         if self._selected_url is None:
-            self.app.notify("Selectionnez d'abord une cible.", severity="warning")
+            self.app.notify(_("Sélectionnez d'abord une cible."), severity="warning")
             return
         if event.button.id == "remove":
             unpin_target(target_repository=self._container.target_repository, url=self._selected_url)
@@ -108,7 +109,7 @@ class TargetsScreen(OmegaScreen):
         input_widget = self.query_one("#new-target-input", Input)
         raw = input_widget.value.strip()
         if not raw:
-            self.app.notify("Saisissez une URL.", severity="warning")
+            self.app.notify(_("Saisissez une URL."), severity="warning")
             return
         try:
             pin_target(target_repository=self._container.target_repository, raw_url=raw)

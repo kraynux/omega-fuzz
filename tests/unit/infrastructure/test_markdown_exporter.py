@@ -25,16 +25,16 @@ NOW = datetime(2026, 1, 1, tzinfo=timezone.utc)
 
 _EXPECTED_SECTION_HEADINGS = (
     "# Rapport OMEGA-FUZZ",
-    "## Resume executif",
+    "## Résumé exécutif",
     "## Cible et scan ID",
     "## Preset, profils et surcharges",
     "## Scope effectif et exclusions",
-    "## Limites configurees",
+    "## Limites configurées",
     "## Raison de terminaison",
-    "## Statistiques de requetes",
+    "## Statistiques de requêtes",
     "## Statistiques de tests",
-    "## Findings par severite",
-    "## Detail des findings",
+    "## Findings par sévérité",
+    "## Détail des findings",
     "## Annexes techniques",
 )
 
@@ -95,7 +95,7 @@ def test_tls_banner_hidden_when_verification_enabled(tmp_path: Path) -> None:
     MarkdownReportExporter().export(report=_report(verify_tls=True), format_name="markdown", output_path=output_path)
 
     text = output_path.read_text(encoding="utf-8")
-    assert "DESACTIVEE" not in text
+    assert "DÉSACTIVÉE" not in text
     assert "ATTENTION" not in text
 
 
@@ -104,7 +104,7 @@ def test_tls_banner_shown_when_verification_disabled(tmp_path: Path) -> None:
     MarkdownReportExporter().export(report=_report(verify_tls=False), format_name="markdown", output_path=output_path)
 
     text = output_path.read_text(encoding="utf-8")
-    assert "DESACTIVEE" in text
+    assert "DÉSACTIVÉE" in text
     assert "ATTENTION" in text
 
 

@@ -1,0 +1,1326 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: omega-fuzz\n"
+"Language: ar\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=6; plural=(n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 && n%100<=10 ? 3 : n%100>=11 ? 4 : 5);\n"
+"X-Omega-Status: testing\n"
+
+#: src/omega_fuzz/application/commands/clear_directory.py:52
+msgid "contient l'installation de omega-fuzz"
+msgstr "يحتوي على تثبيت omega-fuzz"
+
+#: src/omega_fuzz/application/commands/prepare_scan.py:32
+msgid "vérification TLS désactivée (--insecure-tls) : traitée comme une action à risque au même titre qu'un profil violent (OMEGA-FUZZ_SPECIFICATIONS.md §16)"
+msgstr "التحقق من TLS معطّل (--insecure-tls): يُعامَل كإجراء خطِر بمستوى ملف التعريف العنيف (OMEGA-FUZZ_SPECIFICATIONS.md §16)"
+
+#: src/omega_fuzz/application/commands/resume_scan.py:34
+#, python-brace-format
+msgid "{scan_id} (aucun état de pause persisté)"
+msgstr "{scan_id} (لا حالة إيقاف مؤقت محفوظة)"
+
+#: src/omega_fuzz/application/commands/start_scan.py:38
+msgid "Ce scan a été signalé comme nécessitant une confirmation explicite (profil agressif/étendu ou combinaison inhabituelle) : confirmez-vous vouloir le lancer ?"
+msgstr "وُسم هذا الفحص بأنه يتطلب تأكيدًا صريحًا (ملف تعريف عدواني/موسّع أو تركيبة غير معتادة): هل تؤكد رغبتك في تشغيله؟"
+
+#: src/omega_fuzz/application/commands/start_scan.py:85
+msgid "scan refusé : confirmation requise non obtenue"
+msgstr "رُفض الفحص: لم يُحصل على التأكيد المطلوب"
+
+#: src/omega_fuzz/application/exceptions.py:17
+#, python-brace-format
+msgid "scan introuvable : {scan_id}"
+msgstr "الفحص غير موجود: {scan_id}"
+
+#: src/omega_fuzz/application/exceptions.py:23
+#, python-brace-format
+msgid "transition de scan invalide : {current} -> {target}"
+msgstr "انتقال فحص غير صالح: {current} -> {target}"
+
+#: src/omega_fuzz/application/exceptions.py:35
+msgid "configuration incomplète : fournir un preset, ou une agressivité ET un scope profile"
+msgstr "إعداد غير مكتمل: قدّم preset، أو درجة العدوانية وملف تعريف النطاق معًا"
+
+#: src/omega_fuzz/domain/findings/finding.py:46 src/omega_fuzz/domain/services/severity_service.py:58
+msgid "severity_override nécessite une severity_override_reason justifiée"
+msgstr "يتطلب severity_override قيمة severity_override_reason مبرّرة"
+
+#: src/omega_fuzz/domain/profiles/profile_validation.py:25
+#, python-brace-format
+msgid "champs de limite inconnus dans la surcharge : {value}"
+msgstr "حقول حدود غير معروفة في التجاوز: {value}"
+
+#: src/omega_fuzz/domain/reports/termination.py:36
+msgid "Scan terminé normalement, aucune limite atteinte."
+msgstr "انتهى الفحص بشكل طبيعي، لم يُبلغ أي حد."
+
+#: src/omega_fuzz/domain/reports/termination.py:38
+msgid "Arrêt manuel demandé par l'utilisateur."
+msgstr "إيقاف يدوي بطلب من المستخدم."
+
+#: src/omega_fuzz/domain/reports/termination.py:41
+#, python-brace-format
+msgid "Limite `{limit_name}` atteinte (configurée : {configured_value}, observée : {observed_value})."
+msgstr "بُلغ الحد `{limit_name}` (المضبوط: {configured_value}، الملاحظ: {observed_value})."
+
+#: src/omega_fuzz/domain/reports/termination.py:45
+msgid "Arrêt avant obtention de résultats exploitables (erreur de configuration)."
+msgstr "توقّف قبل الحصول على نتائج قابلة للاستخدام (خطأ في الإعداد)."
+
+#: src/omega_fuzz/domain/reports/termination.py:47
+msgid "Erreur technique fatale en cours d'exécution."
+msgstr "خطأ تقني فادح أثناء التنفيذ."
+
+#: src/omega_fuzz/domain/services/finding_builder_service.py:47
+#, python-brace-format
+msgid "{capitalize} sur {endpoint}"
+msgstr "{capitalize} على {endpoint}"
+
+#: src/omega_fuzz/domain/services/limit_service.py:45
+#, python-brace-format
+msgid "{field_name}={value} dépasse le hard cap absolu ({hard_cap})"
+msgstr "{field_name}={value} يتجاوز الحد المطلق hard cap ({hard_cap})"
+
+#: src/omega_fuzz/domain/services/profile_resolution_service.py:56
+#, python-brace-format
+msgid "combinaison inhabituelle : {value} + {value2}"
+msgstr "تركيبة غير معتادة: {value} + {value2}"
+
+#: src/omega_fuzz/domain/services/url_normalization_service.py:31
+msgid "URL sans schéma (ajoutez http:// ou https:// devant l'adresse)"
+msgstr "URL دون مخطط (أضف http:// أو https:// قبل العنوان)"
+
+#: src/omega_fuzz/domain/services/url_normalization_service.py:35
+msgid "schéma non supporté : {scheme!r}"
+msgstr "مخطط غير مدعوم: {scheme!r}"
+
+#: src/omega_fuzz/domain/services/url_normalization_service.py:46
+msgid "URL sans host"
+msgstr "URL دون مضيف"
+
+#: src/omega_fuzz/domain/targets/scope.py:53
+msgid "regex de scope invalide : {raw_pattern!r} ({exc})"
+msgstr "تعبير regex للنطاق غير صالح: {raw_pattern!r} ({exc})"
+
+#: src/omega_fuzz/infrastructure/analyzers/access_control_analyzer.py:37
+#, python-brace-format
+msgid "Réponse {status_code} obtenue alors qu'un refus était attendu ({value})"
+msgstr "وردت استجابة {status_code} بينما كان الرفض متوقعًا ({value})"
+
+#: src/omega_fuzz/infrastructure/analyzers/error_detector.py:32
+#, python-brace-format
+msgid "Code HTTP anormal observé ({status_code})"
+msgstr "لوحظ رمز HTTP غير طبيعي ({status_code})"
+
+#: src/omega_fuzz/infrastructure/analyzers/error_detector.py:43
+msgid "Message d'erreur technique détecté dans la réponse ({signature!r})"
+msgstr "اكتُشفت رسالة خطأ تقنية في الاستجابة ({signature!r})"
+
+#: src/omega_fuzz/infrastructure/analyzers/header_analyzer.py:34
+#, python-brace-format
+msgid "Header de sécurité absent : {name}"
+msgstr "ترويسة أمان غائبة: {name}"
+
+#: src/omega_fuzz/infrastructure/analyzers/header_analyzer.py:48
+msgid "Header {name} : valeur inattendue ({value!r}, attendu {expected_value!r})"
+msgstr "الترويسة {name}: قيمة غير متوقعة ({value!r}، المتوقع {expected_value!r})"
+
+#: src/omega_fuzz/infrastructure/analyzers/reflection_detector.py:29
+msgid "Payload reflété dans la réponse (motif de détection confirmé)"
+msgstr "الحمولة منعكسة في الاستجابة (نمط الكشف مؤكد)"
+
+#: src/omega_fuzz/infrastructure/analyzers/reflection_detector.py:39
+msgid "Payload reflété tel quel dans la réponse (sous-chaîne)"
+msgstr "الحمولة منعكسة كما هي في الاستجابة (سلسلة فرعية)"
+
+#: src/omega_fuzz/infrastructure/configuration/auth_config_loader.py:37
+#, python-brace-format
+msgid "fichier auth-config illisible : {path}"
+msgstr "ملف auth-config غير قابل للقراءة: {path}"
+
+#: src/omega_fuzz/infrastructure/configuration/auth_config_loader.py:43
+#, python-brace-format
+msgid "auth-config invalide (attendu un mapping) : {path}"
+msgstr "auth-config غير صالح (يُتوقَّع mapping): {path}"
+
+#: src/omega_fuzz/infrastructure/configuration/auth_config_loader.py:53
+msgid "mode auth-config inconnu : {raw_mode!r} ({source})"
+msgstr "وضع auth-config غير معروف: {raw_mode!r} ({source})"
+
+#: src/omega_fuzz/infrastructure/configuration/auth_config_loader.py:58
+#, python-brace-format
+msgid "auth-config mode={value} : champs manquants {missing} ({source})"
+msgstr "auth-config mode={value}: حقول مفقودة {missing} ({source})"
+
+#: src/omega_fuzz/infrastructure/configuration/config_session_provider.py:75
+#, python-brace-format
+msgid "échec de la requête de connexion : {fetch_error}"
+msgstr "فشل طلب تسجيل الدخول: {fetch_error}"
+
+#: src/omega_fuzz/infrastructure/configuration/config_session_provider.py:78
+#, python-brace-format
+msgid "échec de la connexion (code HTTP {status_code})"
+msgstr "فشل تسجيل الدخول (رمز HTTP {status_code})"
+
+#: src/omega_fuzz/infrastructure/payloads/payload_loader.py:27
+#, python-brace-format
+msgid "catalogue illisible : {path}"
+msgstr "فهرس غير قابل للقراءة: {path}"
+
+#: src/omega_fuzz/infrastructure/payloads/payload_loader.py:31
+#, python-brace-format
+msgid "catalogue invalide (attendu un mapping) : {path}"
+msgstr "فهرس غير صالح (يُتوقَّع mapping): {path}"
+
+#: src/omega_fuzz/infrastructure/payloads/payload_loader.py:40 src/omega_fuzz/infrastructure/payloads/payload_loader.py:66
+#, python-brace-format
+msgid "catalogue {path} : champ 'version' manquant ou invalide"
+msgstr "الفهرس {path}: الحقل 'version' مفقود أو غير صالح"
+
+#: src/omega_fuzz/infrastructure/payloads/payload_loader.py:44
+#, python-brace-format
+msgid "catalogue {path} : champ 'payloads' manquant ou invalide"
+msgstr "الفهرس {path}: الحقل 'payloads' مفقود أو غير صالح"
+
+#: src/omega_fuzz/infrastructure/payloads/payload_loader.py:49
+msgid "catalogue {path} : entrée de payload invalide : {raw_entry!r}"
+msgstr "الفهرس {path}: إدخال حمولة غير صالح: {raw_entry!r}"
+
+#: src/omega_fuzz/infrastructure/payloads/payload_loader.py:71
+#, python-brace-format
+msgid "catalogue {path} : champ 'required_headers' manquant ou invalide"
+msgstr "الفهرس {path}: الحقل 'required_headers' مفقود أو غير صالح"
+
+#: src/omega_fuzz/infrastructure/payloads/payload_loader.py:77
+msgid "catalogue {path} : entrée de header invalide : {raw_header!r}"
+msgstr "الفهرس {path}: إدخال ترويسة غير صالح: {raw_header!r}"
+
+#: src/omega_fuzz/interfaces/cli/presenters/configuration_presenter.py:25
+#, python-brace-format
+msgid "Cible            : {to_str}"
+msgstr "الهدف            : {to_str}"
+
+#: src/omega_fuzz/interfaces/cli/presenters/configuration_presenter.py:26
+#, python-brace-format
+msgid "Preset           : {preset_label}"
+msgstr "Preset           : {preset_label}"
+
+#: src/omega_fuzz/interfaces/cli/presenters/configuration_presenter.py:27
+#, python-brace-format
+msgid "Agressivité      : {value}"
+msgstr "العدوانية        : {value}"
+
+#: src/omega_fuzz/interfaces/cli/presenters/configuration_presenter.py:28
+#, python-brace-format
+msgid "Profil de scope  : {value}"
+msgstr "ملف النطاق       : {value}"
+
+#: src/omega_fuzz/interfaces/cli/presenters/configuration_presenter.py:29 src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:31
+msgid "DÉSACTIVÉE"
+msgstr "معطّل"
+
+#: src/omega_fuzz/interfaces/cli/presenters/configuration_presenter.py:29
+#, python-brace-format
+msgid "Vérification TLS : {value}"
+msgstr "التحقق من TLS    : {value}"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:75 src/omega_fuzz/interfaces/cli/presenters/configuration_presenter.py:29 src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:31
+msgid "activée"
+msgstr "مفعّل"
+
+#: src/omega_fuzz/interfaces/cli/presenters/configuration_presenter.py:32
+#, python-brace-format
+msgid "Scope : {value}, host racine {root_host}, port {scope_port}, profondeur max {max_depth}"
+msgstr "النطاق: {value}، المضيف الجذر {root_host}، المنفذ {scope_port}، أقصى عمق {max_depth}"
+
+#: src/omega_fuzz/interfaces/cli/presenters/configuration_presenter.py:37
+#, python-brace-format
+msgid "  Sous-domaines bloqués : {join}"
+msgstr "  النطاقات الفرعية المحظورة : {join}"
+
+#: src/omega_fuzz/interfaces/cli/presenters/configuration_presenter.py:39
+#, python-brace-format
+msgid "  Chemins bloqués       : {join}"
+msgstr "  المسارات المحظورة         : {join}"
+
+#: src/omega_fuzz/interfaces/cli/presenters/configuration_presenter.py:44
+msgid "Limites :"
+msgstr "الحدود:"
+
+#: src/omega_fuzz/interfaces/cli/presenters/configuration_presenter.py:45
+#, python-brace-format
+msgid "  Durée max        : {max_duration_seconds} s"
+msgstr "  أقصى مدة         : {max_duration_seconds} s"
+
+#: src/omega_fuzz/interfaces/cli/presenters/configuration_presenter.py:46
+#, python-brace-format
+msgid "  Requêtes max     : {max_total_requests}"
+msgstr "  أقصى طلبات       : {max_total_requests}"
+
+#: src/omega_fuzz/interfaces/cli/presenters/configuration_presenter.py:47
+#, python-brace-format
+msgid "  Tests max        : {max_tests}"
+msgstr "  أقصى اختبارات    : {max_tests}"
+
+#: src/omega_fuzz/interfaces/cli/presenters/configuration_presenter.py:48
+#, python-brace-format
+msgid "  Concurrence max  : {max_concurrent_requests}"
+msgstr "  أقصى تزامن       : {max_concurrent_requests}"
+
+#: src/omega_fuzz/interfaces/cli/presenters/configuration_presenter.py:54
+msgid "Avertissements :"
+msgstr "تحذيرات:"
+
+#: src/omega_fuzz/interfaces/cli/presenters/configuration_presenter.py:62
+#, python-brace-format
+msgid "Estimation : ~{estimated_tests} tests, ~{estimated_requests} requêtes, profondeur ~{estimated_depth}"
+msgstr "التقدير: ~{estimated_tests} اختبار، ~{estimated_requests} طلب، العمق ~{estimated_depth}"
+
+#: src/omega_fuzz/interfaces/tui/app.py:41
+msgid "🗱 OMEGA-FUZZ"
+msgstr "🗱 OMEGA-FUZZ"
+
+#: src/omega_fuzz/interfaces/tui/app.py:163
+msgid "Screenshot"
+msgstr "لقطة شاشة"
+
+#: src/omega_fuzz/interfaces/tui/app.py:164
+msgid "Enregistrer une capture SVG de l'écran actuel"
+msgstr "حفظ لقطة SVG للشاشة الحالية"
+
+#: src/omega_fuzz/interfaces/tui/screens/help_screen.py:34
+msgid "Omega-fuzz découvre une cible dans un périmètre contrôlé (scope explicite, profondeur limitée) puis teste activement les points d'entrée trouvés (paramètres de requête, headers de sécurité) — jamais sans confirmation explicite pour les profils/modes à risque (agressivité violente, vérification TLS désactivée)."
+msgstr "يستكشف Omega-fuzz هدفًا ضمن نطاق مضبوط (نطاق صريح، عمق محدود) ثم يختبر بنشاط نقاط الدخول المكتشفة (معاملات الطلب، ترويسات الأمان) — ولا يفعل ذلك أبدًا دون تأكيد صريح لملفات التعريف/الأوضاع الخطرة (عدوانية عنيفة، تعطيل التحقق من TLS)."
+
+#: src/omega_fuzz/interfaces/tui/screens/help_screen.py:54
+msgid "Presets"
+msgstr "الإعدادات المسبقة"
+
+#: src/omega_fuzz/interfaces/tui/screens/help_screen.py:63 src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:30
+msgid "Preset"
+msgstr "Preset"
+
+#: src/omega_fuzz/interfaces/tui/screens/help_screen.py:64
+msgid "Scope"
+msgstr "النطاق"
+
+#: src/omega_fuzz/interfaces/tui/screens/help_screen.py:65
+msgid "Agressivité"
+msgstr "العدوانية"
+
+#: src/omega_fuzz/interfaces/tui/screens/help_screen.py:66 src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:95
+msgid "Durée max"
+msgstr "أقصى مدة"
+
+#: src/omega_fuzz/interfaces/tui/screens/help_screen.py:67 src/omega_fuzz/interfaces/tui/screens/scan_setup_screen.py:52 src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:96
+msgid "Requêtes max"
+msgstr "أقصى طلبات"
+
+#: src/omega_fuzz/interfaces/tui/screens/help_screen.py:68 src/omega_fuzz/interfaces/tui/screens/scan_setup_screen.py:53 src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:97
+msgid "Tests max"
+msgstr "أقصى اختبارات"
+
+#: src/omega_fuzz/interfaces/tui/screens/help_screen.py:70
+msgid "Confirmation"
+msgstr "التأكيد"
+
+#: src/omega_fuzz/interfaces/tui/screens/history_detail_screen.py:51
+#, python-brace-format
+msgid "SCAN {value}"
+msgstr "الفحص {value}"
+
+#: src/omega_fuzz/interfaces/tui/screens/history_detail_screen.py:53
+#, python-brace-format
+msgid "Cible : {target_id} — Statut : {value} — Créé le : {strftime}"
+msgstr "الهدف: {target_id} — الحالة: {value} — أُنشئ في: {strftime}"
+
+#: src/omega_fuzz/interfaces/tui/screens/history_detail_screen.py:60
+#, python-brace-format
+msgid "Terminaison : {value}"
+msgstr "الإنهاء: {value}"
+
+#: src/omega_fuzz/interfaces/tui/screens/history_detail_screen.py:62
+msgid "Export indisponible depuis l'historique : la configuration effective (preset/limites) et le détail des tests d'un scan passé ne sont pas persistés — seuls le scan et ses findings le sont."
+msgstr "التصدير غير متاح من السجل: لا يُحفظ الإعداد الفعلي (preset/الحدود) ولا تفاصيل اختبارات فحص سابق — يُحفظ الفحص ونتائجه فقط."
+
+#: src/omega_fuzz/interfaces/tui/screens/history_detail_screen.py:74 src/omega_fuzz/interfaces/tui/screens/scan_results_screen.py:83
+msgid "Endpoint"
+msgstr "Endpoint"
+
+#: src/omega_fuzz/interfaces/tui/screens/history_screen.py:52
+msgid "Créé le"
+msgstr "أُنشئ في"
+
+#: src/omega_fuzz/interfaces/tui/screens/history_screen.py:52
+msgid "Scan"
+msgstr "الفحص"
+
+#: src/omega_fuzz/interfaces/tui/screens/quit_confirm.py:21
+msgid "QUITTER OMEGA-FUZZ ?"
+msgstr "الخروج من OMEGA-FUZZ؟"
+
+#: src/omega_fuzz/interfaces/tui/screens/scan_progress_screen.py:87
+#, python-brace-format
+msgid "Scan de {to_str} en cours..."
+msgstr "جارٍ فحص {to_str}..."
+
+#: src/omega_fuzz/interfaces/tui/screens/scan_progress_screen.py:120
+msgid "Scan arrêté par l'utilisateur."
+msgstr "أوقف المستخدم الفحص."
+
+#: src/omega_fuzz/interfaces/tui/screens/scan_progress_screen.py:120
+msgid "Scan interrompu"
+msgstr "قوطع الفحص"
+
+#: src/omega_fuzz/interfaces/tui/screens/scan_results_screen.py:35
+msgid "Exporter JSON"
+msgstr "تصدير JSON"
+
+#: src/omega_fuzz/interfaces/tui/screens/scan_results_screen.py:36
+msgid "Exporter Markdown"
+msgstr "تصدير Markdown"
+
+#: src/omega_fuzz/interfaces/tui/screens/scan_results_screen.py:37
+msgid "Exporter HTML"
+msgstr "تصدير HTML"
+
+#: src/omega_fuzz/interfaces/tui/screens/scan_results_screen.py:55
+msgid "RÉSULTATS DU SCAN"
+msgstr "نتائج الفحص"
+
+#: src/omega_fuzz/interfaces/tui/screens/scan_results_screen.py:58
+#, python-brace-format
+msgid "Statut : {value}"
+msgstr "الحالة: {value}"
+
+#: src/omega_fuzz/interfaces/tui/screens/scan_results_screen.py:60
+#, python-brace-format
+msgid "Requêtes : {total_requests} (découverte {discovery_requests}, test {test_requests}) — Tests exécutés : {tests_executed} — Findings : {count}"
+msgstr "الطلبات: {total_requests} (استكشاف {discovery_requests}، اختبار {test_requests}) — الاختبارات المنفّذة: {tests_executed} — النتائج: {count}"
+
+#: src/omega_fuzz/interfaces/tui/screens/scan_results_screen.py:66
+msgid "Thème d'export (HTML)"
+msgstr "سمة التصدير (HTML)"
+
+#: src/omega_fuzz/interfaces/tui/screens/scan_results_screen.py:78
+msgid "Retour au menu"
+msgstr "العودة إلى القائمة"
+
+#: src/omega_fuzz/interfaces/tui/screens/scan_results_screen.py:143
+#, python-brace-format
+msgid "Rapport {format_name} : {value}"
+msgstr "تقرير {format_name}: {value}"
+
+#: src/omega_fuzz/interfaces/tui/screens/scan_review_screen.py:49
+msgid "REVUE AVANT LANCEMENT"
+msgstr "مراجعة قبل التشغيل"
+
+#: src/omega_fuzz/interfaces/tui/screens/scan_review_screen.py:55
+msgid "Confirmation requise avant lancement."
+msgstr "يلزم تأكيد قبل التشغيل."
+
+#: src/omega_fuzz/interfaces/tui/screens/scan_review_screen.py:57
+#, python-brace-format
+msgid "Tapez exactement : {required_phrase}"
+msgstr "اكتب حرفيًا: {required_phrase}"
+
+#: src/omega_fuzz/interfaces/tui/screens/scan_setup_screen.py:44
+#, python-brace-format
+msgid "Preset : {value}"
+msgstr "Preset: {value}"
+
+#: src/omega_fuzz/interfaces/tui/screens/scan_setup_screen.py:45
+msgid "Configuration manuelle"
+msgstr "إعداد يدوي"
+
+#: src/omega_fuzz/interfaces/tui/screens/scan_setup_screen.py:51
+msgid "Durée max (s)"
+msgstr "أقصى مدة (s)"
+
+#: src/omega_fuzz/interfaces/tui/screens/scan_setup_screen.py:54 src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:98
+msgid "Concurrence max"
+msgstr "أقصى تزامن"
+
+#: src/omega_fuzz/interfaces/tui/screens/scan_setup_screen.py:76
+msgid "NOUVEAU SCAN"
+msgstr "فحص جديد"
+
+#: src/omega_fuzz/interfaces/tui/screens/scan_setup_screen.py:83
+msgid "Configuration"
+msgstr "الإعداد"
+
+#: src/omega_fuzz/interfaces/tui/screens/scan_setup_screen.py:91
+msgid "Authentification (optionnel)"
+msgstr "المصادقة (اختياري)"
+
+#: src/omega_fuzz/interfaces/tui/screens/scan_setup_screen.py:92
+msgid "chemin d'un fichier YAML --auth-config"
+msgstr "مسار ملف YAML لـ --auth-config"
+
+#: src/omega_fuzz/interfaces/tui/screens/scan_setup_screen.py:95 src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:31
+msgid "Vérification TLS"
+msgstr "التحقق من TLS"
+
+#: src/omega_fuzz/interfaces/tui/screens/scan_setup_screen.py:98
+msgid "Limites (optionnel, laisser vide pour garder le profil)"
+msgstr "الحدود (اختياري، اتركها فارغة للإبقاء على ملف التعريف)"
+
+#: src/omega_fuzz/interfaces/tui/screens/scan_setup_screen.py:104
+msgid "Suivant"
+msgstr "التالي"
+
+#: src/omega_fuzz/interfaces/tui/screens/scan_setup_screen.py:135
+msgid "Valeur invalide pour {label} : {raw!r}"
+msgstr "قيمة غير صالحة لـ {label}: {raw!r}"
+
+#: src/omega_fuzz/interfaces/tui/screens/settings_screen.py:85
+msgid "Dossier d'export"
+msgstr "مجلد التصدير"
+
+#: src/omega_fuzz/interfaces/tui/screens/settings_screen.py:92
+msgid "Dossier des captures d'écran"
+msgstr "مجلد لقطات الشاشة"
+
+#: src/omega_fuzz/interfaces/tui/screens/settings_screen.py:109
+msgid "Supprimer les captures d'écran"
+msgstr "حذف لقطات الشاشة"
+
+#: src/omega_fuzz/interfaces/tui/screens/settings_screen.py:155
+msgid "Tous les scans et findings persistés seront définitivement supprimés."
+msgstr "ستُحذف كل الفحوص والنتائج المحفوظة نهائيًا."
+
+#: src/omega_fuzz/interfaces/tui/screens/settings_screen.py:171
+msgid "SUPPRIMER LES CAPTURES D'ÉCRAN ?"
+msgstr "حذف لقطات الشاشة؟"
+
+#: src/omega_fuzz/interfaces/tui/screens/targets_screen.py:58
+msgid "Scanner cette cible"
+msgstr "فحص هذا الهدف"
+
+#: src/omega_fuzz/interfaces/tui/screens/targets_screen.py:112
+msgid "Saisissez une URL."
+msgstr "أدخل URL."
+
+#: src/omega_fuzz/plugins/fuzzers/form_parameter_fuzzer.py:59
+msgid "Fuzz du champ de formulaire {field_name!r} sur {endpoint}"
+msgstr "Fuzz لحقل النموذج {field_name!r} على {endpoint}"
+
+#: src/omega_fuzz/plugins/fuzzers/header_fuzzer.py:50
+msgid "Fuzz du header {header_name!r} sur {endpoint}"
+msgstr "Fuzz للترويسة {header_name!r} على {endpoint}"
+
+#: src/omega_fuzz/plugins/fuzzers/json_body_fuzzer.py:50
+msgid "Fuzz de la clé JSON {key_name!r} sur {endpoint}"
+msgstr "Fuzz لمفتاح JSON {key_name!r} على {endpoint}"
+
+#: src/omega_fuzz/plugins/fuzzers/query_parameter_fuzzer.py:45
+msgid "Fuzz du paramètre de requête {parameter_name!r} sur {endpoint}"
+msgstr "Fuzz لمعامل الطلب {parameter_name!r} على {endpoint}"
+
+#: src/omega_fuzz/plugins/logic_tests/authorization_checks.py:40
+#, python-brace-format
+msgid "Vérifie que {endpoint} refuse la session courante — hypothèse : cette ressource nécessite un niveau de privilège que la session testée n'a pas"
+msgstr "يتحقق من أن {endpoint} يرفض الجلسة الحالية — الفرضية: هذا المورد يتطلب مستوى صلاحيات لا تملكه الجلسة المختبَرة"
+
+#: src/omega_fuzz/plugins/logic_tests/idor_checks.py:53
+msgid "Vérifie que la session courante n'accède pas aux ressources d'autrui via {id_parameter_name!r} sur {endpoint} — hypothèse : les valeurs candidates testées appartiennent à un autre utilisateur, tout accès obtenu est suspect"
+msgstr "يتحقق من أن الجلسة الحالية لا تصل إلى موارد الآخرين عبر {id_parameter_name!r} على {endpoint} — الفرضية: القيم المرشّحة المختبَرة تخص مستخدمًا آخر، وأي وصول يُحصَل عليه مريب"
+
+#: src/omega_fuzz/plugins/logic_tests/workflow_checks.py:38
+#, python-brace-format
+msgid "Vérifie qu'un accès direct à {endpoint} sans passer par les étapes préalables du processus métier est refusé — hypothèse : cette étape nécessite un état préalable que la session testée n'a pas atteint"
+msgstr "يتحقق من رفض الوصول المباشر إلى {endpoint} دون المرور بالخطوات السابقة في العملية التجارية — الفرضية: تتطلب هذه الخطوة حالة سابقة لم تبلغها الجلسة المختبَرة"
+
+#: src/omega_fuzz/plugins/signatures/injection_signatures.py:50
+msgid "Signature d'injection générique sur le paramètre {parameter_name!r} de {endpoint}"
+msgstr "بصمة حقن عامة على المعامل {parameter_name!r} في {endpoint}"
+
+#: src/omega_fuzz/plugins/signatures/security_headers_signature.py:37
+#, python-brace-format
+msgid "Vérification des headers de sécurité sur {endpoint}"
+msgstr "التحقق من ترويسات الأمان على {endpoint}"
+
+#: src/omega_fuzz/plugins/signatures/xss_signatures.py:48
+msgid "Signature XSS réfléchie sur le paramètre {parameter_name!r} de {endpoint}"
+msgstr "بصمة XSS منعكسة على المعامل {parameter_name!r} في {endpoint}"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:68
+#, python-brace-format
+msgid "# Rapport {scanner_name}"
+msgstr "# تقرير {scanner_name}"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:70
+#, python-brace-format
+msgid "- **Version** : {version}"
+msgstr "- **الإصدار**: {version}"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:71
+#, python-brace-format
+msgid "- **Scan ID** : `{scan_id}`"
+msgstr "- **معرّف الفحص**: `{scan_id}`"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:72
+#, python-brace-format
+msgid "- **Généré le** : {isoformat}"
+msgstr "- **أُنشئ في**: {isoformat}"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:73
+#, python-brace-format
+msgid "- **Cible** : {target_url}"
+msgstr "- **الهدف**: {target_url}"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:74 src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:119
+#, python-brace-format
+msgid "- **Preset** : {preset}"
+msgstr "- **Preset**: {preset}"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:75
+msgid "**DÉSACTIVÉE**"
+msgstr "**معطّل**"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:75
+#, python-brace-format
+msgid "- **Vérification TLS** : {value}"
+msgstr "- **التحقق من TLS**: {value}"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:79
+#, python-brace-format
+msgid "- **Versions des catalogues** : {versions}"
+msgstr "- **إصدارات الفهارس**: {versions}"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:84
+msgid "> **ATTENTION** : la vérification TLS était désactivée pour ce scan. Les résultats peuvent avoir été obtenus via une connexion interceptée ou usurpée."
+msgstr "> **تنبيه**: كان التحقق من TLS معطّلًا لهذا الفحص. ربما حُصل على النتائج عبر اتصال مُعترَض أو منتحَل."
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:95
+msgid "## Résumé exécutif"
+msgstr "## الملخص التنفيذي"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:98
+#, python-brace-format
+msgid "- **Résultat** : {count} finding(s) — {critical} critique(s), {high} élevé(s), {medium} moyen(s), {low} faible(s)."
+msgstr "- **النتيجة**: {count} نتيجة — {critical} حرجة، {high} مرتفعة، {medium} متوسطة، {low} منخفضة."
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:101
+#, python-brace-format
+msgid "- **Terminaison** : {value}"
+msgstr "- **الإنهاء**: {value}"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:104
+#, python-brace-format
+msgid "- **Avertissements** : {join}"
+msgstr "- **التحذيرات**: {join}"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:110
+#, python-brace-format
+msgid ""
+"## Cible et scan ID\n"
+"\n"
+"- **Cible** : {target_url}\n"
+"- **Scan ID** : `{scan_id}`"
+msgstr ""
+"## الهدف ومعرّف الفحص\n"
+"\n"
+"- **الهدف**: {target_url}\n"
+"- **معرّف الفحص**: `{scan_id}`"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:117
+msgid "## Preset, profils et surcharges"
+msgstr "## Preset وملفات التعريف والتجاوزات"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:120
+#, python-brace-format
+msgid "- **Agressivité** : {value}"
+msgstr "- **العدوانية**: {value}"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:121
+#, python-brace-format
+msgid "- **Profil de scope** : {value}"
+msgstr "- **ملف النطاق**: {value}"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:122
+#, python-brace-format
+msgid "- **Confirmation requise** : {value}"
+msgstr "- **يلزم التأكيد**: {value}"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:126
+#, python-brace-format
+msgid "- **Surcharges utilisateur** : {overrides_text}"
+msgstr "- **تجاوزات المستخدم**: {overrides_text}"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:128
+msgid "- **Surcharges utilisateur** : aucune"
+msgstr "- **تجاوزات المستخدم**: لا شيء"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:136
+msgid "## Scope effectif et exclusions"
+msgstr "## النطاق الفعلي والاستثناءات"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:138
+#, python-brace-format
+msgid "- **Host racine** : {root_host}"
+msgstr "- **المضيف الجذر**: {root_host}"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:139
+#, python-brace-format
+msgid "- **Mode** : {value}"
+msgstr "- **الوضع**: {value}"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:140
+#, python-brace-format
+msgid "- **Schémas autorisés** : {join}"
+msgstr "- **المخططات المسموح بها**: {join}"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:141
+#, python-brace-format
+msgid "- **Port** : {scope_port}"
+msgstr "- **المنفذ**: {scope_port}"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:142
+#, python-brace-format
+msgid "- **Profondeur max** : {max_depth}"
+msgstr "- **أقصى عمق**: {max_depth}"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:145
+#, python-brace-format
+msgid "- **Sous-domaines autorisés** : {join}"
+msgstr "- **النطاقات الفرعية المسموح بها**: {join}"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:147
+#, python-brace-format
+msgid "- **Sous-domaines bloqués** : {join}"
+msgstr "- **النطاقات الفرعية المحظورة**: {join}"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:149
+#, python-brace-format
+msgid "- **Chemins autorisés** : {join}"
+msgstr "- **المسارات المسموح بها**: {join}"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:151
+#, python-brace-format
+msgid "- **Chemins bloqués** : {join}"
+msgstr "- **المسارات المحظورة**: {join}"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:154
+msgid "### Découverte"
+msgstr "### الاستكشاف"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:156
+#, python-brace-format
+msgid "- URLs vues : {urls_seen}"
+msgstr "- عناوين URL المرئية: {urls_seen}"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:157
+#, python-brace-format
+msgid "- URLs dans le scope : {urls_in_scope}"
+msgstr "- عناوين URL ضمن النطاق: {urls_in_scope}"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:158
+#, python-brace-format
+msgid "- URLs hors scope : {urls_out_of_scope}"
+msgstr "- عناوين URL خارج النطاق: {urls_out_of_scope}"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:159
+#, python-brace-format
+msgid "- URLs au-delà de la profondeur : {urls_beyond_depth}"
+msgstr "- عناوين URL بعد حد العمق: {urls_beyond_depth}"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:161
+msgid "### Redirections"
+msgstr "### إعادات التوجيه"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:163
+#, python-brace-format
+msgid "- Suivies : {redirects_followed}"
+msgstr "- المتبَعة: {redirects_followed}"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:164
+#, python-brace-format
+msgid "- Ignorées (externes) : {redirects_external_ignored}"
+msgstr "- المتجاهَلة (خارجية): {redirects_external_ignored}"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:165
+#, python-brace-format
+msgid "- Ignorées (hors scope) : {redirects_out_of_scope_ignored}"
+msgstr "- المتجاهَلة (خارج النطاق): {redirects_out_of_scope_ignored}"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:173
+#, python-brace-format
+msgid ""
+"## Limites configurées\n"
+"\n"
+"- Durée max : {max_duration_seconds} s\n"
+"- Requêtes max : {max_total_requests}\n"
+"- Tests max : {max_tests}\n"
+"- Concurrence max : {max_concurrent_requests}"
+msgstr ""
+"## الحدود المضبوطة\n"
+"\n"
+"- أقصى مدة: {max_duration_seconds} s\n"
+"- أقصى طلبات: {max_total_requests}\n"
+"- أقصى اختبارات: {max_tests}\n"
+"- أقصى تزامن: {max_concurrent_requests}"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:180
+#, python-brace-format
+msgid ""
+"## Raison de terminaison\n"
+"\n"
+"{value}"
+msgstr ""
+"## سبب الإنهاء\n"
+"\n"
+"{value}"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:187
+msgid "## Statistiques de requêtes"
+msgstr "## إحصاءات الطلبات"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:190 src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:105
+msgid "Ces compteurs correspondent à la découverte et aux tests de sécurité, pas à un test de charge."
+msgstr "تتعلق هذه العدادات بالاستكشاف واختبارات الأمان، لا باختبار تحميل."
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:194
+#, python-brace-format
+msgid "- Total : {total_requests}"
+msgstr "- الإجمالي: {total_requests}"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:195
+#, python-brace-format
+msgid "- Découverte : {discovery_requests}"
+msgstr "- الاستكشاف: {discovery_requests}"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:196
+#, python-brace-format
+msgid "- Test : {test_requests}"
+msgstr "- الاختبار: {test_requests}"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:198
+msgid "### Par module"
+msgstr "### حسب الوحدة"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:204
+msgid "- (aucune requête de test)"
+msgstr "- (لا طلبات اختبار)"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:207
+msgid "### Par statut"
+msgstr "### حسب الحالة"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:213
+#, python-brace-format
+msgid "- Timeouts : {timeouts}"
+msgstr "- انتهاء المهلة: {timeouts}"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:214
+#, python-brace-format
+msgid "- Erreurs de transport : {transport_errors}"
+msgstr "- أخطاء النقل: {transport_errors}"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:223
+msgid "## Statistiques de tests"
+msgstr "## إحصاءات الاختبارات"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:225
+#, python-brace-format
+msgid "- Planifiés : {count}"
+msgstr "- المخطَّطة: {count}"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:226
+#, python-brace-format
+msgid "- Exécutés : {tests_executed}"
+msgstr "- المنفَّذة: {tests_executed}"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:227
+#, python-brace-format
+msgid "- Terminés : {tests_completed}"
+msgstr "- المكتملة: {tests_completed}"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:228
+#, python-brace-format
+msgid "- Abandonnés : {tests_aborted}"
+msgstr "- الملغاة: {tests_aborted}"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:229
+#, python-brace-format
+msgid "- Non concluants : {tests_inconclusive}"
+msgstr "- غير الحاسمة: {tests_inconclusive}"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:231
+msgid "### Par type"
+msgstr "### حسب النوع"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:237
+msgid "- (aucun test)"
+msgstr "- (لا اختبارات)"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:244
+#, python-brace-format
+msgid ""
+"## Findings par sévérité\n"
+"\n"
+"- Total : {count}\n"
+"- Critique : {critical}\n"
+"- Élevé : {high}\n"
+"- Moyen : {medium}\n"
+"- Faible : {low}"
+msgstr ""
+"## النتائج حسب الخطورة\n"
+"\n"
+"- الإجمالي: {count}\n"
+"- حرجة: {critical}\n"
+"- مرتفعة: {high}\n"
+"- متوسطة: {medium}\n"
+"- منخفضة: {low}"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:251
+#, python-brace-format
+msgid "### {finding_id} — {title}"
+msgstr "### {finding_id} — {title}"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:253
+#, python-brace-format
+msgid "**Statut** : `{value}`  "
+msgstr "**الحالة**: `{value}`  "
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:254
+#, python-brace-format
+msgid "**Sévérité** : `{value}`  "
+msgstr "**الخطورة**: `{value}`  "
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:255
+#, python-brace-format
+msgid "**Type** : `{type}`  "
+msgstr "**النوع**: `{type}`  "
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:256
+#, python-brace-format
+msgid "**Confiance** : `{value}`"
+msgstr "**الثقة**: `{value}`"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:258
+msgid "#### Cible"
+msgstr "#### الهدف"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:260
+#, python-brace-format
+msgid "- **URL** : `{url}`"
+msgstr "- **URL**: `{url}`"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:261
+#, python-brace-format
+msgid "- **Endpoint** : `{endpoint}`"
+msgstr "- **Endpoint**: `{endpoint}`"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:262
+#, python-brace-format
+msgid "- **Méthode** : `{method}`"
+msgstr "- **الطريقة**: `{method}`"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:263
+#, python-brace-format
+msgid "- **Paramètre** : `{value}`"
+msgstr "- **المعامل**: `{value}`"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:263 src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:300
+msgid "N/A"
+msgstr "غير متاح"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:265
+msgid "#### Preuve"
+msgstr "#### الدليل"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:267
+#, python-brace-format
+msgid "**Comportement observé** : {observed_behavior}"
+msgstr "**السلوك الملاحَظ**: {observed_behavior}"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:269
+#, python-brace-format
+msgid "**Extrait (expurgé)** : `{evidence_summary}`"
+msgstr "**مقتطف (مُخفى)**: `{evidence_summary}`"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:271
+#, python-brace-format
+msgid "- Test ID : `{test_id}`"
+msgstr "- معرّف الاختبار: `{test_id}`"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:272
+#, python-brace-format
+msgid "- Request ID : `{request_id}`"
+msgstr "- معرّف الطلب: `{request_id}`"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:278
+#, python-brace-format
+msgid "**Sévérité ajustée manuellement** : `{value}` -> `{value2}` — {severity_override_reason}"
+msgstr "**الخطورة معدَّلة يدويًا**: `{value}` -> `{value2}` — {severity_override_reason}"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:287
+msgid ""
+"## Détail des findings\n"
+"\n"
+"Aucun finding."
+msgstr ""
+"## تفاصيل النتائج\n"
+"\n"
+"لا نتائج."
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:288
+msgid "## Détail des findings"
+msgstr "## تفاصيل النتائج"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:298
+#, python-brace-format
+msgid ""
+"## Annexes techniques\n"
+"\n"
+"- Versions des catalogues : {value}\n"
+"- Le détail brut complet (toutes les requêtes, tous les tests) est disponible dans l'export JSON correspondant."
+msgstr ""
+"## الملاحق التقنية\n"
+"\n"
+"- إصدارات الفهارس: {value}\n"
+"- التفاصيل الخام الكاملة (كل الطلبات، كل الاختبارات) متاحة في تصدير JSON المقابل."
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:5
+#, python-brace-format
+msgid "Rapport {scanner_name} — {target_url}"
+msgstr "تقرير {scanner_name} — {target_url}"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:24
+#, python-brace-format
+msgid "Rapport {scanner_name}"
+msgstr "تقرير {scanner_name}"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:26
+msgid "Version"
+msgstr "الإصدار"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:27
+msgid "Scan ID"
+msgstr "معرّف الفحص"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:28
+msgid "Généré le"
+msgstr "أُنشئ في"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:33
+msgid "Versions des catalogues"
+msgstr "إصدارات الفهارس"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:37
+msgid "ATTENTION"
+msgstr "تنبيه"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:37
+msgid ": la vérification TLS était désactivée pour ce scan. Les résultats peuvent avoir été obtenus via une connexion interceptée ou usurpée."
+msgstr ": كان التحقق من TLS معطّلًا لهذا الفحص. ربما حُصل على النتائج عبر اتصال مُعترَض أو منتحَل."
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:40
+msgid "Résumé exécutif"
+msgstr "الملخص التنفيذي"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:42
+#, python-brace-format
+msgid "{findings} finding(s) —"
+msgstr "{findings} نتيجة —"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:43
+#, python-brace-format
+msgid "{critical} critique(s)"
+msgstr "{critical} حرجة"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:44
+#, python-brace-format
+msgid "{high} élevé(s)"
+msgstr "{high} مرتفعة"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:45
+#, python-brace-format
+msgid "{medium} moyen(s)"
+msgstr "{medium} متوسطة"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:46
+#, python-brace-format
+msgid "{low} faible(s)"
+msgstr "{low} منخفضة"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:48
+#, python-brace-format
+msgid "Terminaison : {termination_sentence}"
+msgstr "الإنهاء: {termination_sentence}"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:50
+msgid "Avertissements"
+msgstr "التحذيرات"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:53
+msgid "Cible et scan ID"
+msgstr "الهدف ومعرّف الفحص"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:54
+#, python-brace-format
+msgid "Cible : {target_url}"
+msgstr "الهدف: {target_url}"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:56
+msgid "Preset, profils et surcharges"
+msgstr "Preset وملفات التعريف والتجاوزات"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:58
+#, python-brace-format
+msgid "Preset : {preset}"
+msgstr "Preset: {preset}"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:59
+#, python-brace-format
+msgid "Agressivité : {aggressiveness}"
+msgstr "العدوانية: {aggressiveness}"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:60
+#, python-brace-format
+msgid "Profil de scope : {scope_profile}"
+msgstr "ملف النطاق: {scope_profile}"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:61
+msgid "Confirmation requise :"
+msgstr "يلزم التأكيد:"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:62
+msgid "Surcharges utilisateur :"
+msgstr "تجاوزات المستخدم:"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:67
+msgid "Scope effectif et exclusions"
+msgstr "النطاق الفعلي والاستثناءات"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:69
+#, python-brace-format
+msgid "Host racine : {root_host}"
+msgstr "المضيف الجذر: {root_host}"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:70
+#, python-brace-format
+msgid "Mode : {mode}"
+msgstr "الوضع: {mode}"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:71
+#, python-brace-format
+msgid "Schémas autorisés : {allowed_schemes}"
+msgstr "المخططات المسموح بها: {allowed_schemes}"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:72
+#, python-brace-format
+msgid "Port : {scope_port}"
+msgstr "المنفذ: {scope_port}"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:73
+#, python-brace-format
+msgid "Profondeur max : {max_depth}"
+msgstr "أقصى عمق: {max_depth}"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:74
+#, python-brace-format
+msgid "Sous-domaines autorisés : {allowed_subdomains}"
+msgstr "النطاقات الفرعية المسموح بها: {allowed_subdomains}"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:75
+#, python-brace-format
+msgid "Sous-domaines bloqués : {blocked_subdomains}"
+msgstr "النطاقات الفرعية المحظورة: {blocked_subdomains}"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:76
+#, python-brace-format
+msgid "Chemins autorisés : {allowed_paths}"
+msgstr "المسارات المسموح بها: {allowed_paths}"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:77
+#, python-brace-format
+msgid "Chemins bloqués : {blocked_paths}"
+msgstr "المسارات المحظورة: {blocked_paths}"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:79 src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:108
+msgid "Découverte"
+msgstr "الاستكشاف"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:81
+msgid "URLs vues"
+msgstr "عناوين URL المرئية"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:82
+msgid "Dans le scope"
+msgstr "ضمن النطاق"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:83
+msgid "Hors scope"
+msgstr "خارج النطاق"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:84
+msgid "Au-delà de la profondeur"
+msgstr "بعد حد العمق"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:86
+msgid "Redirections"
+msgstr "إعادات التوجيه"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:88
+msgid "Suivies"
+msgstr "المتبَعة"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:89
+msgid "Ignorées (externes)"
+msgstr "المتجاهَلة (خارجية)"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:90
+msgid "Ignorées (hors scope)"
+msgstr "المتجاهَلة (خارج النطاق)"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:93
+msgid "Limites configurées"
+msgstr "الحدود المضبوطة"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:101
+msgid "Raison de terminaison"
+msgstr "سبب الإنهاء"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:104
+msgid "Statistiques de requêtes"
+msgstr "إحصاءات الطلبات"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:107 src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:140
+msgid "Total"
+msgstr "الإجمالي"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:109
+msgid "Test"
+msgstr "الاختبار"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:111
+msgid "Par module"
+msgstr "حسب الوحدة"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:113
+msgid "(aucune requête de test)"
+msgstr "(لا طلبات اختبار)"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:115
+msgid "Par statut"
+msgstr "حسب الحالة"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:121
+msgid "Timeouts"
+msgstr "انتهاء المهلة"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:122
+msgid "Erreurs de transport"
+msgstr "أخطاء النقل"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:125
+msgid "Statistiques de tests"
+msgstr "إحصاءات الاختبارات"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:127
+msgid "Planifiés"
+msgstr "المخطَّطة"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:128
+msgid "Exécutés"
+msgstr "المنفَّذة"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:129
+msgid "Terminés"
+msgstr "المكتملة"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:130
+msgid "Abandonnés"
+msgstr "الملغاة"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:131
+msgid "Non concluants"
+msgstr "غير الحاسمة"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:133
+msgid "Par type"
+msgstr "حسب النوع"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:135
+msgid "(aucun test)"
+msgstr "(لا اختبارات)"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:138
+msgid "Findings par sévérité"
+msgstr "النتائج حسب الخطورة"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:141
+msgid "Critique"
+msgstr "حرجة"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:142
+msgid "Élevé"
+msgstr "عالية"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:143
+msgid "Moyen"
+msgstr "متوسطة"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:144
+msgid "Faible"
+msgstr "منخفضة"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:147
+msgid "Détail des findings"
+msgstr "تفاصيل النتائج"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:149
+msgid "Aucun finding."
+msgstr "لا نتائج."
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:156
+#, python-brace-format
+msgid "— statut {status} — type {type} — confiance {confidence}"
+msgstr "— الحالة {status} — النوع {type} — الثقة {confidence}"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:158
+#, python-brace-format
+msgid ": {method} {endpoint} (paramètre : {parameter})"
+msgstr ": {method} {endpoint} (المعامل: {parameter})"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:159
+msgid "Comportement observé"
+msgstr "السلوك الملاحَظ"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:160
+msgid "Extrait (expurgé)"
+msgstr "مقتطف (مُخفى)"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:161
+msgid "Test ID :"
+msgstr "معرّف الاختبار:"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:161
+msgid "— Request ID :"
+msgstr "— معرّف الطلب:"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:163
+msgid "Sévérité ajustée manuellement"
+msgstr "الخطورة معدَّلة يدويًا"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:163
+#, python-brace-format
+msgid ": {severity_auto} -> {severity_override} — {severity_override_reason}"
+msgstr ": {severity_auto} -> {severity_override} — {severity_override_reason}"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:168
+msgid "Annexes techniques"
+msgstr "الملاحق التقنية"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:169
+msgid "Versions des catalogues :"
+msgstr "إصدارات الفهارس:"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:172
+msgid "Le détail brut complet (toutes les requêtes, tous les tests) est disponible dans l'export JSON correspondant."
+msgstr "التفاصيل الخام الكاملة (كل الطلبات، كل الاختبارات) متاحة في تصدير JSON المقابل."

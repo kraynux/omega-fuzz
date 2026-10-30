@@ -10,6 +10,7 @@ from omega_fuzz.domain.targets.host import normalize_host
 from omega_fuzz.domain.targets.port import normalize_port
 from omega_fuzz.domain.targets.scheme import AllowedScheme
 from omega_fuzz.domain.targets.url import NormalizedUrl, UrlNormalizationError
+from omega_fuzz.shared.i18n import _
 
 
 def normalize_url(raw_url: str) -> NormalizedUrl:
@@ -27,11 +28,11 @@ def normalize_url(raw_url: str) -> NormalizedUrl:
     if not scheme:
         raise UrlNormalizationError(
             ExclusionReason.INVALID_URL,
-            "URL sans schema (ajoutez http:// ou https:// devant l'adresse)",
+            _("URL sans schéma (ajoutez http:// ou https:// devant l'adresse)"),
         )
     if scheme not in {AllowedScheme.HTTP.value, AllowedScheme.HTTPS.value}:
         raise UrlNormalizationError(
-            ExclusionReason.UNSUPPORTED_SCHEME, f"schema non supporte : {scheme!r}"
+            ExclusionReason.UNSUPPORTED_SCHEME, _("schéma non supporté : {scheme!r}").format(scheme=scheme)
         )
 
     try:
@@ -42,7 +43,7 @@ def normalize_url(raw_url: str) -> NormalizedUrl:
         raise UrlNormalizationError(ExclusionReason.INVALID_URL, str(exc)) from exc
 
     if not hostname:
-        raise UrlNormalizationError(ExclusionReason.INVALID_URL, "URL sans host")
+        raise UrlNormalizationError(ExclusionReason.INVALID_URL, _("URL sans host"))
 
     try:
         host = normalize_host(hostname)

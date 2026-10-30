@@ -10,6 +10,7 @@ from omega_lib.core.confidence import ConfidenceLevel
 
 from omega_fuzz.domain.findings.observation import Observation
 from omega_fuzz.domain.services.redaction_service import redact_body_snippet
+from omega_fuzz.shared.i18n import _
 
 _ERROR_SIGNATURES: tuple[str, ...] = (
     "sql syntax",
@@ -28,7 +29,7 @@ def detect_error(*, status_code: int, response_body: str, request_id: str) -> Ob
     if status_code >= 500:
         return Observation(
             kind="http_error",
-            description=f"Code HTTP anormal observe ({status_code})",
+            description=_("Code HTTP anormal observé ({status_code})").format(status_code=status_code),
             confidence=ConfidenceLevel.VERIFIED,
             request_id=request_id,
             evidence_summary=redact_body_snippet(response_body),
@@ -39,7 +40,7 @@ def detect_error(*, status_code: int, response_body: str, request_id: str) -> Ob
         if signature in lowered:
             return Observation(
                 kind="error_disclosure",
-                description=f"Message d'erreur technique detecte dans la reponse ({signature!r})",
+                description=_("Message d'erreur technique détecté dans la réponse ({signature!r})").format(signature=signature),
                 confidence=ConfidenceLevel.INFERRED,
                 request_id=request_id,
                 evidence_summary=redact_body_snippet(response_body),

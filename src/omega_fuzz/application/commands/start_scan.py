@@ -16,6 +16,7 @@ from omega_fuzz.domain.scans.scan_id import ScanId
 from omega_fuzz.domain.scans.scan_status import ScanStatus
 from omega_fuzz.domain.targets.target import Target
 from omega_fuzz.domain.targets.target_id import TargetId
+from omega_fuzz.shared.i18n import _
 
 if TYPE_CHECKING:
     from datetime import datetime
@@ -34,9 +35,8 @@ if TYPE_CHECKING:
     from omega_fuzz.ports.url_discoverer import UrlDiscoverer
 
 _CONFIRMATION_MESSAGE = (
-    "Ce scan a ete signale comme necessitant une confirmation explicite "
-    "(profil agressif/etendu ou combinaison inhabituelle) : confirmez-vous "
-    "vouloir le lancer ?"
+    _("Ce scan a été signalé comme nécessitant une confirmation explicite (profil "
+      "agressif/étendu ou combinaison inhabituelle) : confirmez-vous vouloir le lancer ?")
 )
 _STRICT_CONFIRMATION_PHRASE = "OUI-J-AI-L-AUTORISATION"
 
@@ -82,7 +82,7 @@ async def start_scan(
     if prepared.configuration.requires_confirmation and not confirmation_provider.confirm(
         message=_CONFIRMATION_MESSAGE, required_phrase=required_confirmation_phrase(prepared)
     ):
-        raise ApplicationError("scan refuse : confirmation requise non obtenue")
+        raise ApplicationError(_("scan refusé : confirmation requise non obtenue"))
 
     now: datetime = clock.now()
     scan = Scan(

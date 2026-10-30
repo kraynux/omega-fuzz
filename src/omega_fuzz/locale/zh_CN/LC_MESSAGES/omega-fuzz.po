@@ -1,0 +1,1326 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: omega-fuzz\n"
+"Language: zh_CN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Omega-Status: testing\n"
+
+#: src/omega_fuzz/application/commands/clear_directory.py:52
+msgid "contient l'installation de omega-fuzz"
+msgstr "包含 omega-fuzz 的安装"
+
+#: src/omega_fuzz/application/commands/prepare_scan.py:32
+msgid "vérification TLS désactivée (--insecure-tls) : traitée comme une action à risque au même titre qu'un profil violent (OMEGA-FUZZ_SPECIFICATIONS.md §16)"
+msgstr "TLS 验证已禁用（--insecure-tls）：视为与猛烈配置文件同等的风险操作（OMEGA-FUZZ_SPECIFICATIONS.md §16）"
+
+#: src/omega_fuzz/application/commands/resume_scan.py:34
+#, python-brace-format
+msgid "{scan_id} (aucun état de pause persisté)"
+msgstr "{scan_id}（没有已保存的暂停状态）"
+
+#: src/omega_fuzz/application/commands/start_scan.py:38
+msgid "Ce scan a été signalé comme nécessitant une confirmation explicite (profil agressif/étendu ou combinaison inhabituelle) : confirmez-vous vouloir le lancer ?"
+msgstr "此扫描被标记为需要明确确认（激进/扩展配置文件或不寻常的组合）：您确认要启动它吗？"
+
+#: src/omega_fuzz/application/commands/start_scan.py:85
+msgid "scan refusé : confirmation requise non obtenue"
+msgstr "扫描被拒绝：未获得所需的确认"
+
+#: src/omega_fuzz/application/exceptions.py:17
+#, python-brace-format
+msgid "scan introuvable : {scan_id}"
+msgstr "未找到扫描：{scan_id}"
+
+#: src/omega_fuzz/application/exceptions.py:23
+#, python-brace-format
+msgid "transition de scan invalide : {current} -> {target}"
+msgstr "无效的扫描状态转换：{current} -> {target}"
+
+#: src/omega_fuzz/application/exceptions.py:35
+msgid "configuration incomplète : fournir un preset, ou une agressivité ET un scope profile"
+msgstr "配置不完整：请提供 preset，或同时提供激进程度和范围配置文件"
+
+#: src/omega_fuzz/domain/findings/finding.py:46 src/omega_fuzz/domain/services/severity_service.py:58
+msgid "severity_override nécessite une severity_override_reason justifiée"
+msgstr "severity_override 需要合理的 severity_override_reason"
+
+#: src/omega_fuzz/domain/profiles/profile_validation.py:25
+#, python-brace-format
+msgid "champs de limite inconnus dans la surcharge : {value}"
+msgstr "覆盖中存在未知的限制字段：{value}"
+
+#: src/omega_fuzz/domain/reports/termination.py:36
+msgid "Scan terminé normalement, aucune limite atteinte."
+msgstr "扫描正常结束，未达到任何限制。"
+
+#: src/omega_fuzz/domain/reports/termination.py:38
+msgid "Arrêt manuel demandé par l'utilisateur."
+msgstr "用户请求手动停止。"
+
+#: src/omega_fuzz/domain/reports/termination.py:41
+#, python-brace-format
+msgid "Limite `{limit_name}` atteinte (configurée : {configured_value}, observée : {observed_value})."
+msgstr "已达到限制 `{limit_name}`（配置值：{configured_value}，观察值：{observed_value}）。"
+
+#: src/omega_fuzz/domain/reports/termination.py:45
+msgid "Arrêt avant obtention de résultats exploitables (erreur de configuration)."
+msgstr "在获得可用结果之前停止（配置错误）。"
+
+#: src/omega_fuzz/domain/reports/termination.py:47
+msgid "Erreur technique fatale en cours d'exécution."
+msgstr "执行过程中发生致命技术错误。"
+
+#: src/omega_fuzz/domain/services/finding_builder_service.py:47
+#, python-brace-format
+msgid "{capitalize} sur {endpoint}"
+msgstr "{capitalize}（{endpoint}）"
+
+#: src/omega_fuzz/domain/services/limit_service.py:45
+#, python-brace-format
+msgid "{field_name}={value} dépasse le hard cap absolu ({hard_cap})"
+msgstr "{field_name}={value} 超出绝对 hard cap（{hard_cap}）"
+
+#: src/omega_fuzz/domain/services/profile_resolution_service.py:56
+#, python-brace-format
+msgid "combinaison inhabituelle : {value} + {value2}"
+msgstr "不寻常的组合：{value} + {value2}"
+
+#: src/omega_fuzz/domain/services/url_normalization_service.py:31
+msgid "URL sans schéma (ajoutez http:// ou https:// devant l'adresse)"
+msgstr "URL 缺少协议（请在地址前加上 http:// 或 https://）"
+
+#: src/omega_fuzz/domain/services/url_normalization_service.py:35
+msgid "schéma non supporté : {scheme!r}"
+msgstr "不支持的协议：{scheme!r}"
+
+#: src/omega_fuzz/domain/services/url_normalization_service.py:46
+msgid "URL sans host"
+msgstr "URL 缺少主机"
+
+#: src/omega_fuzz/domain/targets/scope.py:53
+msgid "regex de scope invalide : {raw_pattern!r} ({exc})"
+msgstr "无效的范围正则表达式：{raw_pattern!r}（{exc}）"
+
+#: src/omega_fuzz/infrastructure/analyzers/access_control_analyzer.py:37
+#, python-brace-format
+msgid "Réponse {status_code} obtenue alors qu'un refus était attendu ({value})"
+msgstr "预期应被拒绝（{value}），却收到了 {status_code} 响应"
+
+#: src/omega_fuzz/infrastructure/analyzers/error_detector.py:32
+#, python-brace-format
+msgid "Code HTTP anormal observé ({status_code})"
+msgstr "观察到异常的 HTTP 代码（{status_code}）"
+
+#: src/omega_fuzz/infrastructure/analyzers/error_detector.py:43
+msgid "Message d'erreur technique détecté dans la réponse ({signature!r})"
+msgstr "在响应中检测到技术性错误信息（{signature!r}）"
+
+#: src/omega_fuzz/infrastructure/analyzers/header_analyzer.py:34
+#, python-brace-format
+msgid "Header de sécurité absent : {name}"
+msgstr "缺少安全头：{name}"
+
+#: src/omega_fuzz/infrastructure/analyzers/header_analyzer.py:48
+msgid "Header {name} : valeur inattendue ({value!r}, attendu {expected_value!r})"
+msgstr "头 {name}：意外的值（{value!r}，期望 {expected_value!r}）"
+
+#: src/omega_fuzz/infrastructure/analyzers/reflection_detector.py:29
+msgid "Payload reflété dans la réponse (motif de détection confirmé)"
+msgstr "Payload 在响应中被反射（检测模式已确认）"
+
+#: src/omega_fuzz/infrastructure/analyzers/reflection_detector.py:39
+msgid "Payload reflété tel quel dans la réponse (sous-chaîne)"
+msgstr "Payload 在响应中被原样反射（子字符串）"
+
+#: src/omega_fuzz/infrastructure/configuration/auth_config_loader.py:37
+#, python-brace-format
+msgid "fichier auth-config illisible : {path}"
+msgstr "auth-config 文件无法读取：{path}"
+
+#: src/omega_fuzz/infrastructure/configuration/auth_config_loader.py:43
+#, python-brace-format
+msgid "auth-config invalide (attendu un mapping) : {path}"
+msgstr "auth-config 无效（期望一个映射）：{path}"
+
+#: src/omega_fuzz/infrastructure/configuration/auth_config_loader.py:53
+msgid "mode auth-config inconnu : {raw_mode!r} ({source})"
+msgstr "未知的 auth-config 模式：{raw_mode!r}（{source}）"
+
+#: src/omega_fuzz/infrastructure/configuration/auth_config_loader.py:58
+#, python-brace-format
+msgid "auth-config mode={value} : champs manquants {missing} ({source})"
+msgstr "auth-config mode={value}：缺少字段 {missing}（{source}）"
+
+#: src/omega_fuzz/infrastructure/configuration/config_session_provider.py:75
+#, python-brace-format
+msgid "échec de la requête de connexion : {fetch_error}"
+msgstr "登录请求失败：{fetch_error}"
+
+#: src/omega_fuzz/infrastructure/configuration/config_session_provider.py:78
+#, python-brace-format
+msgid "échec de la connexion (code HTTP {status_code})"
+msgstr "登录失败（HTTP 代码 {status_code}）"
+
+#: src/omega_fuzz/infrastructure/payloads/payload_loader.py:27
+#, python-brace-format
+msgid "catalogue illisible : {path}"
+msgstr "目录文件无法读取：{path}"
+
+#: src/omega_fuzz/infrastructure/payloads/payload_loader.py:31
+#, python-brace-format
+msgid "catalogue invalide (attendu un mapping) : {path}"
+msgstr "目录文件无效（期望一个映射）：{path}"
+
+#: src/omega_fuzz/infrastructure/payloads/payload_loader.py:40 src/omega_fuzz/infrastructure/payloads/payload_loader.py:66
+#, python-brace-format
+msgid "catalogue {path} : champ 'version' manquant ou invalide"
+msgstr "目录文件 {path}：'version' 字段缺失或无效"
+
+#: src/omega_fuzz/infrastructure/payloads/payload_loader.py:44
+#, python-brace-format
+msgid "catalogue {path} : champ 'payloads' manquant ou invalide"
+msgstr "目录文件 {path}：'payloads' 字段缺失或无效"
+
+#: src/omega_fuzz/infrastructure/payloads/payload_loader.py:49
+msgid "catalogue {path} : entrée de payload invalide : {raw_entry!r}"
+msgstr "目录文件 {path}：无效的 payload 条目：{raw_entry!r}"
+
+#: src/omega_fuzz/infrastructure/payloads/payload_loader.py:71
+#, python-brace-format
+msgid "catalogue {path} : champ 'required_headers' manquant ou invalide"
+msgstr "目录文件 {path}：'required_headers' 字段缺失或无效"
+
+#: src/omega_fuzz/infrastructure/payloads/payload_loader.py:77
+msgid "catalogue {path} : entrée de header invalide : {raw_header!r}"
+msgstr "目录文件 {path}：无效的头条目：{raw_header!r}"
+
+#: src/omega_fuzz/interfaces/cli/presenters/configuration_presenter.py:25
+#, python-brace-format
+msgid "Cible            : {to_str}"
+msgstr "目标            : {to_str}"
+
+#: src/omega_fuzz/interfaces/cli/presenters/configuration_presenter.py:26
+#, python-brace-format
+msgid "Preset           : {preset_label}"
+msgstr "Preset          : {preset_label}"
+
+#: src/omega_fuzz/interfaces/cli/presenters/configuration_presenter.py:27
+#, python-brace-format
+msgid "Agressivité      : {value}"
+msgstr "激进程度        : {value}"
+
+#: src/omega_fuzz/interfaces/cli/presenters/configuration_presenter.py:28
+#, python-brace-format
+msgid "Profil de scope  : {value}"
+msgstr "范围配置文件    : {value}"
+
+#: src/omega_fuzz/interfaces/cli/presenters/configuration_presenter.py:29 src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:31
+msgid "DÉSACTIVÉE"
+msgstr "已禁用"
+
+#: src/omega_fuzz/interfaces/cli/presenters/configuration_presenter.py:29
+#, python-brace-format
+msgid "Vérification TLS : {value}"
+msgstr "TLS 验证        : {value}"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:75 src/omega_fuzz/interfaces/cli/presenters/configuration_presenter.py:29 src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:31
+msgid "activée"
+msgstr "已启用"
+
+#: src/omega_fuzz/interfaces/cli/presenters/configuration_presenter.py:32
+#, python-brace-format
+msgid "Scope : {value}, host racine {root_host}, port {scope_port}, profondeur max {max_depth}"
+msgstr "范围：{value}，根主机 {root_host}，端口 {scope_port}，最大深度 {max_depth}"
+
+#: src/omega_fuzz/interfaces/cli/presenters/configuration_presenter.py:37
+#, python-brace-format
+msgid "  Sous-domaines bloqués : {join}"
+msgstr "  被阻止的子域名 : {join}"
+
+#: src/omega_fuzz/interfaces/cli/presenters/configuration_presenter.py:39
+#, python-brace-format
+msgid "  Chemins bloqués       : {join}"
+msgstr "  被阻止的路径   : {join}"
+
+#: src/omega_fuzz/interfaces/cli/presenters/configuration_presenter.py:44
+msgid "Limites :"
+msgstr "限制："
+
+#: src/omega_fuzz/interfaces/cli/presenters/configuration_presenter.py:45
+#, python-brace-format
+msgid "  Durée max        : {max_duration_seconds} s"
+msgstr "  最大时长       : {max_duration_seconds} s"
+
+#: src/omega_fuzz/interfaces/cli/presenters/configuration_presenter.py:46
+#, python-brace-format
+msgid "  Requêtes max     : {max_total_requests}"
+msgstr "  最大请求数     : {max_total_requests}"
+
+#: src/omega_fuzz/interfaces/cli/presenters/configuration_presenter.py:47
+#, python-brace-format
+msgid "  Tests max        : {max_tests}"
+msgstr "  最大测试数     : {max_tests}"
+
+#: src/omega_fuzz/interfaces/cli/presenters/configuration_presenter.py:48
+#, python-brace-format
+msgid "  Concurrence max  : {max_concurrent_requests}"
+msgstr "  最大并发数     : {max_concurrent_requests}"
+
+#: src/omega_fuzz/interfaces/cli/presenters/configuration_presenter.py:54
+msgid "Avertissements :"
+msgstr "警告："
+
+#: src/omega_fuzz/interfaces/cli/presenters/configuration_presenter.py:62
+#, python-brace-format
+msgid "Estimation : ~{estimated_tests} tests, ~{estimated_requests} requêtes, profondeur ~{estimated_depth}"
+msgstr "估计：约 {estimated_tests} 个测试，约 {estimated_requests} 个请求，深度约 {estimated_depth}"
+
+#: src/omega_fuzz/interfaces/tui/app.py:41
+msgid "🗱 OMEGA-FUZZ"
+msgstr "🗱 OMEGA-FUZZ"
+
+#: src/omega_fuzz/interfaces/tui/app.py:163
+msgid "Screenshot"
+msgstr "截图"
+
+#: src/omega_fuzz/interfaces/tui/app.py:164
+msgid "Enregistrer une capture SVG de l'écran actuel"
+msgstr "保存当前界面的 SVG 截图"
+
+#: src/omega_fuzz/interfaces/tui/screens/help_screen.py:34
+msgid "Omega-fuzz découvre une cible dans un périmètre contrôlé (scope explicite, profondeur limitée) puis teste activement les points d'entrée trouvés (paramètres de requête, headers de sécurité) — jamais sans confirmation explicite pour les profils/modes à risque (agressivité violente, vérification TLS désactivée)."
+msgstr "Omega-fuzz 在受控范围内（明确的范围、有限的深度）探索目标，然后主动测试找到的入口点（请求参数、安全头）——对有风险的配置文件/模式（猛烈的激进程度、禁用 TLS 验证），未经明确确认绝不执行。"
+
+#: src/omega_fuzz/interfaces/tui/screens/help_screen.py:54
+msgid "Presets"
+msgstr "预设"
+
+#: src/omega_fuzz/interfaces/tui/screens/help_screen.py:63 src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:30
+msgid "Preset"
+msgstr "Preset"
+
+#: src/omega_fuzz/interfaces/tui/screens/help_screen.py:64
+msgid "Scope"
+msgstr "范围"
+
+#: src/omega_fuzz/interfaces/tui/screens/help_screen.py:65
+msgid "Agressivité"
+msgstr "激进程度"
+
+#: src/omega_fuzz/interfaces/tui/screens/help_screen.py:66 src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:95
+msgid "Durée max"
+msgstr "最大时长"
+
+#: src/omega_fuzz/interfaces/tui/screens/help_screen.py:67 src/omega_fuzz/interfaces/tui/screens/scan_setup_screen.py:52 src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:96
+msgid "Requêtes max"
+msgstr "最大请求数"
+
+#: src/omega_fuzz/interfaces/tui/screens/help_screen.py:68 src/omega_fuzz/interfaces/tui/screens/scan_setup_screen.py:53 src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:97
+msgid "Tests max"
+msgstr "最大测试数"
+
+#: src/omega_fuzz/interfaces/tui/screens/help_screen.py:70
+msgid "Confirmation"
+msgstr "确认"
+
+#: src/omega_fuzz/interfaces/tui/screens/history_detail_screen.py:51
+#, python-brace-format
+msgid "SCAN {value}"
+msgstr "扫描 {value}"
+
+#: src/omega_fuzz/interfaces/tui/screens/history_detail_screen.py:53
+#, python-brace-format
+msgid "Cible : {target_id} — Statut : {value} — Créé le : {strftime}"
+msgstr "目标：{target_id} — 状态：{value} — 创建于：{strftime}"
+
+#: src/omega_fuzz/interfaces/tui/screens/history_detail_screen.py:60
+#, python-brace-format
+msgid "Terminaison : {value}"
+msgstr "终止：{value}"
+
+#: src/omega_fuzz/interfaces/tui/screens/history_detail_screen.py:62
+msgid "Export indisponible depuis l'historique : la configuration effective (preset/limites) et le détail des tests d'un scan passé ne sont pas persistés — seuls le scan et ses findings le sont."
+msgstr "无法从历史中导出：历史扫描的实际配置（preset/限制）和测试详情不会被保存——只保存扫描及其发现项。"
+
+#: src/omega_fuzz/interfaces/tui/screens/history_detail_screen.py:74 src/omega_fuzz/interfaces/tui/screens/scan_results_screen.py:83
+msgid "Endpoint"
+msgstr "Endpoint"
+
+#: src/omega_fuzz/interfaces/tui/screens/history_screen.py:52
+msgid "Créé le"
+msgstr "创建于"
+
+#: src/omega_fuzz/interfaces/tui/screens/history_screen.py:52
+msgid "Scan"
+msgstr "扫描"
+
+#: src/omega_fuzz/interfaces/tui/screens/quit_confirm.py:21
+msgid "QUITTER OMEGA-FUZZ ?"
+msgstr "退出 OMEGA-FUZZ？"
+
+#: src/omega_fuzz/interfaces/tui/screens/scan_progress_screen.py:87
+#, python-brace-format
+msgid "Scan de {to_str} en cours..."
+msgstr "正在扫描 {to_str}..."
+
+#: src/omega_fuzz/interfaces/tui/screens/scan_progress_screen.py:120
+msgid "Scan arrêté par l'utilisateur."
+msgstr "扫描已被用户停止。"
+
+#: src/omega_fuzz/interfaces/tui/screens/scan_progress_screen.py:120
+msgid "Scan interrompu"
+msgstr "扫描已中断"
+
+#: src/omega_fuzz/interfaces/tui/screens/scan_results_screen.py:35
+msgid "Exporter JSON"
+msgstr "导出 JSON"
+
+#: src/omega_fuzz/interfaces/tui/screens/scan_results_screen.py:36
+msgid "Exporter Markdown"
+msgstr "导出 Markdown"
+
+#: src/omega_fuzz/interfaces/tui/screens/scan_results_screen.py:37
+msgid "Exporter HTML"
+msgstr "导出 HTML"
+
+#: src/omega_fuzz/interfaces/tui/screens/scan_results_screen.py:55
+msgid "RÉSULTATS DU SCAN"
+msgstr "扫描结果"
+
+#: src/omega_fuzz/interfaces/tui/screens/scan_results_screen.py:58
+#, python-brace-format
+msgid "Statut : {value}"
+msgstr "状态：{value}"
+
+#: src/omega_fuzz/interfaces/tui/screens/scan_results_screen.py:60
+#, python-brace-format
+msgid "Requêtes : {total_requests} (découverte {discovery_requests}, test {test_requests}) — Tests exécutés : {tests_executed} — Findings : {count}"
+msgstr "请求：{total_requests}（发现 {discovery_requests}，测试 {test_requests}）— 已执行测试：{tests_executed} — 发现项：{count}"
+
+#: src/omega_fuzz/interfaces/tui/screens/scan_results_screen.py:66
+msgid "Thème d'export (HTML)"
+msgstr "导出主题（HTML）"
+
+#: src/omega_fuzz/interfaces/tui/screens/scan_results_screen.py:78
+msgid "Retour au menu"
+msgstr "返回菜单"
+
+#: src/omega_fuzz/interfaces/tui/screens/scan_results_screen.py:143
+#, python-brace-format
+msgid "Rapport {format_name} : {value}"
+msgstr "{format_name} 报告：{value}"
+
+#: src/omega_fuzz/interfaces/tui/screens/scan_review_screen.py:49
+msgid "REVUE AVANT LANCEMENT"
+msgstr "启动前审核"
+
+#: src/omega_fuzz/interfaces/tui/screens/scan_review_screen.py:55
+msgid "Confirmation requise avant lancement."
+msgstr "启动前需要确认。"
+
+#: src/omega_fuzz/interfaces/tui/screens/scan_review_screen.py:57
+#, python-brace-format
+msgid "Tapez exactement : {required_phrase}"
+msgstr "请准确输入：{required_phrase}"
+
+#: src/omega_fuzz/interfaces/tui/screens/scan_setup_screen.py:44
+#, python-brace-format
+msgid "Preset : {value}"
+msgstr "Preset：{value}"
+
+#: src/omega_fuzz/interfaces/tui/screens/scan_setup_screen.py:45
+msgid "Configuration manuelle"
+msgstr "手动配置"
+
+#: src/omega_fuzz/interfaces/tui/screens/scan_setup_screen.py:51
+msgid "Durée max (s)"
+msgstr "最大时长（秒）"
+
+#: src/omega_fuzz/interfaces/tui/screens/scan_setup_screen.py:54 src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:98
+msgid "Concurrence max"
+msgstr "最大并发数"
+
+#: src/omega_fuzz/interfaces/tui/screens/scan_setup_screen.py:76
+msgid "NOUVEAU SCAN"
+msgstr "新建扫描"
+
+#: src/omega_fuzz/interfaces/tui/screens/scan_setup_screen.py:83
+msgid "Configuration"
+msgstr "配置"
+
+#: src/omega_fuzz/interfaces/tui/screens/scan_setup_screen.py:91
+msgid "Authentification (optionnel)"
+msgstr "认证（可选）"
+
+#: src/omega_fuzz/interfaces/tui/screens/scan_setup_screen.py:92
+msgid "chemin d'un fichier YAML --auth-config"
+msgstr "--auth-config YAML 文件的路径"
+
+#: src/omega_fuzz/interfaces/tui/screens/scan_setup_screen.py:95 src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:31
+msgid "Vérification TLS"
+msgstr "TLS 验证"
+
+#: src/omega_fuzz/interfaces/tui/screens/scan_setup_screen.py:98
+msgid "Limites (optionnel, laisser vide pour garder le profil)"
+msgstr "限制（可选，留空则保留配置文件的值）"
+
+#: src/omega_fuzz/interfaces/tui/screens/scan_setup_screen.py:104
+msgid "Suivant"
+msgstr "下一个"
+
+#: src/omega_fuzz/interfaces/tui/screens/scan_setup_screen.py:135
+msgid "Valeur invalide pour {label} : {raw!r}"
+msgstr "{label} 的值无效：{raw!r}"
+
+#: src/omega_fuzz/interfaces/tui/screens/settings_screen.py:85
+msgid "Dossier d'export"
+msgstr "导出文件夹"
+
+#: src/omega_fuzz/interfaces/tui/screens/settings_screen.py:92
+msgid "Dossier des captures d'écran"
+msgstr "截图文件夹"
+
+#: src/omega_fuzz/interfaces/tui/screens/settings_screen.py:109
+msgid "Supprimer les captures d'écran"
+msgstr "删除截图"
+
+#: src/omega_fuzz/interfaces/tui/screens/settings_screen.py:155
+msgid "Tous les scans et findings persistés seront définitivement supprimés."
+msgstr "所有已保存的扫描和发现项将被永久删除。"
+
+#: src/omega_fuzz/interfaces/tui/screens/settings_screen.py:171
+msgid "SUPPRIMER LES CAPTURES D'ÉCRAN ?"
+msgstr "删除截图？"
+
+#: src/omega_fuzz/interfaces/tui/screens/targets_screen.py:58
+msgid "Scanner cette cible"
+msgstr "扫描此目标"
+
+#: src/omega_fuzz/interfaces/tui/screens/targets_screen.py:112
+msgid "Saisissez une URL."
+msgstr "请输入 URL。"
+
+#: src/omega_fuzz/plugins/fuzzers/form_parameter_fuzzer.py:59
+msgid "Fuzz du champ de formulaire {field_name!r} sur {endpoint}"
+msgstr "在 {endpoint} 上模糊测试表单字段 {field_name!r}"
+
+#: src/omega_fuzz/plugins/fuzzers/header_fuzzer.py:50
+msgid "Fuzz du header {header_name!r} sur {endpoint}"
+msgstr "在 {endpoint} 上模糊测试头 {header_name!r}"
+
+#: src/omega_fuzz/plugins/fuzzers/json_body_fuzzer.py:50
+msgid "Fuzz de la clé JSON {key_name!r} sur {endpoint}"
+msgstr "在 {endpoint} 上模糊测试 JSON 键 {key_name!r}"
+
+#: src/omega_fuzz/plugins/fuzzers/query_parameter_fuzzer.py:45
+msgid "Fuzz du paramètre de requête {parameter_name!r} sur {endpoint}"
+msgstr "在 {endpoint} 上模糊测试请求参数 {parameter_name!r}"
+
+#: src/omega_fuzz/plugins/logic_tests/authorization_checks.py:40
+#, python-brace-format
+msgid "Vérifie que {endpoint} refuse la session courante — hypothèse : cette ressource nécessite un niveau de privilège que la session testée n'a pas"
+msgstr "验证 {endpoint} 是否拒绝当前会话——假设：此资源需要被测会话所不具备的权限级别"
+
+#: src/omega_fuzz/plugins/logic_tests/idor_checks.py:53
+msgid "Vérifie que la session courante n'accède pas aux ressources d'autrui via {id_parameter_name!r} sur {endpoint} — hypothèse : les valeurs candidates testées appartiennent à un autre utilisateur, tout accès obtenu est suspect"
+msgstr "验证当前会话无法通过 {endpoint} 上的 {id_parameter_name!r} 访问他人的资源——假设：测试的候选值属于另一个用户，获得的任何访问都可疑"
+
+#: src/omega_fuzz/plugins/logic_tests/workflow_checks.py:38
+#, python-brace-format
+msgid "Vérifie qu'un accès direct à {endpoint} sans passer par les étapes préalables du processus métier est refusé — hypothèse : cette étape nécessite un état préalable que la session testée n'a pas atteint"
+msgstr "验证跳过业务流程前置步骤直接访问 {endpoint} 是否会被拒绝——假设：此步骤需要被测会话尚未达到的前置状态"
+
+#: src/omega_fuzz/plugins/signatures/injection_signatures.py:50
+msgid "Signature d'injection générique sur le paramètre {parameter_name!r} de {endpoint}"
+msgstr "{endpoint} 的参数 {parameter_name!r} 上的通用注入特征"
+
+#: src/omega_fuzz/plugins/signatures/security_headers_signature.py:37
+#, python-brace-format
+msgid "Vérification des headers de sécurité sur {endpoint}"
+msgstr "检查 {endpoint} 上的安全头"
+
+#: src/omega_fuzz/plugins/signatures/xss_signatures.py:48
+msgid "Signature XSS réfléchie sur le paramètre {parameter_name!r} de {endpoint}"
+msgstr "{endpoint} 的参数 {parameter_name!r} 上的反射型 XSS 特征"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:68
+#, python-brace-format
+msgid "# Rapport {scanner_name}"
+msgstr "# {scanner_name} 报告"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:70
+#, python-brace-format
+msgid "- **Version** : {version}"
+msgstr "- **版本**：{version}"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:71
+#, python-brace-format
+msgid "- **Scan ID** : `{scan_id}`"
+msgstr "- **扫描 ID**：`{scan_id}`"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:72
+#, python-brace-format
+msgid "- **Généré le** : {isoformat}"
+msgstr "- **生成于**：{isoformat}"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:73
+#, python-brace-format
+msgid "- **Cible** : {target_url}"
+msgstr "- **目标**：{target_url}"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:74 src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:119
+#, python-brace-format
+msgid "- **Preset** : {preset}"
+msgstr "- **Preset**：{preset}"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:75
+msgid "**DÉSACTIVÉE**"
+msgstr "**已禁用**"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:75
+#, python-brace-format
+msgid "- **Vérification TLS** : {value}"
+msgstr "- **TLS 验证**：{value}"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:79
+#, python-brace-format
+msgid "- **Versions des catalogues** : {versions}"
+msgstr "- **目录版本**：{versions}"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:84
+msgid "> **ATTENTION** : la vérification TLS était désactivée pour ce scan. Les résultats peuvent avoir été obtenus via une connexion interceptée ou usurpée."
+msgstr "> **注意**：此扫描禁用了 TLS 验证。结果可能是通过被截获或伪造的连接获得的。"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:95
+msgid "## Résumé exécutif"
+msgstr "## 执行摘要"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:98
+#, python-brace-format
+msgid "- **Résultat** : {count} finding(s) — {critical} critique(s), {high} élevé(s), {medium} moyen(s), {low} faible(s)."
+msgstr "- **结果**：{count} 个发现项 — {critical} 个严重，{high} 个高，{medium} 个中，{low} 个低。"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:101
+#, python-brace-format
+msgid "- **Terminaison** : {value}"
+msgstr "- **终止**：{value}"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:104
+#, python-brace-format
+msgid "- **Avertissements** : {join}"
+msgstr "- **警告**：{join}"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:110
+#, python-brace-format
+msgid ""
+"## Cible et scan ID\n"
+"\n"
+"- **Cible** : {target_url}\n"
+"- **Scan ID** : `{scan_id}`"
+msgstr ""
+"## 目标与扫描 ID\n"
+"\n"
+"- **目标**：{target_url}\n"
+"- **扫描 ID**：`{scan_id}`"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:117
+msgid "## Preset, profils et surcharges"
+msgstr "## Preset、配置文件与覆盖设置"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:120
+#, python-brace-format
+msgid "- **Agressivité** : {value}"
+msgstr "- **激进程度**：{value}"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:121
+#, python-brace-format
+msgid "- **Profil de scope** : {value}"
+msgstr "- **范围配置文件**：{value}"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:122
+#, python-brace-format
+msgid "- **Confirmation requise** : {value}"
+msgstr "- **需要确认**：{value}"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:126
+#, python-brace-format
+msgid "- **Surcharges utilisateur** : {overrides_text}"
+msgstr "- **用户覆盖设置**：{overrides_text}"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:128
+msgid "- **Surcharges utilisateur** : aucune"
+msgstr "- **用户覆盖设置**：无"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:136
+msgid "## Scope effectif et exclusions"
+msgstr "## 实际范围与排除项"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:138
+#, python-brace-format
+msgid "- **Host racine** : {root_host}"
+msgstr "- **根主机**：{root_host}"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:139
+#, python-brace-format
+msgid "- **Mode** : {value}"
+msgstr "- **模式**：{value}"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:140
+#, python-brace-format
+msgid "- **Schémas autorisés** : {join}"
+msgstr "- **允许的协议**：{join}"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:141
+#, python-brace-format
+msgid "- **Port** : {scope_port}"
+msgstr "- **端口**：{scope_port}"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:142
+#, python-brace-format
+msgid "- **Profondeur max** : {max_depth}"
+msgstr "- **最大深度**：{max_depth}"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:145
+#, python-brace-format
+msgid "- **Sous-domaines autorisés** : {join}"
+msgstr "- **允许的子域名**：{join}"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:147
+#, python-brace-format
+msgid "- **Sous-domaines bloqués** : {join}"
+msgstr "- **被阻止的子域名**：{join}"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:149
+#, python-brace-format
+msgid "- **Chemins autorisés** : {join}"
+msgstr "- **允许的路径**：{join}"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:151
+#, python-brace-format
+msgid "- **Chemins bloqués** : {join}"
+msgstr "- **被阻止的路径**：{join}"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:154
+msgid "### Découverte"
+msgstr "### 发现"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:156
+#, python-brace-format
+msgid "- URLs vues : {urls_seen}"
+msgstr "- 已见 URL：{urls_seen}"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:157
+#, python-brace-format
+msgid "- URLs dans le scope : {urls_in_scope}"
+msgstr "- 范围内 URL：{urls_in_scope}"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:158
+#, python-brace-format
+msgid "- URLs hors scope : {urls_out_of_scope}"
+msgstr "- 范围外 URL：{urls_out_of_scope}"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:159
+#, python-brace-format
+msgid "- URLs au-delà de la profondeur : {urls_beyond_depth}"
+msgstr "- 超出深度的 URL：{urls_beyond_depth}"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:161
+msgid "### Redirections"
+msgstr "### 重定向"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:163
+#, python-brace-format
+msgid "- Suivies : {redirects_followed}"
+msgstr "- 已跟随：{redirects_followed}"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:164
+#, python-brace-format
+msgid "- Ignorées (externes) : {redirects_external_ignored}"
+msgstr "- 已忽略（外部）：{redirects_external_ignored}"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:165
+#, python-brace-format
+msgid "- Ignorées (hors scope) : {redirects_out_of_scope_ignored}"
+msgstr "- 已忽略（范围外）：{redirects_out_of_scope_ignored}"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:173
+#, python-brace-format
+msgid ""
+"## Limites configurées\n"
+"\n"
+"- Durée max : {max_duration_seconds} s\n"
+"- Requêtes max : {max_total_requests}\n"
+"- Tests max : {max_tests}\n"
+"- Concurrence max : {max_concurrent_requests}"
+msgstr ""
+"## 配置的限制\n"
+"\n"
+"- 最大时长：{max_duration_seconds} s\n"
+"- 最大请求数：{max_total_requests}\n"
+"- 最大测试数：{max_tests}\n"
+"- 最大并发数：{max_concurrent_requests}"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:180
+#, python-brace-format
+msgid ""
+"## Raison de terminaison\n"
+"\n"
+"{value}"
+msgstr ""
+"## 终止原因\n"
+"\n"
+"{value}"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:187
+msgid "## Statistiques de requêtes"
+msgstr "## 请求统计"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:190 src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:105
+msgid "Ces compteurs correspondent à la découverte et aux tests de sécurité, pas à un test de charge."
+msgstr "这些计数对应发现和安全测试，而非负载测试。"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:194
+#, python-brace-format
+msgid "- Total : {total_requests}"
+msgstr "- 总计：{total_requests}"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:195
+#, python-brace-format
+msgid "- Découverte : {discovery_requests}"
+msgstr "- 发现：{discovery_requests}"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:196
+#, python-brace-format
+msgid "- Test : {test_requests}"
+msgstr "- 测试：{test_requests}"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:198
+msgid "### Par module"
+msgstr "### 按模块"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:204
+msgid "- (aucune requête de test)"
+msgstr "- （无测试请求）"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:207
+msgid "### Par statut"
+msgstr "### 按状态"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:213
+#, python-brace-format
+msgid "- Timeouts : {timeouts}"
+msgstr "- 超时：{timeouts}"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:214
+#, python-brace-format
+msgid "- Erreurs de transport : {transport_errors}"
+msgstr "- 传输错误：{transport_errors}"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:223
+msgid "## Statistiques de tests"
+msgstr "## 测试统计"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:225
+#, python-brace-format
+msgid "- Planifiés : {count}"
+msgstr "- 已计划：{count}"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:226
+#, python-brace-format
+msgid "- Exécutés : {tests_executed}"
+msgstr "- 已执行：{tests_executed}"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:227
+#, python-brace-format
+msgid "- Terminés : {tests_completed}"
+msgstr "- 已完成：{tests_completed}"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:228
+#, python-brace-format
+msgid "- Abandonnés : {tests_aborted}"
+msgstr "- 已中止：{tests_aborted}"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:229
+#, python-brace-format
+msgid "- Non concluants : {tests_inconclusive}"
+msgstr "- 无结论：{tests_inconclusive}"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:231
+msgid "### Par type"
+msgstr "### 按类型"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:237
+msgid "- (aucun test)"
+msgstr "- （无测试）"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:244
+#, python-brace-format
+msgid ""
+"## Findings par sévérité\n"
+"\n"
+"- Total : {count}\n"
+"- Critique : {critical}\n"
+"- Élevé : {high}\n"
+"- Moyen : {medium}\n"
+"- Faible : {low}"
+msgstr ""
+"## 按严重性统计的发现项\n"
+"\n"
+"- 总计：{count}\n"
+"- 严重：{critical}\n"
+"- 高：{high}\n"
+"- 中：{medium}\n"
+"- 低：{low}"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:251
+#, python-brace-format
+msgid "### {finding_id} — {title}"
+msgstr "### {finding_id} — {title}"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:253
+#, python-brace-format
+msgid "**Statut** : `{value}`  "
+msgstr "**状态**：`{value}`  "
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:254
+#, python-brace-format
+msgid "**Sévérité** : `{value}`  "
+msgstr "**严重性**：`{value}`  "
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:255
+#, python-brace-format
+msgid "**Type** : `{type}`  "
+msgstr "**类型**：`{type}`  "
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:256
+#, python-brace-format
+msgid "**Confiance** : `{value}`"
+msgstr "**置信度**：`{value}`"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:258
+msgid "#### Cible"
+msgstr "#### 目标"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:260
+#, python-brace-format
+msgid "- **URL** : `{url}`"
+msgstr "- **URL**：`{url}`"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:261
+#, python-brace-format
+msgid "- **Endpoint** : `{endpoint}`"
+msgstr "- **Endpoint**：`{endpoint}`"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:262
+#, python-brace-format
+msgid "- **Méthode** : `{method}`"
+msgstr "- **方法**：`{method}`"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:263
+#, python-brace-format
+msgid "- **Paramètre** : `{value}`"
+msgstr "- **参数**：`{value}`"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:263 src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:300
+msgid "N/A"
+msgstr "不适用"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:265
+msgid "#### Preuve"
+msgstr "#### 证据"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:267
+#, python-brace-format
+msgid "**Comportement observé** : {observed_behavior}"
+msgstr "**观察到的行为**：{observed_behavior}"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:269
+#, python-brace-format
+msgid "**Extrait (expurgé)** : `{evidence_summary}`"
+msgstr "**摘录（已脱敏）**：`{evidence_summary}`"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:271
+#, python-brace-format
+msgid "- Test ID : `{test_id}`"
+msgstr "- 测试 ID：`{test_id}`"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:272
+#, python-brace-format
+msgid "- Request ID : `{request_id}`"
+msgstr "- 请求 ID：`{request_id}`"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:278
+#, python-brace-format
+msgid "**Sévérité ajustée manuellement** : `{value}` -> `{value2}` — {severity_override_reason}"
+msgstr "**严重性已手动调整**：`{value}` -> `{value2}` — {severity_override_reason}"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:287
+msgid ""
+"## Détail des findings\n"
+"\n"
+"Aucun finding."
+msgstr ""
+"## 发现项详情\n"
+"\n"
+"无发现项。"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:288
+msgid "## Détail des findings"
+msgstr "## 发现项详情"
+
+#: src/omega_fuzz/infrastructure/exporters/markdown_exporter.py:298
+#, python-brace-format
+msgid ""
+"## Annexes techniques\n"
+"\n"
+"- Versions des catalogues : {value}\n"
+"- Le détail brut complet (toutes les requêtes, tous les tests) est disponible dans l'export JSON correspondant."
+msgstr ""
+"## 技术附录\n"
+"\n"
+"- 目录版本：{value}\n"
+"- 完整的原始详情（所有请求、所有测试）可在相应的 JSON 导出中找到。"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:5
+#, python-brace-format
+msgid "Rapport {scanner_name} — {target_url}"
+msgstr "{scanner_name} 报告 — {target_url}"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:24
+#, python-brace-format
+msgid "Rapport {scanner_name}"
+msgstr "{scanner_name} 报告"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:26
+msgid "Version"
+msgstr "版本"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:27
+msgid "Scan ID"
+msgstr "扫描 ID"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:28
+msgid "Généré le"
+msgstr "生成于"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:33
+msgid "Versions des catalogues"
+msgstr "目录版本"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:37
+msgid "ATTENTION"
+msgstr "注意"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:37
+msgid ": la vérification TLS était désactivée pour ce scan. Les résultats peuvent avoir été obtenus via une connexion interceptée ou usurpée."
+msgstr "：此扫描禁用了 TLS 验证。结果可能是通过被截获或伪造的连接获得的。"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:40
+msgid "Résumé exécutif"
+msgstr "执行摘要"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:42
+#, python-brace-format
+msgid "{findings} finding(s) —"
+msgstr "{findings} 个发现项 —"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:43
+#, python-brace-format
+msgid "{critical} critique(s)"
+msgstr "{critical} 个严重"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:44
+#, python-brace-format
+msgid "{high} élevé(s)"
+msgstr "{high} 个高"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:45
+#, python-brace-format
+msgid "{medium} moyen(s)"
+msgstr "{medium} 个中"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:46
+#, python-brace-format
+msgid "{low} faible(s)"
+msgstr "{low} 个低"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:48
+#, python-brace-format
+msgid "Terminaison : {termination_sentence}"
+msgstr "终止：{termination_sentence}"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:50
+msgid "Avertissements"
+msgstr "警告"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:53
+msgid "Cible et scan ID"
+msgstr "目标与扫描 ID"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:54
+#, python-brace-format
+msgid "Cible : {target_url}"
+msgstr "目标：{target_url}"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:56
+msgid "Preset, profils et surcharges"
+msgstr "Preset、配置文件与覆盖设置"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:58
+#, python-brace-format
+msgid "Preset : {preset}"
+msgstr "Preset：{preset}"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:59
+#, python-brace-format
+msgid "Agressivité : {aggressiveness}"
+msgstr "激进程度：{aggressiveness}"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:60
+#, python-brace-format
+msgid "Profil de scope : {scope_profile}"
+msgstr "范围配置文件：{scope_profile}"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:61
+msgid "Confirmation requise :"
+msgstr "需要确认："
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:62
+msgid "Surcharges utilisateur :"
+msgstr "用户覆盖设置："
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:67
+msgid "Scope effectif et exclusions"
+msgstr "实际范围与排除项"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:69
+#, python-brace-format
+msgid "Host racine : {root_host}"
+msgstr "根主机：{root_host}"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:70
+#, python-brace-format
+msgid "Mode : {mode}"
+msgstr "模式：{mode}"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:71
+#, python-brace-format
+msgid "Schémas autorisés : {allowed_schemes}"
+msgstr "允许的协议：{allowed_schemes}"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:72
+#, python-brace-format
+msgid "Port : {scope_port}"
+msgstr "端口：{scope_port}"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:73
+#, python-brace-format
+msgid "Profondeur max : {max_depth}"
+msgstr "最大深度：{max_depth}"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:74
+#, python-brace-format
+msgid "Sous-domaines autorisés : {allowed_subdomains}"
+msgstr "允许的子域名：{allowed_subdomains}"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:75
+#, python-brace-format
+msgid "Sous-domaines bloqués : {blocked_subdomains}"
+msgstr "被阻止的子域名：{blocked_subdomains}"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:76
+#, python-brace-format
+msgid "Chemins autorisés : {allowed_paths}"
+msgstr "允许的路径：{allowed_paths}"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:77
+#, python-brace-format
+msgid "Chemins bloqués : {blocked_paths}"
+msgstr "被阻止的路径：{blocked_paths}"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:79 src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:108
+msgid "Découverte"
+msgstr "发现"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:81
+msgid "URLs vues"
+msgstr "已见 URL"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:82
+msgid "Dans le scope"
+msgstr "范围内"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:83
+msgid "Hors scope"
+msgstr "范围外"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:84
+msgid "Au-delà de la profondeur"
+msgstr "超出深度"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:86
+msgid "Redirections"
+msgstr "重定向"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:88
+msgid "Suivies"
+msgstr "已跟随"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:89
+msgid "Ignorées (externes)"
+msgstr "已忽略（外部）"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:90
+msgid "Ignorées (hors scope)"
+msgstr "已忽略（范围外）"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:93
+msgid "Limites configurées"
+msgstr "配置的限制"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:101
+msgid "Raison de terminaison"
+msgstr "终止原因"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:104
+msgid "Statistiques de requêtes"
+msgstr "请求统计"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:107 src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:140
+msgid "Total"
+msgstr "总计"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:109
+msgid "Test"
+msgstr "测试"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:111
+msgid "Par module"
+msgstr "按模块"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:113
+msgid "(aucune requête de test)"
+msgstr "（无测试请求）"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:115
+msgid "Par statut"
+msgstr "按状态"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:121
+msgid "Timeouts"
+msgstr "超时"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:122
+msgid "Erreurs de transport"
+msgstr "传输错误"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:125
+msgid "Statistiques de tests"
+msgstr "测试统计"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:127
+msgid "Planifiés"
+msgstr "已计划"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:128
+msgid "Exécutés"
+msgstr "已执行"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:129
+msgid "Terminés"
+msgstr "已完成"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:130
+msgid "Abandonnés"
+msgstr "已中止"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:131
+msgid "Non concluants"
+msgstr "无结论"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:133
+msgid "Par type"
+msgstr "按类型"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:135
+msgid "(aucun test)"
+msgstr "（无测试）"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:138
+msgid "Findings par sévérité"
+msgstr "按严重性统计的发现项"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:141
+msgid "Critique"
+msgstr "严重"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:142
+msgid "Élevé"
+msgstr "高"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:143
+msgid "Moyen"
+msgstr "中"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:144
+msgid "Faible"
+msgstr "低"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:147
+msgid "Détail des findings"
+msgstr "发现项详情"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:149
+msgid "Aucun finding."
+msgstr "无发现项。"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:156
+#, python-brace-format
+msgid "— statut {status} — type {type} — confiance {confidence}"
+msgstr "— 状态 {status} — 类型 {type} — 置信度 {confidence}"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:158
+#, python-brace-format
+msgid ": {method} {endpoint} (paramètre : {parameter})"
+msgstr "：{method} {endpoint}（参数：{parameter}）"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:159
+msgid "Comportement observé"
+msgstr "观察到的行为"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:160
+msgid "Extrait (expurgé)"
+msgstr "摘录（已脱敏）"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:161
+msgid "Test ID :"
+msgstr "测试 ID："
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:161
+msgid "— Request ID :"
+msgstr "— 请求 ID："
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:163
+msgid "Sévérité ajustée manuellement"
+msgstr "严重性已手动调整"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:163
+#, python-brace-format
+msgid ": {severity_auto} -> {severity_override} — {severity_override_reason}"
+msgstr "：{severity_auto} -> {severity_override} — {severity_override_reason}"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:168
+msgid "Annexes techniques"
+msgstr "技术附录"
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:169
+msgid "Versions des catalogues :"
+msgstr "目录版本："
+
+#: src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:172
+msgid "Le détail brut complet (toutes les requêtes, tous les tests) est disponible dans l'export JSON correspondant."
+msgstr "完整的原始详情（所有请求、所有测试）可在相应的 JSON 导出中找到。"

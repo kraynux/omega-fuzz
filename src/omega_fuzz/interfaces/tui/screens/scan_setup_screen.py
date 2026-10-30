@@ -31,6 +31,7 @@ from omega_fuzz.domain.profiles.scope_profile import ScopeProfileName
 from omega_fuzz.domain.targets.url import UrlNormalizationError
 from omega_fuzz.interfaces.tui.screens._base import OmegaScreen
 from omega_fuzz.interfaces.tui.screens.scan_review_screen import ScanReviewScreen
+from omega_fuzz.shared.i18n import _
 
 if TYPE_CHECKING:
     from collections.abc import Callable
@@ -40,17 +41,17 @@ if TYPE_CHECKING:
 
 _MANUAL = "__manual__"
 _MODE_OPTIONS: tuple[tuple[str, str], ...] = (
-    *((f"Preset : {preset.value}", preset.value) for preset in PresetName),
-    ("Configuration manuelle", _MANUAL),
+    *((_("Preset : {value}").format(value=preset.value), preset.value) for preset in PresetName),
+    (_("Configuration manuelle"), _MANUAL),
 )
 _SCOPE_PROFILE_OPTIONS = [(profile.value, profile.value) for profile in ScopeProfileName]
 _AGGRESSIVENESS_OPTIONS = [(level.value, level.value) for level in AggressivenessLevel]
 
 _OVERRIDE_FIELDS: tuple[tuple[str, str, str], ...] = (
-    ("max-duration-input", "max_duration_seconds", "Duree max (s)"),
-    ("max-requests-input", "max_total_requests", "Requetes max"),
-    ("max-tests-input", "max_tests", "Tests max"),
-    ("max-concurrent-input", "max_concurrent_requests", "Concurrence max"),
+    ("max-duration-input", "max_duration_seconds", _("Durée max (s)")),
+    ("max-requests-input", "max_total_requests", _("Requêtes max")),
+    ("max-tests-input", "max_tests", _("Tests max")),
+    ("max-concurrent-input", "max_concurrent_requests", _("Concurrence max")),
 )
 
 
@@ -72,14 +73,14 @@ class ScanSetupScreen(OmegaScreen):
     def compose(self) -> ComposeResult:
         yield Header()
         with Vertical(classes="omega-form-panel"):
-            yield Static("NOUVEAU SCAN", classes="omega-title")
+            yield Static(_("NOUVEAU SCAN"), classes="omega-title")
 
-            yield Static("Cible", classes="omega-subtitle")
+            yield Static(_("Cible"), classes="omega-subtitle")
             yield Input(
                 value=self._initial_target or "", placeholder="https://example.com/", id="target-input"
             )
 
-            yield Static("Configuration", classes="omega-subtitle")
+            yield Static(_("Configuration"), classes="omega-subtitle")
             yield Select(_MODE_OPTIONS, value=PresetName.PROD_SAFE.value, id="mode-select")
 
             yield Select(_SCOPE_PROFILE_OPTIONS, value="standard", id="scope-profile-select", classes="omega-hidden")
@@ -87,22 +88,22 @@ class ScanSetupScreen(OmegaScreen):
                 _AGGRESSIVENESS_OPTIONS, value="standard", id="aggressiveness-select", classes="omega-hidden"
             )
 
-            yield Static("Authentification (optionnel)", classes="omega-subtitle")
-            yield Input(placeholder="chemin d'un fichier YAML --auth-config", id="auth-config-input")
+            yield Static(_("Authentification (optionnel)"), classes="omega-subtitle")
+            yield Input(placeholder=_("chemin d'un fichier YAML --auth-config"), id="auth-config-input")
 
             with Horizontal(classes="omega-form-switch-row"):
-                yield Static("Verification TLS")
+                yield Static(_("Vérification TLS"))
                 yield Switch(value=True, id="verify-tls-switch")
 
-            yield Static("Limites (optionnel, laisser vide pour garder le profil)", classes="omega-subtitle")
+            yield Static(_("Limites (optionnel, laisser vide pour garder le profil)"), classes="omega-subtitle")
             for input_id, _field_name, label in _OVERRIDE_FIELDS:
                 yield Input(placeholder=label, type="integer", id=input_id)
 
             with Horizontal(classes="omega-actions"):
                 with Container(classes="omega-btn-frame"):
-                    yield Button("Suivant", id="next", variant="primary")
+                    yield Button(_("Suivant"), id="next", variant="primary")
                 with Container(classes="omega-btn-frame"):
-                    yield Button("Retour", id="back")
+                    yield Button(_("Retour"), id="back")
         yield Footer()
 
     def on_select_changed(self, event: Select.Changed) -> None:
@@ -121,7 +122,7 @@ class ScanSetupScreen(OmegaScreen):
 
         target = self.query_one("#target-input", Input).value.strip()
         if not target:
-            self.app.notify("Saisissez une cible.", severity="warning")
+            self.app.notify(_("Saisissez une cible."), severity="warning")
             return
 
         overrides: dict[str, int] = {}
@@ -131,7 +132,7 @@ class ScanSetupScreen(OmegaScreen):
                 try:
                     overrides[field_name] = int(raw)
                 except ValueError:
-                    self.app.notify(f"Valeur invalide pour {label} : {raw!r}", severity="warning")
+                    self.app.notify(_("Valeur invalide pour {label} : {raw!r}").format(label=label, raw=raw), severity="warning")
                     return
 
         auth_config_raw = self.query_one("#auth-config-input", Input).value.strip()

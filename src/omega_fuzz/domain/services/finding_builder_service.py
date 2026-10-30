@@ -25,6 +25,7 @@ from omega_fuzz.domain.services.severity_service import (
     score_for_observation_kind,
 )
 from omega_fuzz.domain.tests.test import Test
+from omega_fuzz.shared.i18n import _
 
 
 def build_finding(
@@ -43,7 +44,7 @@ def build_finding(
     return Finding(
         finding_id=build_finding_id(module=test.module, target_short=target_short, sequence=sequence),
         scan_id=scan_id,
-        title=f"{observation.kind.replace('_', ' ').capitalize()} sur {test.target.endpoint}",
+        title=_("{capitalize} sur {endpoint}").format(capitalize=observation.kind.replace('_', ' ').capitalize(), endpoint=test.target.endpoint),
         type=test.subtype,
         status=FindingStatus.SUSPECTED,
         severity_auto=severity_auto,

@@ -31,6 +31,7 @@ from omega_fuzz.domain.profiles.profile_validation import apply_overrides
 from omega_fuzz.domain.profiles.scope_profile import SCOPE_PROFILES, ScopeProfileName
 from omega_fuzz.domain.targets.scope import Scope, build_scope
 from omega_fuzz.domain.targets.url import NormalizedUrl
+from omega_fuzz.shared.i18n import _
 
 
 def _build_scope(
@@ -52,7 +53,7 @@ def _build_scope(
 
 
 def _unusual_warning(*, scope_profile: ScopeProfileName, aggressiveness: AggressivenessLevel) -> tuple[str, ...]:
-    return (f"combinaison inhabituelle : {scope_profile.value} + {aggressiveness.value}",)
+    return (_("combinaison inhabituelle : {value} + {value2}").format(value=scope_profile.value, value2=aggressiveness.value),)
 
 
 def resolve_preset(

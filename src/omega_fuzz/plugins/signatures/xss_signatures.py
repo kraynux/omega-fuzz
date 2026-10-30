@@ -18,6 +18,7 @@ from omega_fuzz.domain.requests.request_phase import RequestPhase
 from omega_fuzz.domain.requests.scan_request import ScanRequest
 from omega_fuzz.domain.tests.test import Test
 from omega_fuzz.plugins.fuzzers.common.fuzz_test_factory import build_fuzz_test
+from omega_fuzz.shared.i18n import _
 
 _MODULE = "sigxss"
 _SUBTYPE = "reflected_xss"
@@ -44,7 +45,7 @@ def build_plan(
         method="GET",
         endpoint=endpoint,
         parameters=(parameter_name,),
-        description=f"Signature XSS reflechie sur le parametre {parameter_name!r} de {endpoint}",
+        description=_("Signature XSS réfléchie sur le paramètre {parameter_name!r} de {endpoint}").format(parameter_name=parameter_name, endpoint=endpoint),
         now=now,
     )
 

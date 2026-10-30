@@ -17,6 +17,12 @@ from omega_fuzz.domain.reports.report_model import (
     requests_by_module,
 )
 from omega_fuzz.domain.reports.termination import describe_termination
+from omega_fuzz.shared.i18n import _
+
+
+def _tr(value: str | None) -> str | None:
+    """R1 : texte enregistre en francais (titre, impact...) retraduit dans la langue de l'export."""
+    return _(value) if value else value
 
 if TYPE_CHECKING:
     from omega_fuzz.domain.findings.finding import Finding
@@ -59,24 +65,25 @@ def _render(report: ReportModel) -> str:
 
 def _render_header(header: ReportHeader) -> str:
     lines = [
-        f"# Rapport {header.scanner_name}",
+        _("# Rapport {scanner_name}").format(scanner_name=header.scanner_name),
         "",
-        f"- **Version** : {header.version}",
-        f"- **Scan ID** : `{header.scan_id}`",
-        f"- **Genere le** : {header.generated_at.isoformat()}",
-        f"- **Cible** : {header.target_url}",
-        f"- **Preset** : {header.preset}",
-        f"- **Verification TLS** : {'activee' if header.tls_verification_enabled else '**DESACTIVEE**'}",
+        _("- **Version** : {version}").format(version=header.version),
+        _("- **Scan ID** : `{scan_id}`").format(scan_id=header.scan_id),
+        _("- **Généré le** : {isoformat}").format(isoformat=header.generated_at.isoformat()),
+        _("- **Cible** : {target_url}").format(target_url=header.target_url),
+        _("- **Preset** : {preset}").format(preset=header.preset),
+        _("- **Vérification TLS** : {value}").format(value=_("activée") if header.tls_verification_enabled else _("**DÉSACTIVÉE**")),
     ]
     if header.catalog_versions:
         versions = ", ".join(f"{name}={version}" for name, version in header.catalog_versions.items())
-        lines.append(f"- **Versions des catalogues** : {versions}")
+        lines.append(_("- **Versions des catalogues** : {versions}").format(versions=versions))
     if not header.tls_verification_enabled:
         lines += [
             "",
             (
-                "> **ATTENTION** : la verification TLS etait desactivee pour ce scan. Les "
-                "resultats peuvent avoir ete obtenus via une connexion interceptee ou usurpee."
+                _("> **ATTENTION** : la vérification TLS était désactivée pour ce scan. Les "
+                  "résultats peuvent avoir été obtenus via une connexion interceptée ou "
+                  "usurpée.")
             ),
         ]
     return "\n".join(lines)
@@ -85,43 +92,40 @@ def _render_header(header: ReportHeader) -> str:
 def _render_executive_summary(report: ReportModel) -> str:
     severities = findings_by_severity(report.findings)
     lines = [
-        "## Resume executif",
+        _("## Résumé exécutif"),
         "",
         (
-            f"- **Resultat** : {len(report.findings)} finding(s) — "
-            f"{severities['critical']} critique(s), {severities['high']} eleve(s), "
-            f"{severities['medium']} moyen(s), {severities['low']} faible(s)."
+            _("- **Résultat** : {count} finding(s) — {critical} critique(s), {high} élevé(s), "
+              "{medium} moyen(s), {low} faible(s).").format(count=len(report.findings), critical=severities['critical'], high=severities['high'], medium=severities['medium'], low=severities['low'])
         ),
-        f"- **Terminaison** : {describe_termination(report.termination)}",
+        _("- **Terminaison** : {value}").format(value=describe_termination(report.termination)),
     ]
     if report.configuration.warnings:
-        lines.append(f"- **Avertissements** : {'; '.join(report.configuration.warnings)}")
+        lines.append(_("- **Avertissements** : {join}").format(join='; '.join(report.configuration.warnings)))
     return "\n".join(lines)
 
 
 def _render_target_and_scan_id(report: ReportModel) -> str:
     return (
-        "## Cible et scan ID\n\n"
-        f"- **Cible** : {report.header.target_url}\n"
-        f"- **Scan ID** : `{report.header.scan_id}`"
+        _("## Cible et scan ID\n\n- **Cible** : {target_url}\n- **Scan ID** : `{scan_id}`").format(target_url=report.header.target_url, scan_id=report.header.scan_id)
     )
 
 
 def _render_preset_and_profile(report: ReportModel) -> str:
     config = report.configuration
     lines = [
-        "## Preset, profils et surcharges",
+        _("## Preset, profils et surcharges"),
         "",
-        f"- **Preset** : {report.header.preset}",
-        f"- **Agressivite** : {config.aggressiveness.value}",
-        f"- **Profil de scope** : {config.scope_profile.value}",
-        f"- **Confirmation requise** : {'oui' if config.requires_confirmation else 'non'}",
+        _("- **Preset** : {preset}").format(preset=report.header.preset),
+        _("- **Agressivité** : {value}").format(value=config.aggressiveness.value),
+        _("- **Profil de scope** : {value}").format(value=config.scope_profile.value),
+        _("- **Confirmation requise** : {value}").format(value=_("oui") if config.requires_confirmation else _("non")),
     ]
     if config.overrides:
         overrides_text = ", ".join(f"{name}={value}" for name, value in config.overrides.items())
-        lines.append(f"- **Surcharges utilisateur** : {overrides_text}")
+        lines.append(_("- **Surcharges utilisateur** : {overrides_text}").format(overrides_text=overrides_text))
     else:
-        lines.append("- **Surcharges utilisateur** : aucune")
+        lines.append(_("- **Surcharges utilisateur** : aucune"))
     return "\n".join(lines)
 
 
@@ -129,36 +133,36 @@ def _render_scope(report: ReportModel) -> str:
     scope = report.configuration.scope
     stats = report.statistics
     lines = [
-        "## Scope effectif et exclusions",
+        _("## Scope effectif et exclusions"),
         "",
-        f"- **Host racine** : {scope.root_host}",
-        f"- **Mode** : {scope.mode.value}",
-        f"- **Schemas autorises** : {', '.join(sorted(scope.allowed_schemes))}",
-        f"- **Port** : {scope.scope_port}",
-        f"- **Profondeur max** : {scope.max_depth}",
+        _("- **Host racine** : {root_host}").format(root_host=scope.root_host),
+        _("- **Mode** : {value}").format(value=scope.mode.value),
+        _("- **Schémas autorisés** : {join}").format(join=', '.join(sorted(scope.allowed_schemes))),
+        _("- **Port** : {scope_port}").format(scope_port=scope.scope_port),
+        _("- **Profondeur max** : {max_depth}").format(max_depth=scope.max_depth),
     ]
     if scope.allowed_subdomains:
-        lines.append(f"- **Sous-domaines autorises** : {', '.join(sorted(scope.allowed_subdomains))}")
+        lines.append(_("- **Sous-domaines autorisés** : {join}").format(join=', '.join(sorted(scope.allowed_subdomains))))
     if scope.blocked_subdomains:
-        lines.append(f"- **Sous-domaines bloques** : {', '.join(sorted(scope.blocked_subdomains))}")
+        lines.append(_("- **Sous-domaines bloqués** : {join}").format(join=', '.join(sorted(scope.blocked_subdomains))))
     if scope.allowed_paths:
-        lines.append(f"- **Chemins autorises** : {', '.join(scope.allowed_paths)}")
+        lines.append(_("- **Chemins autorisés** : {join}").format(join=', '.join(scope.allowed_paths)))
     if scope.blocked_paths:
-        lines.append(f"- **Chemins bloques** : {', '.join(scope.blocked_paths)}")
+        lines.append(_("- **Chemins bloqués** : {join}").format(join=', '.join(scope.blocked_paths)))
     lines += [
         "",
-        "### Decouverte",
+        _("### Découverte"),
         "",
-        f"- URLs vues : {stats.urls_seen}",
-        f"- URLs dans le scope : {stats.urls_in_scope}",
-        f"- URLs hors scope : {stats.urls_out_of_scope}",
-        f"- URLs au-dela de la profondeur : {stats.urls_beyond_depth}",
+        _("- URLs vues : {urls_seen}").format(urls_seen=stats.urls_seen),
+        _("- URLs dans le scope : {urls_in_scope}").format(urls_in_scope=stats.urls_in_scope),
+        _("- URLs hors scope : {urls_out_of_scope}").format(urls_out_of_scope=stats.urls_out_of_scope),
+        _("- URLs au-delà de la profondeur : {urls_beyond_depth}").format(urls_beyond_depth=stats.urls_beyond_depth),
         "",
-        "### Redirections",
+        _("### Redirections"),
         "",
-        f"- Suivies : {stats.redirects_followed}",
-        f"- Ignorees (externes) : {stats.redirects_external_ignored}",
-        f"- Ignorees (hors scope) : {stats.redirects_out_of_scope_ignored}",
+        _("- Suivies : {redirects_followed}").format(redirects_followed=stats.redirects_followed),
+        _("- Ignorées (externes) : {redirects_external_ignored}").format(redirects_external_ignored=stats.redirects_external_ignored),
+        _("- Ignorées (hors scope) : {redirects_out_of_scope_ignored}").format(redirects_out_of_scope_ignored=stats.redirects_out_of_scope_ignored),
     ]
     return "\n".join(lines)
 
@@ -166,50 +170,48 @@ def _render_scope(report: ReportModel) -> str:
 def _render_limits(report: ReportModel) -> str:
     limits = report.configuration.limits
     return (
-        "## Limites configurees\n\n"
-        f"- Duree max : {limits.max_duration_seconds} s\n"
-        f"- Requetes max : {limits.max_total_requests}\n"
-        f"- Tests max : {limits.max_tests}\n"
-        f"- Concurrence max : {limits.max_concurrent_requests}"
+        _("## Limites configurées\n\n- Durée max : {max_duration_seconds} s\n- Requêtes max : "
+          "{max_total_requests}\n- Tests max : {max_tests}\n- Concurrence max : "
+          "{max_concurrent_requests}").format(max_duration_seconds=limits.max_duration_seconds, max_total_requests=limits.max_total_requests, max_tests=limits.max_tests, max_concurrent_requests=limits.max_concurrent_requests)
     )
 
 
 def _render_termination(report: ReportModel) -> str:
-    return f"## Raison de terminaison\n\n{describe_termination(report.termination)}"
+    return _("## Raison de terminaison\n\n{value}").format(value=describe_termination(report.termination))
 
 
 def _render_requests(report: ReportModel) -> str:
     stats = report.statistics
     by_module = requests_by_module(report.tests)
     lines = [
-        "## Statistiques de requetes",
+        _("## Statistiques de requêtes"),
         "",
         (
-            "Ces compteurs correspondent a la decouverte et aux tests de securite, pas a un "
-            "test de charge."
+            _("Ces compteurs correspondent à la découverte et aux tests de sécurité, pas à un "
+              "test de charge.")
         ),
         "",
-        f"- Total : {stats.total_requests}",
-        f"- Decouverte : {stats.discovery_requests}",
-        f"- Test : {stats.test_requests}",
+        _("- Total : {total_requests}").format(total_requests=stats.total_requests),
+        _("- Découverte : {discovery_requests}").format(discovery_requests=stats.discovery_requests),
+        _("- Test : {test_requests}").format(test_requests=stats.test_requests),
         "",
-        "### Par module",
+        _("### Par module"),
         "",
     ]
     if by_module:
         lines.extend(f"- {module} : {count}" for module, count in sorted(by_module.items()))
     else:
-        lines.append("- (aucune requete de test)")
+        lines.append(_("- (aucune requête de test)"))
     lines += [
         "",
-        "### Par statut",
+        _("### Par statut"),
         "",
         f"- 2xx : {stats.status_2xx}",
         f"- 3xx : {stats.status_3xx}",
         f"- 4xx : {stats.status_4xx}",
         f"- 5xx : {stats.status_5xx}",
-        f"- Timeouts : {stats.timeouts}",
-        f"- Erreurs de transport : {stats.transport_errors}",
+        _("- Timeouts : {timeouts}").format(timeouts=stats.timeouts),
+        _("- Erreurs de transport : {transport_errors}").format(transport_errors=stats.transport_errors),
     ]
     return "\n".join(lines)
 
@@ -218,67 +220,63 @@ def _render_tests(report: ReportModel) -> str:
     stats = report.statistics
     by_type = count_tests_by_type(report.tests)
     lines = [
-        "## Statistiques de tests",
+        _("## Statistiques de tests"),
         "",
-        f"- Planifies : {len(report.tests)}",
-        f"- Executes : {stats.tests_executed}",
-        f"- Termines : {stats.tests_completed}",
-        f"- Abandonnes : {stats.tests_aborted}",
-        f"- Non concluants : {stats.tests_inconclusive}",
+        _("- Planifiés : {count}").format(count=len(report.tests)),
+        _("- Exécutés : {tests_executed}").format(tests_executed=stats.tests_executed),
+        _("- Terminés : {tests_completed}").format(tests_completed=stats.tests_completed),
+        _("- Abandonnés : {tests_aborted}").format(tests_aborted=stats.tests_aborted),
+        _("- Non concluants : {tests_inconclusive}").format(tests_inconclusive=stats.tests_inconclusive),
         "",
-        "### Par type",
+        _("### Par type"),
         "",
     ]
     if by_type:
         lines.extend(f"- {type_name} : {count}" for type_name, count in sorted(by_type.items()))
     else:
-        lines.append("- (aucun test)")
+        lines.append(_("- (aucun test)"))
     return "\n".join(lines)
 
 
 def _render_findings_by_severity(report: ReportModel) -> str:
     severities = findings_by_severity(report.findings)
     return (
-        "## Findings par severite\n\n"
-        f"- Total : {len(report.findings)}\n"
-        f"- Critique : {severities['critical']}\n"
-        f"- Eleve : {severities['high']}\n"
-        f"- Moyen : {severities['medium']}\n"
-        f"- Faible : {severities['low']}"
+        _("## Findings par sévérité\n\n- Total : {count}\n- Critique : {critical}\n- Élevé : "
+          "{high}\n- Moyen : {medium}\n- Faible : {low}").format(count=len(report.findings), critical=severities['critical'], high=severities['high'], medium=severities['medium'], low=severities['low'])
     )
 
 
 def _render_single_finding(finding: Finding) -> str:
     lines = [
-        f"### {finding.finding_id} — {finding.title}",
+        _("### {finding_id} — {title}").format(finding_id=finding.finding_id, title=_tr(finding.title)),
         "",
-        f"**Statut** : `{finding.status.value}`  ",
-        f"**Severite** : `{finding.severity.value}`  ",
-        f"**Type** : `{finding.type}`  ",
-        f"**Confiance** : `{finding.metadata.confidence.value}`",
+        _("**Statut** : `{value}`  ").format(value=finding.status.value),
+        _("**Sévérité** : `{value}`  ").format(value=finding.severity.value),
+        _("**Type** : `{type}`  ").format(type=finding.type),
+        _("**Confiance** : `{value}`").format(value=finding.metadata.confidence.value),
         "",
-        "#### Cible",
+        _("#### Cible"),
         "",
-        f"- **URL** : `{finding.target.url}`",
-        f"- **Endpoint** : `{finding.target.endpoint}`",
-        f"- **Methode** : `{finding.target.method}`",
-        f"- **Parametre** : `{finding.target.parameter or 'N/A'}`",
+        _("- **URL** : `{url}`").format(url=finding.target.url),
+        _("- **Endpoint** : `{endpoint}`").format(endpoint=finding.target.endpoint),
+        _("- **Méthode** : `{method}`").format(method=finding.target.method),
+        _("- **Paramètre** : `{value}`").format(value=finding.target.parameter or _("N/A")),
         "",
-        "#### Preuve",
+        _("#### Preuve"),
         "",
-        f"**Comportement observe** : {finding.evidence.observed_behavior}",
+        _("**Comportement observé** : {observed_behavior}").format(observed_behavior=_tr(finding.evidence.observed_behavior)),
         "",
-        f"**Extrait (expurge)** : `{finding.evidence.evidence_summary}`",
+        _("**Extrait (expurgé)** : `{evidence_summary}`").format(evidence_summary=_tr(finding.evidence.evidence_summary)),
         "",
-        f"- Test ID : `{finding.evidence.test_id}`",
-        f"- Request ID : `{finding.evidence.request_id}`",
+        _("- Test ID : `{test_id}`").format(test_id=finding.evidence.test_id),
+        _("- Request ID : `{request_id}`").format(request_id=finding.evidence.request_id),
     ]
     if finding.severity_override is not None:
         lines += [
             "",
             (
-                f"**Severite ajustee manuellement** : `{finding.severity_auto.value}` -> "
-                f"`{finding.severity_override.value}` — {finding.severity_override_reason}"
+                _("**Sévérité ajustée manuellement** : `{value}` -> `{value2}` — "
+                  "{severity_override_reason}").format(value=finding.severity_auto.value, value2=finding.severity_override.value, severity_override_reason=finding.severity_override_reason)
             ),
         ]
     return "\n".join(lines)
@@ -286,8 +284,8 @@ def _render_single_finding(finding: Finding) -> str:
 
 def _render_finding_details(report: ReportModel) -> str:
     if not report.findings:
-        return "## Detail des findings\n\nAucun finding."
-    blocks = ["## Detail des findings", ""]
+        return _("## Détail des findings\n\nAucun finding.")
+    blocks = [_("## Détail des findings"), ""]
     blocks.extend(_render_single_finding(finding) for finding in report.findings)
     return "\n\n".join(blocks)
 
@@ -297,8 +295,7 @@ def _render_appendix(report: ReportModel) -> str:
         f"{name}={version}" for name, version in report.header.catalog_versions.items()
     )
     return (
-        "## Annexes techniques\n\n"
-        f"- Versions des catalogues : {versions or 'N/A'}\n"
-        "- Le detail brut complet (toutes les requetes, tous les tests) est disponible "
-        "dans l'export JSON correspondant."
+        _("## Annexes techniques\n\n- Versions des catalogues : {value}\n- Le détail brut "
+          "complet (toutes les requêtes, tous les tests) est disponible dans l'export JSON "
+          "correspondant.").format(value=versions or _("N/A"))
     )

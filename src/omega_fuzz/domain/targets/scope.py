@@ -11,6 +11,7 @@ from dataclasses import dataclass, field
 from omega_fuzz.core.errors import ValidationError
 from omega_fuzz.domain.targets.depth import HARD_MAX_DEPTH, validate_depth
 from omega_fuzz.domain.targets.scope_mode import ScopeMode
+from omega_fuzz.shared.i18n import _
 
 
 @dataclass(frozen=True, slots=True)
@@ -49,7 +50,7 @@ def build_scope(
         try:
             compiled_patterns.append(re.compile(raw_pattern))
         except re.error as exc:
-            raise ValidationError(f"regex de scope invalide : {raw_pattern!r} ({exc})") from exc
+            raise ValidationError(_("regex de scope invalide : {raw_pattern!r} ({exc})").format(raw_pattern=raw_pattern, exc=exc)) from exc
 
     validate_depth(max_depth)
 

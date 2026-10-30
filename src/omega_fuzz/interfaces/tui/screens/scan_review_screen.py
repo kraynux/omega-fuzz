@@ -23,6 +23,7 @@ from omega_fuzz.application.commands.start_scan import required_confirmation_phr
 from omega_fuzz.interfaces.cli.presenters.configuration_presenter import render_configuration
 from omega_fuzz.interfaces.tui.screens._base import OmegaScreen
 from omega_fuzz.interfaces.tui.screens.scan_progress_screen import ScanProgressScreen
+from omega_fuzz.shared.i18n import _
 
 if TYPE_CHECKING:
     from omega_fuzz.app.container import Container as AppContainer
@@ -45,23 +46,23 @@ class ScanReviewScreen(OmegaScreen):
     def compose(self) -> ComposeResult:
         yield Header()
         with VerticalScroll(classes="omega-panel"):
-            yield Static("REVUE AVANT LANCEMENT", classes="omega-title")
+            yield Static(_("REVUE AVANT LANCEMENT"), classes="omega-title")
             yield Static(render_configuration(self._prepared))
 
             needs_confirmation = self._prepared.configuration.requires_confirmation
             launch_disabled = False
             if needs_confirmation:
-                yield Static("Confirmation requise avant lancement.", classes="omega-subtitle")
+                yield Static(_("Confirmation requise avant lancement."), classes="omega-subtitle")
                 if self._required_phrase is not None:
-                    yield Static(f"Tapez exactement : {self._required_phrase}", classes="omega-hint")
+                    yield Static(_("Tapez exactement : {required_phrase}").format(required_phrase=self._required_phrase), classes="omega-hint")
                     yield Input(placeholder=self._required_phrase, id="confirm-input")
                     launch_disabled = True
 
             with Horizontal(classes="omega-actions"):
                 with Container(classes="omega-btn-frame"):
-                    yield Button("Lancer", id="launch", variant="primary", disabled=launch_disabled)
+                    yield Button(_("Lancer"), id="launch", variant="primary", disabled=launch_disabled)
                 with Container(classes="omega-btn-frame"):
-                    yield Button("Retour", id="back")
+                    yield Button(_("Retour"), id="back")
         yield Footer()
 
     def on_input_changed(self, event: Input.Changed) -> None:

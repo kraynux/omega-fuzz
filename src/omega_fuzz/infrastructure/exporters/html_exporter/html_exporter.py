@@ -29,6 +29,7 @@ from omega_fuzz.domain.reports.termination import describe_termination
 from omega_fuzz.infrastructure.exporters.html_exporter.html_theme_resolver import (
     resolve_export_palette,
 )
+from omega_fuzz.shared.i18n import TRANSLATOR, _
 
 _TEMPLATES_DIR = Path(__file__).parent / "templates"
 
@@ -40,6 +41,15 @@ class HtmlReportExporter:
         self._environment = jinja2.Environment(
             loader=jinja2.FileSystemLoader(str(_TEMPLATES_DIR)),
             autoescape=True,
+        )
+        # Lot N (langue des exports) : texte des gabarits traduit par `_` dans la langue active
+        # (celle des exports sous translating_as) ; lang= et dir= du document suivent.
+        self._environment.globals.update(
+            _=_, html_lang=TRANSLATOR.html_lang, html_dir=TRANSLATOR.html_dir
+        )
+        # R1 : texte enregistre en francais (titre, impact...) retraduit dans la langue de l'export.
+        self._environment.filters["tr"] = lambda value: (
+            _(value) if isinstance(value, str) and value else value
         )
 
     def export(

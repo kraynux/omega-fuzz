@@ -18,23 +18,23 @@ from textual.widgets import Button, DataTable, Footer, Header, Static
 
 from omega_fuzz.domain.profiles.preset import PRESETS
 from omega_fuzz.interfaces.tui.screens._base import OmegaScreen
+from omega_fuzz.shared.i18n import _
 
 _SHORTCUTS = (
-    ("Haut / Bas", "Naviguer entre les elements d'un ecran"),
-    ("Tab / Maj+Tab", "Naviguer entre les champs d'un formulaire"),
-    ("Echap", "Retour a l'ecran precedent (confirmation de sortie sur l'accueil)"),
-    ("t", "Theme suivant (applique immediatement, sans confirmation)"),
-    ("r", "Rafraichir la detection du terminal"),
-    ("a", "Cette aide"),
-    ("q", "Quitter (avec confirmation)"),
+    (_("Haut / Bas"), _("Naviguer entre les éléments d'un écran")),
+    (_("Tab / Maj+Tab"), _("Naviguer entre les champs d'un formulaire")),
+    (_("Échap"), _("Retour à l'écran précédent (confirmation de sortie sur l'accueil)")),
+    ("t", _("Thème suivant (appliqué immédiatement, sans confirmation)")),
+    ("r", _("Rafraîchir la détection du terminal")),
+    ("a", _("Cette aide")),
+    ("q", _("Quitter (avec confirmation)")),
 )
 
 _SCOPE_NOTICE = (
-    "Omega-fuzz decouvre une cible dans un perimetre controle (scope explicite, "
-    "profondeur limitee) puis teste activement les points d'entree trouves "
-    "(parametres de requete, headers de securite) — jamais sans confirmation "
-    "explicite pour les profils/modes a risque (agressivite violente, "
-    "verification TLS desactivee)."
+    _("Omega-fuzz découvre une cible dans un périmètre contrôlé (scope explicite, profondeur "
+      "limitée) puis teste activement les points d'entrée trouvés (paramètres de requête, "
+      "headers de sécurité) — jamais sans confirmation explicite pour les profils/modes à "
+      "risque (agressivité violente, vérification TLS désactivée).")
 )
 
 
@@ -44,30 +44,30 @@ class HelpScreen(OmegaScreen):
     def compose(self) -> ComposeResult:
         yield Header()
         with VerticalScroll(classes="omega-panel"):
-            yield Static("AIDE", classes="omega-title")
-            yield Static("Raccourcis clavier", classes="omega-subtitle")
+            yield Static(_("AIDE"), classes="omega-title")
+            yield Static(_("Raccourcis clavier"), classes="omega-subtitle")
             for key, description in _SHORTCUTS:
-                yield Static(f"{key:<14} {description}")
+                yield Static(_("{key:<14} {description}").format(key=key, description=description))
             yield Static("")
             yield Static(_SCOPE_NOTICE, classes="omega-subtitle")
             yield Static("")
-            yield Static("Presets", classes="omega-subtitle")
+            yield Static(_("Presets"), classes="omega-subtitle")
             yield DataTable(id="preset-table")
             with Horizontal(classes="omega-actions"), Container(classes="omega-btn-frame"):
-                yield Button("Retour", id="back")
+                yield Button(_("Retour"), id="back")
         yield Footer()
 
     def on_mount(self) -> None:
         table = self.query_one("#preset-table", DataTable)
         table.add_columns(
-            "Preset",
-            "Scope",
-            "Agressivite",
-            "Duree max",
-            "Requetes max",
-            "Tests max",
-            "Profondeur max",
-            "Confirmation",
+            _("Preset"),
+            _("Scope"),
+            _("Agressivité"),
+            _("Durée max"),
+            _("Requêtes max"),
+            _("Tests max"),
+            _("Profondeur max"),
+            _("Confirmation"),
         )
         for name, definition in PRESETS.items():
             table.add_row(
@@ -78,7 +78,7 @@ class HelpScreen(OmegaScreen):
                 str(definition.max_total_requests),
                 str(definition.max_tests),
                 str(definition.max_depth),
-                "oui" if definition.requires_confirmation else "non",
+                _("oui") if definition.requires_confirmation else _("non"),
             )
 
     def on_button_pressed(self, event: Button.Pressed) -> None:

@@ -12,6 +12,7 @@ from omega_lib.core.confidence import ConfidenceLevel
 
 from omega_fuzz.domain.findings.observation import Observation
 from omega_fuzz.domain.services.redaction_service import redact_body_snippet
+from omega_fuzz.shared.i18n import _
 
 
 def detect_reflection(
@@ -25,7 +26,7 @@ def detect_reflection(
         if re.search(detection_pattern, response_body):
             return Observation(
                 kind="reflection",
-                description="Payload reflete dans la reponse (motif de detection confirme)",
+                description=_("Payload reflété dans la réponse (motif de détection confirmé)"),
                 confidence=ConfidenceLevel.CORROBORATED,
                 request_id=request_id,
                 evidence_summary=redact_body_snippet(response_body),
@@ -35,7 +36,7 @@ def detect_reflection(
     if payload_value and payload_value in response_body:
         return Observation(
             kind="reflection",
-            description="Payload reflete tel quel dans la reponse (sous-chaine)",
+            description=_("Payload reflété tel quel dans la réponse (sous-chaîne)"),
             confidence=ConfidenceLevel.INFERRED,
             request_id=request_id,
             evidence_summary=redact_body_snippet(response_body),

@@ -17,6 +17,7 @@ from omega_fuzz.domain.requests.request_phase import RequestPhase
 from omega_fuzz.domain.requests.scan_request import ScanRequest
 from omega_fuzz.domain.tests.test import Test
 from omega_fuzz.plugins.fuzzers.common.fuzz_test_factory import build_fuzz_test
+from omega_fuzz.shared.i18n import _
 
 _MODULE = "logic"
 _SUBTYPE = "authorization"
@@ -36,8 +37,8 @@ def build_plan(
         endpoint=endpoint,
         parameters=(),
         description=(
-            f"Verifie que {endpoint} refuse la session courante — hypothese : cette "
-            f"ressource necessite un niveau de privilege que la session testee n'a pas"
+            _("Vérifie que {endpoint} refuse la session courante — hypothèse : cette ressource "
+              "nécessite un niveau de privilège que la session testée n'a pas").format(endpoint=endpoint)
         ),
         now=now,
     )

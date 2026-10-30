@@ -20,6 +20,7 @@ from omega_fuzz.domain.profiles.hard_caps import (
 from omega_fuzz.domain.profiles.limits import Limits
 from omega_fuzz.domain.reports.scan_statistics import ScanStatistics
 from omega_fuzz.domain.reports.termination import TerminationReason, TerminationTrigger
+from omega_fuzz.shared.i18n import _
 
 _HARD_CAPS: dict[str, int] = {
     "max_duration_seconds": HARD_MAX_DURATION_SECONDS,
@@ -41,7 +42,7 @@ def validate_limits(limits: Limits) -> None:
         value = getattr(limits, field_name)
         if value > hard_cap:
             raise ValidationError(
-                f"{field_name}={value} depasse le hard cap absolu ({hard_cap})"
+                _("{field_name}={value} dépasse le hard cap absolu ({hard_cap})").format(field_name=field_name, value=value, hard_cap=hard_cap)
             )
 
 

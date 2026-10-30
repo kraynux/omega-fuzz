@@ -11,6 +11,7 @@ from typing import Any
 from omega_fuzz.core.errors import ValidationError
 from omega_fuzz.domain.profiles.limits import Limits
 from omega_fuzz.domain.services.limit_service import validate_limits
+from omega_fuzz.shared.i18n import _
 
 _LIMITS_FIELD_NAMES = frozenset(f.name for f in fields(Limits))
 
@@ -21,7 +22,7 @@ def apply_overrides(base: Limits, overrides: Mapping[str, Any]) -> Limits:
     Phase 3)."""
     unknown = set(overrides) - _LIMITS_FIELD_NAMES
     if unknown:
-        raise ValidationError(f"champs de limite inconnus dans la surcharge : {sorted(unknown)}")
+        raise ValidationError(_("champs de limite inconnus dans la surcharge : {value}").format(value=sorted(unknown)))
 
     effective = replace(base, **overrides)
     validate_limits(effective)

@@ -9,6 +9,7 @@ from omega_lib.core.confidence import ConfidenceLevel
 
 from omega_fuzz.domain.findings.observation import Observation
 from omega_fuzz.domain.services.redaction_service import redact_body_snippet
+from omega_fuzz.shared.i18n import _
 
 if TYPE_CHECKING:
     from omega_fuzz.ports.http_client import HttpResponse
@@ -33,8 +34,7 @@ class HttpAccessControlAnalyzer:
         return Observation(
             kind="unauthorized_access",
             description=(
-                f"Reponse {response.status_code} obtenue alors qu'un refus etait attendu "
-                f"({tuple(expected_denial_status_codes)})"
+                _("Réponse {status_code} obtenue alors qu'un refus était attendu ({value})").format(status_code=response.status_code, value=tuple(expected_denial_status_codes))
             ),
             confidence=ConfidenceLevel.VERIFIED,
             request_id=request_id,

@@ -16,6 +16,7 @@ from omega_fuzz.domain.requests.scan_request import ScanRequest
 from omega_fuzz.domain.tests.test import Test
 from omega_fuzz.plugins.fuzzers.common.fuzz_test_factory import build_fuzz_test
 from omega_fuzz.plugins.fuzzers.common.mutation_context import GENERIC_MUTATIONS
+from omega_fuzz.shared.i18n import _
 
 _MODULE = "fuzzhttp"
 _SUBTYPE = "header"
@@ -46,7 +47,7 @@ def build_plan(
         method="GET",
         endpoint=endpoint,
         parameters=(header_name,),
-        description=f"Fuzz du header {header_name!r} sur {endpoint}",
+        description=_("Fuzz du header {header_name!r} sur {endpoint}").format(header_name=header_name, endpoint=endpoint),
         now=now,
     )
 

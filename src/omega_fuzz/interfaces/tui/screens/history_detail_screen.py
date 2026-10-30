@@ -27,6 +27,7 @@ from textual.widgets import Button, DataTable, Footer, Header, Static
 from omega_fuzz.application.queries.list_findings_for_scan import list_findings_for_scan
 from omega_fuzz.domain.reports.termination import describe_termination
 from omega_fuzz.interfaces.tui.screens._base import OmegaScreen
+from omega_fuzz.shared.i18n import _
 
 if TYPE_CHECKING:
     from omega_fuzz.app.container import Container as AppContainer
@@ -47,31 +48,30 @@ class HistoryDetailScreen(OmegaScreen):
         scan = self._scan
         yield Header()
         with VerticalScroll(classes="omega-panel"):
-            yield Static(f"SCAN {scan.scan_id.value[:12]}", classes="omega-title")
+            yield Static(_("SCAN {value}").format(value=scan.scan_id.value[:12]), classes="omega-title")
             yield Static(
-                f"Cible : {scan.target_id} — Statut : {scan.status.value} — "
-                f"Cree le : {scan.created_at.strftime('%Y-%m-%d %H:%M')}",
+                _("Cible : {target_id} — Statut : {value} — Créé le : {strftime}").format(target_id=scan.target_id, value=scan.status.value, strftime=scan.created_at.strftime('%Y-%m-%d %H:%M')),
                 classes="omega-subtitle",
             )
 
             yield DataTable(id="history-findings-table")
 
             if scan.termination_reason is not None:
-                yield Static(f"Terminaison : {describe_termination(scan.termination_reason)}")
+                yield Static(_("Terminaison : {value}").format(value=describe_termination(scan.termination_reason)))
             yield Static(
-                "Export indisponible depuis l'historique : la configuration effective "
-                "(preset/limites) et le detail des tests d'un scan passe ne sont pas "
-                "persistes — seuls le scan et ses findings le sont.",
+                _("Export indisponible depuis l'historique : la configuration effective "
+                  "(preset/limites) et le détail des tests d'un scan passé ne sont pas "
+                  "persistés — seuls le scan et ses findings le sont."),
                 classes="omega-hint",
             )
 
             with Horizontal(classes="omega-actions"), Container(classes="omega-btn-frame"):
-                yield Button("Retour", id="back")
+                yield Button(_("Retour"), id="back")
         yield Footer()
 
     def on_mount(self) -> None:
         table = self.query_one("#history-findings-table", DataTable)
-        table.add_columns("Severite", "Type", "Endpoint", "Parametre", "Titre")
+        table.add_columns(_("Sévérité"), _("Type"), _("Endpoint"), _("Paramètre"), _("Titre"))
         findings = list_findings_for_scan(
             finding_repository=self._container.finding_repository, scan_id=self._scan.scan_id.value
         )
@@ -81,7 +81,7 @@ class HistoryDetailScreen(OmegaScreen):
                 finding.type,
                 finding.target.endpoint,
                 finding.target.parameter or "",
-                finding.title,
+                _(finding.title),
             )
 
     def on_button_pressed(self, event: Button.Pressed) -> None:

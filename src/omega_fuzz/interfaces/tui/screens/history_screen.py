@@ -18,6 +18,7 @@ from omega_fuzz.application.queries.get_scan_history import get_scan_history
 from omega_fuzz.application.queries.list_findings_for_scan import list_findings_for_scan
 from omega_fuzz.interfaces.tui.screens._base import OmegaScreen
 from omega_fuzz.interfaces.tui.screens.history_detail_screen import HistoryDetailScreen
+from omega_fuzz.shared.i18n import _
 
 if TYPE_CHECKING:
     from omega_fuzz.app.container import Container as AppContainer
@@ -36,19 +37,19 @@ class HistoryScreen(OmegaScreen):
     def compose(self) -> ComposeResult:
         yield Header()
         with Vertical(classes="omega-panel"):
-            yield Static("HISTORIQUE", classes="omega-title")
-            yield Input(placeholder="Filtrer par cible...", id="target-filter")
+            yield Static(_("HISTORIQUE"), classes="omega-title")
+            yield Input(placeholder=_("Filtrer par cible..."), id="target-filter")
             yield DataTable(id="history-table")
             with Horizontal(classes="omega-actions"):
                 with Container(classes="omega-btn-frame"):
-                    yield Button("Voir le detail", id="view")
+                    yield Button(_("Voir le détail"), id="view")
                 with Container(classes="omega-btn-frame"):
-                    yield Button("Retour", id="back")
+                    yield Button(_("Retour"), id="back")
         yield Footer()
 
     def on_mount(self) -> None:
         table = self.query_one("#history-table", DataTable)
-        table.add_columns("Scan", "Cible", "Statut", "Cree le", "Findings")
+        table.add_columns(_("Scan"), _("Cible"), _("Statut"), _("Créé le"), _("Findings"))
         table.cursor_type = "row"
         self._refresh(None)
 
@@ -91,7 +92,7 @@ class HistoryScreen(OmegaScreen):
         if event.button.id != "view":
             return
         if self._selected_scan_id is None:
-            self.app.notify("Selectionnez d'abord une ligne.", severity="warning")
+            self.app.notify(_("Sélectionnez d'abord une ligne."), severity="warning")
             return
         scan = self._scans_by_id.get(self._selected_scan_id)
         if scan is None:

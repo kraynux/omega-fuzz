@@ -26,16 +26,16 @@ NOW = datetime(2026, 1, 1, tzinfo=timezone.utc)
 
 _EXPECTED_SECTION_HEADINGS = (
     "<h1>Rapport OMEGA-FUZZ</h1>",
-    "<h2>Resume executif</h2>",
+    "<h2>Résumé exécutif</h2>",
     "<h2>Cible et scan ID</h2>",
     "<h2>Preset, profils et surcharges</h2>",
     "<h2>Scope effectif et exclusions</h2>",
-    "<h2>Limites configurees</h2>",
+    "<h2>Limites configurées</h2>",
     "<h2>Raison de terminaison</h2>",
-    "<h2>Statistiques de requetes</h2>",
+    "<h2>Statistiques de requêtes</h2>",
     "<h2>Statistiques de tests</h2>",
-    "<h2>Findings par severite</h2>",
-    "<h2>Detail des findings</h2>",
+    "<h2>Findings par sévérité</h2>",
+    "<h2>Détail des findings</h2>",
     "<h2>Annexes techniques</h2>",
 )
 
@@ -90,7 +90,7 @@ def test_tls_banner_hidden_when_verification_enabled(tmp_path: Path) -> None:
     HtmlReportExporter().export(report=_report(verify_tls=True), format_name="html", output_path=output_path)
 
     text = output_path.read_text(encoding="utf-8")
-    assert "DESACTIVEE" not in text
+    assert "DÉSACTIVÉE" not in text
     assert "ATTENTION" not in text
 
 
@@ -99,7 +99,7 @@ def test_tls_banner_shown_when_verification_disabled(tmp_path: Path) -> None:
     HtmlReportExporter().export(report=_report(verify_tls=False), format_name="html", output_path=output_path)
 
     text = output_path.read_text(encoding="utf-8")
-    assert "DESACTIVEE" in text
+    assert "DÉSACTIVÉE" in text
     assert "ATTENTION" in text
 
 

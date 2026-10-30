@@ -10,6 +10,7 @@ from __future__ import annotations
 from omega_fuzz.core.errors import ValidationError
 from omega_fuzz.domain.findings.scoring import Scoring
 from omega_fuzz.domain.findings.severity import Severity
+from omega_fuzz.shared.i18n import _
 
 # (impact, exploitability, scope) par Observation.kind — voir le plan
 # Phase 8 pour la justification de chaque choix (ancrage sur les lignes
@@ -54,4 +55,5 @@ def apply_severity_override(
     Utilise en amont de la construction du `Finding` (dont
     `__post_init__` applique la meme regle defensivement)."""
     if finding_severity_override is not None and not reason:
-        raise ValidationError("severity_override necessite une severity_override_reason justifiee")
+        raise ValidationError(_("severity_override nécessite une severity_override_reason "
+                                "justifiée"))
