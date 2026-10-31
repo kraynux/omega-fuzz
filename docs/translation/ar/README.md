@@ -7,8 +7,7 @@
 
 **ماسح الثغرات**
 
-> طُوّر بواسطة **kraynux** لصالح **Omega-server**  
-> [https://kraynux.snake-mackarel.ts.net](https://kraynux.snake-mackarel.ts.net)
+> طُوّر بواسطة [kraynux](https://github.com/kraynux) لصالح [Omega-Server](https://kraynux.snake-mackarel.ts.net)   
 
 الصفحة الرسمية: [OMEGA-FUZZ](https://kraynux.snake-mackarel.ts.net/omega-fuzz/) &nbsp; لقطات الشاشة: [Screenshots](https://kraynux.snake-mackarel.ts.net/omega-fuzz/screenshots/)  
 

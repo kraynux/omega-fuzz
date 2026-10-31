@@ -7,8 +7,7 @@
 
 **Escáner de vulnerabilidades**
 
-> Desarrollado por **kraynux** para **Omega-server** 
-[https://kraynux.snake-mackarel.ts.net](https://kraynux.snake-mackarel.ts.net)
+> Desarrollado por [kraynux](https://github.com/kraynux) para [Omega-Server](https://kraynux.snake-mackarel.ts.net)   
 
 Página oficial: [OMEGA-FUZZ](https://kraynux.snake-mackarel.ts.net/omega-fuzz/) &nbsp; Vista previa: [Capturas](https://kraynux.snake-mackarel.ts.net/omega-fuzz/screenshots/)  
 

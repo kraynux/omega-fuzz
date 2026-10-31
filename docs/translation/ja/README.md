@@ -7,8 +7,7 @@
 
 **脆弱性スキャナー**
 
-> **kraynux** が **Omega-server** 向けに開発  
-> [https://kraynux.snake-mackarel.ts.net](https://kraynux.snake-mackarel.ts.net)
+> [kraynux](https://github.com/kraynux) が [Omega-Server](https://kraynux.snake-mackarel.ts.net) 向けに開発   
 
 公式ページ: [OMEGA-FUZZ](https://kraynux.snake-mackarel.ts.net/omega-fuzz/) &nbsp; スクリーンショット: [Screenshots](https://kraynux.snake-mackarel.ts.net/omega-fuzz/screenshots/)  
 

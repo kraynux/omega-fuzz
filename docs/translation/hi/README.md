@@ -7,8 +7,7 @@
 
 **कमज़ोरी स्कैनर**
 
-> **kraynux** द्वारा **Omega-server** के लिए विकसित  
-> [https://kraynux.snake-mackarel.ts.net](https://kraynux.snake-mackarel.ts.net)
+> [kraynux](https://github.com/kraynux) द्वारा [Omega-Server](https://kraynux.snake-mackarel.ts.net) के लिए विकसित   
 
 आधिकारिक पृष्ठ: [OMEGA-FUZZ](https://kraynux.snake-mackarel.ts.net/omega-fuzz/) &nbsp; स्क्रीनशॉट: [Screenshots](https://kraynux.snake-mackarel.ts.net/omega-fuzz/screenshots/)  
 

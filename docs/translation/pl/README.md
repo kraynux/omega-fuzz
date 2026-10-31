@@ -7,8 +7,7 @@
 
 **Skaner podatności**
 
-> Opracowany przez **kraynux** dla **Omega-server**  
-> [https://kraynux.snake-mackarel.ts.net](https://kraynux.snake-mackarel.ts.net)
+> Opracowany przez [kraynux](https://github.com/kraynux) dla [Omega-Server](https://kraynux.snake-mackarel.ts.net)   
 
 Oficjalna strona: [OMEGA-FUZZ](https://kraynux.snake-mackarel.ts.net/omega-fuzz/) &nbsp; Zrzuty ekranu: [Screenshots](https://kraynux.snake-mackarel.ts.net/omega-fuzz/screenshots/)  
 

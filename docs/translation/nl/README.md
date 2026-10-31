@@ -7,8 +7,7 @@
 
 **Kwetsbaarheidsscanner**
 
-> Ontwikkeld door **kraynux** voor **Omega-server** 
-[https://kraynux.snake-mackarel.ts.net](https://kraynux.snake-mackarel.ts.net)
+> Ontwikkeld door [kraynux](https://github.com/kraynux) voor [Omega-Server](https://kraynux.snake-mackarel.ts.net)   
 
 Officiële pagina: [OMEGA-FUZZ](https://kraynux.snake-mackarel.ts.net/omega-fuzz/) &nbsp; Voorbeeld: [Schermafbeeldingen](https://kraynux.snake-mackarel.ts.net/omega-fuzz/screenshots/)  
 
