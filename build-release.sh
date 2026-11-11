@@ -45,7 +45,7 @@ rsync -a \
     --exclude='.git/' --exclude='.claude/' \
     --exclude='docs/assets/' \
     --exclude='var/db/*' --exclude='var/exports/*' --exclude='var/screenshots/*' \
-    --exclude='var/settings.json' --exclude='var/targets.json' --exclude='var/*.log' \
+    --exclude='var/settings.json' --exclude='var/declaration.json' --exclude='var/targets.json' --exclude='var/*.log' \
     --exclude='vendor/' \
     --exclude='*~' --exclude='*.bak' --exclude='*.swp' \
     --exclude='.coverage' --exclude='htmlcov/' \

@@ -48,6 +48,10 @@ class LanguageSetting(Vertical):
     DEFAULT_CSS = """
     LanguageSetting {
         height: auto;
+        width: 70;
+    }
+    LanguageSetting > Select {
+        margin-bottom: 1;
     }
     """
 
@@ -83,7 +87,11 @@ class LanguageSetting(Vertical):
     def on_select_changed(self, event: Select.Changed) -> None:
         event.stop()
         if event.select.id == "export-language-select":
-            self._change_export_language(str(event.value))
+            # Le Select signale aussi sa valeur initiale (ouverture de l'ecran) : n'agir et ne notifier
+            # que sur un vrai changement (retour utilisateur 2026-11-10).
+            current = LANGUAGE.export_language_setting(self._settings_store) or SAME_AS_INTERFACE
+            if str(event.value) != current:
+                self._change_export_language(str(event.value))
             return
         code = str(event.value)
         if code == STATE.language.code:

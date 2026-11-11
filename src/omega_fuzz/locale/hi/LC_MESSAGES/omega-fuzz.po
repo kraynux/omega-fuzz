@@ -7,7 +7,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Omega-Status: testing\n"
+"X-Omega-Status: validated\n"
 
 #: src/omega_fuzz/application/commands/clear_directory.py:52
 msgid "contient l'installation de omega-fuzz"
@@ -291,39 +291,39 @@ msgstr "स्क्रीनशॉट"
 msgid "Enregistrer une capture SVG de l'écran actuel"
 msgstr "वर्तमान स्क्रीन का SVG स्क्रीनशॉट सहेजें"
 
-#: src/omega_fuzz/interfaces/tui/screens/help_screen.py:34
+#: src/omega_fuzz/interfaces/tui/screens/help_screen.py:35
 msgid "Omega-fuzz découvre une cible dans un périmètre contrôlé (scope explicite, profondeur limitée) puis teste activement les points d'entrée trouvés (paramètres de requête, headers de sécurité) — jamais sans confirmation explicite pour les profils/modes à risque (agressivité violente, vérification TLS désactivée)."
 msgstr "Omega-fuzz नियंत्रित दायरे (स्पष्ट दायरा, सीमित गहराई) में लक्ष्य को खोजता है, फिर मिले प्रवेश बिंदुओं (अनुरोध पैरामीटर, सुरक्षा हेडर) का सक्रिय परीक्षण करता है — जोखिम भरी प्रोफ़ाइलों/मोड (प्रचंड आक्रामकता, TLS सत्यापन बंद) के लिए बिना स्पष्ट पुष्टि के कभी नहीं।"
 
-#: src/omega_fuzz/interfaces/tui/screens/help_screen.py:54
+#: src/omega_fuzz/interfaces/tui/screens/help_screen.py:61
 msgid "Presets"
 msgstr "प्रीसेट"
 
-#: src/omega_fuzz/interfaces/tui/screens/help_screen.py:63 src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:30
+#: src/omega_fuzz/interfaces/tui/screens/help_screen.py:74 src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:30
 msgid "Preset"
 msgstr "Preset"
 
-#: src/omega_fuzz/interfaces/tui/screens/help_screen.py:64
+#: src/omega_fuzz/interfaces/tui/screens/help_screen.py:75
 msgid "Scope"
 msgstr "दायरा"
 
-#: src/omega_fuzz/interfaces/tui/screens/help_screen.py:65
+#: src/omega_fuzz/interfaces/tui/screens/help_screen.py:76
 msgid "Agressivité"
 msgstr "आक्रामकता"
 
-#: src/omega_fuzz/interfaces/tui/screens/help_screen.py:66 src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:95
+#: src/omega_fuzz/interfaces/tui/screens/help_screen.py:77 src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:95
 msgid "Durée max"
 msgstr "अधिकतम अवधि"
 
-#: src/omega_fuzz/interfaces/tui/screens/help_screen.py:67 src/omega_fuzz/interfaces/tui/screens/scan_setup_screen.py:52 src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:96
+#: src/omega_fuzz/interfaces/tui/screens/help_screen.py:78 src/omega_fuzz/interfaces/tui/screens/scan_setup_screen.py:52 src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:96
 msgid "Requêtes max"
 msgstr "अधिकतम अनुरोध"
 
-#: src/omega_fuzz/interfaces/tui/screens/help_screen.py:68 src/omega_fuzz/interfaces/tui/screens/scan_setup_screen.py:53 src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:97
+#: src/omega_fuzz/interfaces/tui/screens/help_screen.py:79 src/omega_fuzz/interfaces/tui/screens/scan_setup_screen.py:53 src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:97
 msgid "Tests max"
 msgstr "अधिकतम परीक्षण"
 
-#: src/omega_fuzz/interfaces/tui/screens/help_screen.py:70
+#: src/omega_fuzz/interfaces/tui/screens/help_screen.py:81
 msgid "Confirmation"
 msgstr "पुष्टि"
 

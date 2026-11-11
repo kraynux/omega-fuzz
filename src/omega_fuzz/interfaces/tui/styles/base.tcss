@@ -328,3 +328,10 @@ ScanReviewScreen .omega-title {
 ScanReviewScreen .omega-panel > Horizontal {
     align: center middle;
 }
+
+/* Barre d'actions HORS de la zone qui defile (toujours visible), comme omega-serv / omega-log :
+   Contact et support, Se declarer (ecrans partages d'omega-lib, D-016, 2026-11-09). */
+.omega-fixed-actions {
+    padding: 0 2;
+    margin-top: 0;
+}

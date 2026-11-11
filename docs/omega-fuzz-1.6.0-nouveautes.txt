@@ -1,0 +1,47 @@
+OMEGA-FUZZ 1.6.0 - Ce qui change pour vous
+==========================================
+
+Une version qui ajoute l'écran « Contact et support » d'omega-serv et d'omega-log.
+Le détail technique complet reste dans le CHANGELOG.
+
+
+CONTACT ET SUPPORT
+------------------
+- Nouveau bouton « Contact et support » dans l'aide (touche a).
+- Payer un café : ouvre la page PayPal du développeur (adresse aussi affichée).
+- Contacter le support : adresse mail et formulaire de contact du site, affichés en
+  clair. Aucun formulaire dans l'outil, aucun mail envoyé par l'outil.
+- Sans session graphique (SSH), le navigateur ne s'ouvre pas : l'adresse s'affiche.
+
+
+SE DÉCLARER UTILISATEUR (ANONYME), UNE SEULE FOIS
+-------------------------------------------------
+- Volontaire et désactivé par défaut : sert seulement à compter les utilisateurs.
+- Le message contient une clé tirée au hasard, « omega-fuzz », la version et, si vous le
+  voulez, un continent et un pays (listes fermées). Il est affiché avant l'envoi.
+- Jamais de nom, de nom de machine, de réglage, de cible ni de résultat.
+- Envoi une seule fois, sur clic. Réception injoignable : rien n'est enregistré.
+- « Ne plus me déclarer » : votre entrée est supprimée à la réception et la clé
+  effacée de la machine.
+
+
+VERSION ET MISES À JOUR
+-----------------------
+- « Vérifier les mises à jour » compare votre version à la liste publiée sur le site,
+  seulement quand vous cliquez. Rien n'est envoyé.
+- « Voir les nouveautés » ouvre ce fichier pour la dernière version publiée.
+
+
+17 LANGUES
+----------
+- Les nouveaux écrans sont traduits dans les 17 langues de l'interface.
+- Le README (17 langues) a une nouvelle section « Contact et support ».
+- Le README de chaque langue montre 4 captures de l'outil dans cette langue, et le site
+  de l'outil est disponible dans les 17 langues.
+
+
+CORRIGÉ
+-------
+- Réglages : écran centré comme dans le reste de la suite, et plus de notification à
+  l'ouverture (seul un vrai changement est annoncé).
+- Langues : la mention « en test » disparaît du sélecteur (16 traductions validées).

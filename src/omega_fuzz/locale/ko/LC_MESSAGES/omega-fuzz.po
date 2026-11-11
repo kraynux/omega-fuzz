@@ -7,7 +7,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Omega-Status: testing\n"
+"X-Omega-Status: validated\n"
 
 #: src/omega_fuzz/application/commands/clear_directory.py:52
 msgid "contient l'installation de omega-fuzz"
@@ -291,39 +291,39 @@ msgstr "스크린샷"
 msgid "Enregistrer une capture SVG de l'écran actuel"
 msgstr "현재 화면의 SVG 스크린샷 저장"
 
-#: src/omega_fuzz/interfaces/tui/screens/help_screen.py:34
+#: src/omega_fuzz/interfaces/tui/screens/help_screen.py:35
 msgid "Omega-fuzz découvre une cible dans un périmètre contrôlé (scope explicite, profondeur limitée) puis teste activement les points d'entrée trouvés (paramètres de requête, headers de sécurité) — jamais sans confirmation explicite pour les profils/modes à risque (agressivité violente, vérification TLS désactivée)."
 msgstr "Omega-fuzz는 통제된 범위(명시적 범위, 제한된 깊이)에서 대상을 탐색한 뒤 찾은 진입점(요청 매개변수, 보안 헤더)을 능동적으로 테스트합니다 — 위험한 프로필/모드(격렬한 공격성, TLS 검증 비활성화)에서는 명시적 확인 없이 절대 하지 않습니다."
 
-#: src/omega_fuzz/interfaces/tui/screens/help_screen.py:54
+#: src/omega_fuzz/interfaces/tui/screens/help_screen.py:61
 msgid "Presets"
 msgstr "프리셋"
 
-#: src/omega_fuzz/interfaces/tui/screens/help_screen.py:63 src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:30
+#: src/omega_fuzz/interfaces/tui/screens/help_screen.py:74 src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:30
 msgid "Preset"
 msgstr "Preset"
 
-#: src/omega_fuzz/interfaces/tui/screens/help_screen.py:64
+#: src/omega_fuzz/interfaces/tui/screens/help_screen.py:75
 msgid "Scope"
 msgstr "범위"
 
-#: src/omega_fuzz/interfaces/tui/screens/help_screen.py:65
+#: src/omega_fuzz/interfaces/tui/screens/help_screen.py:76
 msgid "Agressivité"
 msgstr "공격성"
 
-#: src/omega_fuzz/interfaces/tui/screens/help_screen.py:66 src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:95
+#: src/omega_fuzz/interfaces/tui/screens/help_screen.py:77 src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:95
 msgid "Durée max"
 msgstr "최대 시간"
 
-#: src/omega_fuzz/interfaces/tui/screens/help_screen.py:67 src/omega_fuzz/interfaces/tui/screens/scan_setup_screen.py:52 src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:96
+#: src/omega_fuzz/interfaces/tui/screens/help_screen.py:78 src/omega_fuzz/interfaces/tui/screens/scan_setup_screen.py:52 src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:96
 msgid "Requêtes max"
 msgstr "최대 요청 수"
 
-#: src/omega_fuzz/interfaces/tui/screens/help_screen.py:68 src/omega_fuzz/interfaces/tui/screens/scan_setup_screen.py:53 src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:97
+#: src/omega_fuzz/interfaces/tui/screens/help_screen.py:79 src/omega_fuzz/interfaces/tui/screens/scan_setup_screen.py:53 src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:97
 msgid "Tests max"
 msgstr "최대 테스트 수"
 
-#: src/omega_fuzz/interfaces/tui/screens/help_screen.py:70
+#: src/omega_fuzz/interfaces/tui/screens/help_screen.py:81
 msgid "Confirmation"
 msgstr "확인"
 

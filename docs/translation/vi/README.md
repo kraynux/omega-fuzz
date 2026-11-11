@@ -117,6 +117,10 @@ Luồng sử dụng: màn hình khởi động (đóng bằng phím hoặc click
 
 Giao diện có sẵn bằng 17 ngôn ngữ: tiếng Pháp, tiếng Anh, tiếng Tây Ban Nha, tiếng Bồ Đào Nha (Brazil), tiếng Ý, tiếng Đức, tiếng Hà Lan, tiếng Ba Lan, tiếng Nga, tiếng Trung giản thể, tiếng Việt, tiếng Thái, tiếng Indonesia, tiếng Nhật, tiếng Hàn, tiếng Hindi và tiếng Ả Rập. Ngôn ngữ được chọn trong Thiết lập («Ngôn ngữ / Language») và áp dụng sau khi khởi động lại giao diện; biến `OMEGA_FUZZ_LANG` (ví dụ `OMEGA_FUZZ_LANG=en ./omega-fuzz.sh`) ép ngôn ngữ cho một phiên. Khi chạy từ omega-suite, omega-fuzz dùng ngôn ngữ của bộ công cụ. Trên console văn bản Linux (TTY), tiếng Việt và các ngôn ngữ không dùng chữ Latinh được hiển thị bằng tiếng Anh trong suốt phiên đó. Dòng lệnh vẫn bằng tiếng Pháp.
 
+### Liên hệ và hỗ trợ
+
+Phần trợ giúp (phím `a`) có màn hình **Liên hệ và hỗ trợ**: *Mời một ly cà phê* (trang PayPal của nhà phát triển), *Liên hệ hỗ trợ* (địa chỉ email và biểu mẫu liên hệ của trang web, hiển thị rõ ràng), *Khai báo là người dùng (ẩn danh)* và *Kiểm tra cập nhật*. Việc khai báo là tự nguyện, tắt theo mặc định và chỉ gửi một lần: nó chỉ dùng để đếm số người dùng và, nếu bạn muốn, châu lục hoặc quốc gia của họ (danh sách đóng, không bao giờ là văn bản tự do). Nó gửi một khóa được tạo ngẫu nhiên, tên phần mềm (`omega-fuzz`) và phiên bản của nó; không bao giờ gửi tên, tên máy, thiết lập, mục tiêu hay kết quả. Địa chỉ IP không được lưu trong các khai báo, nhưng, như mọi lượt truy cập, nó đi qua các kiểm tra bảo mật và nhật ký của máy chủ nhận. Có thể rút lại bất cứ lúc nào từ cùng màn hình (*Không khai báo tôi nữa*). Việc kiểm tra cập nhật chỉ đọc danh sách các phiên bản đã phát hành trên trang web, và không bao giờ khi chưa nhấp.
+
 ### Chế độ kịch bản (CLI)
 
 ```bash
@@ -330,3 +334,10 @@ Cấu trúc: `tests/unit/` (domain và application, không I/O thực), `tests/i
 ---
 
 > Omega-Fuzz — Khám phá phạm vi, kiểm thử với các biện pháp bảo vệ rõ ràng, không bao giờ đoán điều chưa được xác nhận.
+
+<p align="center">
+  <img src="https://raw.githubusercontent.com/kraynux/kraynux/refs/heads/main/docs/translation/vi/omega-fuzz/A.png" width="24%" />
+  <img src="https://raw.githubusercontent.com/kraynux/kraynux/refs/heads/main/docs/translation/vi/omega-fuzz/B.png" width="24%" />
+  <img src="https://raw.githubusercontent.com/kraynux/kraynux/refs/heads/main/docs/translation/vi/omega-fuzz/C.png" width="24%" />
+  <img src="https://raw.githubusercontent.com/kraynux/kraynux/refs/heads/main/docs/translation/vi/omega-fuzz/D.png" width="24%" />
+</p>

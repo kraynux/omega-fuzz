@@ -117,6 +117,10 @@ Przebieg: ekran startowy (zamyka się po naciśnięciu klawisza lub kliknięciu)
 
 Interfejs jest dostępny w 17 językach: francuskim, angielskim, hiszpańskim, portugalskim (Brazylia), włoskim, niemieckim, niderlandzkim, polskim, rosyjskim, chińskim uproszczonym, wietnamskim, tajskim, indonezyjskim, japońskim, koreańskim, hindi i arabskim. Język wybiera się w Ustawieniach („Język / Language”) i stosuje po ponownym uruchomieniu interfejsu; zmienna `OMEGA_FUZZ_LANG` (np. `OMEGA_FUZZ_LANG=en ./omega-fuzz.sh`) wymusza język na czas jednej sesji. Uruchomiony z omega-suite, omega-fuzz przyjmuje język całego zestawu. W tekstowej konsoli Linuksa (TTY) języki z pismem nielacińskim wyświetlają się w języku angielskim na czas sesji. Interfejs wiersza poleceń pozostaje w języku francuskim.
 
+### Kontakt i wsparcie
+
+Pomoc (klawisz `a`) oferuje ekran **Kontakt i wsparcie**: *Postaw kawę* (strona PayPal dewelopera), *Skontaktuj się ze wsparciem* (adres e-mail i formularz kontaktowy strony, wyświetlane jawnie), *Zgłoś mnie jako użytkownika (anonimowo)* oraz *Sprawdź aktualizacje*. Zgłoszenie jest dobrowolne, domyślnie wyłączone i wysyłane tylko raz: służy wyłącznie do liczenia użytkowników oraz, jeśli tego chcesz, ich kontynentu lub kraju (zamknięte listy, nigdy dowolny tekst). Wysyła losowo wygenerowany klucz, nazwę programu (`omega-fuzz`) i jego wersję; nigdy imienia i nazwiska, nazwy maszyny, ustawienia, celu ani wyniku. Adres IP nie jest zapisywany w zgłoszeniach, ale — jak przy każdej wizycie — przechodzi przez kontrole bezpieczeństwa i dziennik serwera odbiorczego. Wycofanie w dowolnym momencie z tego samego ekranu (*Nie zgłaszaj mnie więcej*). Sprawdzanie aktualizacji odczytuje jedynie listę wersji opublikowanych na stronie, i nigdy bez kliknięcia.
+
 ### Tryb skryptowy (CLI)
 
 ```bash
@@ -330,3 +334,10 @@ Struktura: `tests/unit/` (domena i aplikacja, bez rzeczywistego I/O), `tests/int
 ---
 
 > Omega-Fuzz — odkryj zakres, przetestuj go z jawnymi zabezpieczeniami i nigdy nie zgaduj tego, czego nie potwierdzono.
+
+<p align="center">
+  <img src="https://raw.githubusercontent.com/kraynux/kraynux/refs/heads/main/docs/translation/pl/omega-fuzz/A.png" width="24%" />
+  <img src="https://raw.githubusercontent.com/kraynux/kraynux/refs/heads/main/docs/translation/pl/omega-fuzz/B.png" width="24%" />
+  <img src="https://raw.githubusercontent.com/kraynux/kraynux/refs/heads/main/docs/translation/pl/omega-fuzz/C.png" width="24%" />
+  <img src="https://raw.githubusercontent.com/kraynux/kraynux/refs/heads/main/docs/translation/pl/omega-fuzz/D.png" width="24%" />
+</p>

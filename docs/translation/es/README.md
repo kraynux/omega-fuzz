@@ -114,6 +114,10 @@ Recorrido: pantalla de inicio (se cierra con una tecla o un clic) → menú prin
 
 La interfaz está disponible en 17 idiomas: francés, inglés, español, portugués (Brasil), italiano, alemán, neerlandés, polaco, ruso, chino simplificado, vietnamita, tailandés, indonesio, japonés, coreano, hindi y árabe. La elección se hace en Ajustes («Langue / Language») y se aplica tras reiniciar la interfaz; la variable `OMEGA_FUZZ_LANG` (por ejemplo `OMEGA_FUZZ_LANG=en ./omega-fuzz.sh`) fuerza un idioma durante una sesión. Lanzado desde omega-suite, omega-fuzz toma el idioma de la suite. En una consola de texto Linux (TTY), los idiomas con escritura no latina se muestran en inglés durante la sesión. La línea de comandos sigue en francés.
 
+### Contacto y soporte
+
+La ayuda (tecla `a`) ofrece una pantalla **Contacto y soporte**: *Invitar a un café* (página PayPal del desarrollador), *Contactar con el soporte* (dirección de correo y formulario de contacto del sitio, mostrados en claro), *Declararme usuario (anónimo)* y *Buscar actualizaciones*. La declaración es voluntaria, está desactivada por defecto y se envía una sola vez: solo sirve para contar a los usuarios y, si se desea, su continente o su país (listas cerradas, nunca texto libre). Envía una clave elegida al azar, el nombre del programa (`omega-fuzz`) y su versión; nunca un nombre, un nombre de máquina, un ajuste, un objetivo ni un resultado. La dirección IP no se registra en las declaraciones, pero, como en cualquier visita, pasa por los controles de seguridad y el registro del servidor de recepción. Retirada en cualquier momento desde la misma pantalla (*Dejar de declararme*). La búsqueda de actualizaciones solo lee la lista de versiones publicadas en el sitio, y nunca sin un clic.
+
 ### Modo scriptable (CLI)
 
 ```bash
@@ -326,3 +330,10 @@ Estructura: `tests/unit/` (dominio y aplicación, sin E/S real), `tests/integrat
 ---
 
 > Omega-Fuzz — Descubrir un perímetro, probarlo con salvaguardas explícitas, nunca adivinar lo que no se ha confirmado.
+
+<p align="center">
+  <img src="https://raw.githubusercontent.com/kraynux/kraynux/refs/heads/main/docs/translation/es/omega-fuzz/A.png" width="24%" />
+  <img src="https://raw.githubusercontent.com/kraynux/kraynux/refs/heads/main/docs/translation/es/omega-fuzz/B.png" width="24%" />
+  <img src="https://raw.githubusercontent.com/kraynux/kraynux/refs/heads/main/docs/translation/es/omega-fuzz/C.png" width="24%" />
+  <img src="https://raw.githubusercontent.com/kraynux/kraynux/refs/heads/main/docs/translation/es/omega-fuzz/D.png" width="24%" />
+</p>

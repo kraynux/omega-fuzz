@@ -7,7 +7,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
-"X-Omega-Status: testing\n"
+"X-Omega-Status: validated\n"
 
 #: src/omega_fuzz/application/commands/clear_directory.py:52
 msgid "contient l'installation de omega-fuzz"
@@ -291,39 +291,39 @@ msgstr "Zrzut ekranu"
 msgid "Enregistrer une capture SVG de l'écran actuel"
 msgstr "Zapisz zrzut SVG bieżącego ekranu"
 
-#: src/omega_fuzz/interfaces/tui/screens/help_screen.py:34
+#: src/omega_fuzz/interfaces/tui/screens/help_screen.py:35
 msgid "Omega-fuzz découvre une cible dans un périmètre contrôlé (scope explicite, profondeur limitée) puis teste activement les points d'entrée trouvés (paramètres de requête, headers de sécurité) — jamais sans confirmation explicite pour les profils/modes à risque (agressivité violente, vérification TLS désactivée)."
 msgstr "Omega-fuzz eksploruje cel w kontrolowanym obszarze (wyraźny zakres, ograniczona głębokość), a następnie aktywnie testuje znalezione punkty wejścia (parametry żądania, nagłówki bezpieczeństwa) — nigdy bez wyraźnego potwierdzenia dla ryzykownych profili/trybów (agresywność gwałtowna, wyłączona weryfikacja TLS)."
 
-#: src/omega_fuzz/interfaces/tui/screens/help_screen.py:54
+#: src/omega_fuzz/interfaces/tui/screens/help_screen.py:61
 msgid "Presets"
 msgstr "Presety"
 
-#: src/omega_fuzz/interfaces/tui/screens/help_screen.py:63 src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:30
+#: src/omega_fuzz/interfaces/tui/screens/help_screen.py:74 src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:30
 msgid "Preset"
 msgstr "Preset"
 
-#: src/omega_fuzz/interfaces/tui/screens/help_screen.py:64
+#: src/omega_fuzz/interfaces/tui/screens/help_screen.py:75
 msgid "Scope"
 msgstr "Zakres"
 
-#: src/omega_fuzz/interfaces/tui/screens/help_screen.py:65
+#: src/omega_fuzz/interfaces/tui/screens/help_screen.py:76
 msgid "Agressivité"
 msgstr "Agresywność"
 
-#: src/omega_fuzz/interfaces/tui/screens/help_screen.py:66 src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:95
+#: src/omega_fuzz/interfaces/tui/screens/help_screen.py:77 src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:95
 msgid "Durée max"
 msgstr "Maks. czas"
 
-#: src/omega_fuzz/interfaces/tui/screens/help_screen.py:67 src/omega_fuzz/interfaces/tui/screens/scan_setup_screen.py:52 src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:96
+#: src/omega_fuzz/interfaces/tui/screens/help_screen.py:78 src/omega_fuzz/interfaces/tui/screens/scan_setup_screen.py:52 src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:96
 msgid "Requêtes max"
 msgstr "Maks. żądań"
 
-#: src/omega_fuzz/interfaces/tui/screens/help_screen.py:68 src/omega_fuzz/interfaces/tui/screens/scan_setup_screen.py:53 src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:97
+#: src/omega_fuzz/interfaces/tui/screens/help_screen.py:79 src/omega_fuzz/interfaces/tui/screens/scan_setup_screen.py:53 src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:97
 msgid "Tests max"
 msgstr "Maks. testów"
 
-#: src/omega_fuzz/interfaces/tui/screens/help_screen.py:70
+#: src/omega_fuzz/interfaces/tui/screens/help_screen.py:81
 msgid "Confirmation"
 msgstr "Potwierdzenie"
 

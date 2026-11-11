@@ -97,7 +97,7 @@ class HomeScreen(Screen[None]):
             self.app.push_screen(HistoryScreen(container=self._container))
             return
         if event.button.id == "help":
-            self.app.push_screen(HelpScreen())
+            self.app.push_screen(HelpScreen(container=self._container))
             return
         if event.button.id == "quit":
             self.app.push_screen(QuitConfirmScreen(), self._quit_if_confirmed)

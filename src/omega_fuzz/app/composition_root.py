@@ -31,6 +31,8 @@ from __future__ import annotations
 
 from pathlib import Path
 
+from omega_lib.infrastructure.declaration import build_contact_support
+from omega_lib.infrastructure.declaration.app_version import project_version
 from omega_lib.infrastructure.terminal.detector import SystemTerminalDetector
 
 from omega_fuzz.app.container import Container, ScanRuntime
@@ -68,6 +70,12 @@ _CATALOGS_DIR = (
 )
 
 
+SOFTWARE = "omega-fuzz"
+"""Nom du logiciel pour la reception des declarations et le site (download/)."""
+PROJECT_ROOT = Path(__file__).resolve().parents[3]
+"""Racine du projet : pyproject.toml, seule source de la version."""
+
+
 def build_container(*, var_dir: Path | None = None, console_logging: bool = True) -> Container:
     xss_catalog = load_payload_catalog(_CATALOGS_DIR / "xss.yaml", category="xss")
     injection_catalog = load_payload_catalog(_CATALOGS_DIR / "injection.yaml", category="injection")
@@ -80,6 +88,7 @@ def build_container(*, var_dir: Path | None = None, console_logging: bool = True
     url_discoverer: UrlDiscoverer = Bs4UrlDiscoverer()
 
     return Container(
+        contact_support=build_contact_support(SOFTWARE, project_version(PROJECT_ROOT, SOFTWARE), base_dir),
         clock=SystemClock(),
         id_generator=SystemIdGenerator(),
         terminal_detector=SystemTerminalDetector(),

@@ -117,6 +117,10 @@ fuzz
 
 インターフェイスは17言語で利用できます：フランス語、英語、スペイン語、ポルトガル語（ブラジル）、イタリア語、ドイツ語、オランダ語、ポーランド語、ロシア語、簡体字中国語、ベトナム語、タイ語、インドネシア語、日本語、韓国語、ヒンディー語、アラビア語。言語は設定画面（「言語 / Language」）で選択し、インターフェイスの再起動後に適用されます。環境変数 `OMEGA_FUZZ_LANG`（例：`OMEGA_FUZZ_LANG=en ./omega-fuzz.sh`）でセッション単位の言語を強制できます。omega-suiteから起動した場合、omega-fuzzはスイートの言語を使用します。Linuxのテキストコンソール（TTY）では、非ラテン文字の言語はセッション中は英語で表示されます。コマンドラインはフランス語のままです。
 
+### お問い合わせとサポート
+
+ヘルプ（`a` キー）には **お問い合わせとサポート** 画面があります：*コーヒーをおごる*（開発者の PayPal ページ）、*サポートに連絡*（メールアドレスとサイトのお問い合わせフォームをそのまま表示）、*ユーザーとして登録（匿名）*、*更新を確認*。 登録は任意で、既定では無効、送信は一度だけです。利用者の数と、希望すればその大陸または国（選択式のリストのみ、自由入力なし）を数えるためだけに使われます。送信されるのは、ランダムに生成したキー、ソフトウェア名（`omega-fuzz`）とそのバージョンだけで、名前、マシン名、設定、対象、結果は決して送信されません。IP アドレスは登録データには保存されませんが、通常のアクセスと同様に、受信サーバーのセキュリティチェックとログを通過します。 同じ画面からいつでも取り消せます（*登録を取り消す*）。 更新の確認は、サイトで公開されているバージョンの一覧を読むだけで、クリックしない限り行われません。
+
 ### スクリプトモード（CLI）
 
 ```bash
@@ -330,3 +334,10 @@ mypy -p omega_fuzz
 ---
 
 > Omega-Fuzz — 対象範囲を発見し、明示的な保護措置のもとでテストし、確認されていないことを推測しません。
+
+<p align="center">
+  <img src="https://raw.githubusercontent.com/kraynux/kraynux/refs/heads/main/docs/translation/ja/omega-fuzz/A.png" width="24%" />
+  <img src="https://raw.githubusercontent.com/kraynux/kraynux/refs/heads/main/docs/translation/ja/omega-fuzz/B.png" width="24%" />
+  <img src="https://raw.githubusercontent.com/kraynux/kraynux/refs/heads/main/docs/translation/ja/omega-fuzz/C.png" width="24%" />
+  <img src="https://raw.githubusercontent.com/kraynux/kraynux/refs/heads/main/docs/translation/ja/omega-fuzz/D.png" width="24%" />
+</p>

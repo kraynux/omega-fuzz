@@ -7,7 +7,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Omega-Status: testing\n"
+"X-Omega-Status: validated\n"
 
 #: src/omega_fuzz/application/commands/clear_directory.py:52
 msgid "contient l'installation de omega-fuzz"
@@ -291,39 +291,39 @@ msgstr "截图"
 msgid "Enregistrer une capture SVG de l'écran actuel"
 msgstr "保存当前界面的 SVG 截图"
 
-#: src/omega_fuzz/interfaces/tui/screens/help_screen.py:34
+#: src/omega_fuzz/interfaces/tui/screens/help_screen.py:35
 msgid "Omega-fuzz découvre une cible dans un périmètre contrôlé (scope explicite, profondeur limitée) puis teste activement les points d'entrée trouvés (paramètres de requête, headers de sécurité) — jamais sans confirmation explicite pour les profils/modes à risque (agressivité violente, vérification TLS désactivée)."
 msgstr "Omega-fuzz 在受控范围内（明确的范围、有限的深度）探索目标，然后主动测试找到的入口点（请求参数、安全头）——对有风险的配置文件/模式（猛烈的激进程度、禁用 TLS 验证），未经明确确认绝不执行。"
 
-#: src/omega_fuzz/interfaces/tui/screens/help_screen.py:54
+#: src/omega_fuzz/interfaces/tui/screens/help_screen.py:61
 msgid "Presets"
 msgstr "预设"
 
-#: src/omega_fuzz/interfaces/tui/screens/help_screen.py:63 src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:30
+#: src/omega_fuzz/interfaces/tui/screens/help_screen.py:74 src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:30
 msgid "Preset"
 msgstr "Preset"
 
-#: src/omega_fuzz/interfaces/tui/screens/help_screen.py:64
+#: src/omega_fuzz/interfaces/tui/screens/help_screen.py:75
 msgid "Scope"
 msgstr "范围"
 
-#: src/omega_fuzz/interfaces/tui/screens/help_screen.py:65
+#: src/omega_fuzz/interfaces/tui/screens/help_screen.py:76
 msgid "Agressivité"
 msgstr "激进程度"
 
-#: src/omega_fuzz/interfaces/tui/screens/help_screen.py:66 src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:95
+#: src/omega_fuzz/interfaces/tui/screens/help_screen.py:77 src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:95
 msgid "Durée max"
 msgstr "最大时长"
 
-#: src/omega_fuzz/interfaces/tui/screens/help_screen.py:67 src/omega_fuzz/interfaces/tui/screens/scan_setup_screen.py:52 src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:96
+#: src/omega_fuzz/interfaces/tui/screens/help_screen.py:78 src/omega_fuzz/interfaces/tui/screens/scan_setup_screen.py:52 src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:96
 msgid "Requêtes max"
 msgstr "最大请求数"
 
-#: src/omega_fuzz/interfaces/tui/screens/help_screen.py:68 src/omega_fuzz/interfaces/tui/screens/scan_setup_screen.py:53 src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:97
+#: src/omega_fuzz/interfaces/tui/screens/help_screen.py:79 src/omega_fuzz/interfaces/tui/screens/scan_setup_screen.py:53 src/omega_fuzz/infrastructure/exporters/html_exporter/templates/report.html.j2:97
 msgid "Tests max"
 msgstr "最大测试数"
 
-#: src/omega_fuzz/interfaces/tui/screens/help_screen.py:70
+#: src/omega_fuzz/interfaces/tui/screens/help_screen.py:81
 msgid "Confirmation"
 msgstr "确认"
 

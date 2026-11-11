@@ -27,6 +27,8 @@ from collections.abc import Mapping
 from dataclasses import dataclass
 from pathlib import Path
 
+from omega_lib.ports.declaration import ContactSupportServices
+
 from omega_fuzz.domain.auth.auth_context import AuthContext
 from omega_fuzz.ports.clock import Clock
 from omega_fuzz.ports.confirmation_provider import ConfirmationProvider
@@ -64,6 +66,9 @@ class Container:
     default_exports_dir: Path
     target_repository: TargetRepository
     default_screenshots_dir: Path
+    contact_support: ContactSupportServices | None = None
+    """Aide -> Contact et support (omega-lib, D-016, 2026-11-09) : declaration anonyme une seule
+    fois, mises a jour, navigateur. None : bouton masque (conteneur partiel des tests)."""
 
 
 @dataclass
