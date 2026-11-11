@@ -1,6 +1,6 @@
 <!-- Copyright (c) 2026 kraynux - kraynux@proton.me - Licenza MIT (vedi file LICENSE) -->
 <div align="center">
-  <img src="../../assets/omega-fuzz.png" alt="Omega-Fuzz" width="384">
+  <img src="https://raw.githubusercontent.com/kraynux/kraynux/refs/heads/main/docs/assets/omega-fuzz.png" alt="Omega-Fuzz" width="512">
 </div>
 
 # 🗱 OMEGA-FUZZ
