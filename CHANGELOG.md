@@ -2,6 +2,13 @@
 
 Format inspiré de [Keep a Changelog](https://keepachangelog.com/).
 
+
+## À venir (pas encore dans une archive)
+
+- **Version affichée lue dans `pyproject.toml`, seule source** (procédure de vérification, étape B,
+  2026-11-22) : le splash montrait encore « v1.5 » (écrit à la main dans le dessin) et la barre de titre aucune
+  version ; splash, barre et « Contact et support » affichent maintenant le même numéro.
+
 ## [1.6.0] — non publiée (2026-11-09)
 
 ### Ajouté

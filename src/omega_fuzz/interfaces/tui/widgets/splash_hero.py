@@ -31,6 +31,27 @@ from __future__ import annotations
 
 from textual.widgets import Static
 
+_DRAWN_VERSION = "v1.5"
+"""Version qui etait dessinee a la main dans le logo : remplacee a l'affichage par celle de pyproject.toml."""
+
+
+def app_version() -> str:
+    """Version de pyproject.toml, seule source (procedure de verification de l'auteur, etape B, 2026-11-22) :
+    splash, barre de titre et « Contact et support » affichent le meme numero."""
+    from pathlib import Path
+
+    from omega_lib.infrastructure.declaration.app_version import project_version
+
+    return project_version(Path(__file__).resolve().parents[5], "omega-fuzz")
+
+
+def drawn_version(version: str) -> str:
+    """Meme forme et meme largeur que la version dessinee (« v1.5 ») : « v1.6 » pour 1.6.0."""
+    parts = version.split(".")
+    if len(parts) >= 2 and all(part.isdigit() for part in parts[:3]):
+        return f"v{parts[0]}.{parts[1]}"
+    return "v" + version
+
 _FOREGROUND = "$foreground"
 _ACCENT = "$accent"
 
@@ -167,4 +188,4 @@ class SplashHero(Static):
     (meme mecanisme que omega-check)."""
 
     def __init__(self) -> None:
-        super().__init__(_ART_MARKUP, classes="omega-splash-hero")
+        super().__init__(_ART_MARKUP.replace(_DRAWN_VERSION, drawn_version(app_version())), classes="omega-splash-hero")
